@@ -22,5 +22,6 @@ from usuario.views import *
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', main_page),
+    url(r'^main_page/', include('usuario.urls')),
+    url(r'^registro/', include('usuario.urls')),
 ]
