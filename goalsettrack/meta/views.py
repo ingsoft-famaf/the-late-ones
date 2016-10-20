@@ -1,3 +1,4 @@
-from django.shortcuts import render
+from django.http import HttpResponse
 
-# Create your views here.
+def crear_meta(request):
+    return HttpResponse("Crear nueva meta.")
