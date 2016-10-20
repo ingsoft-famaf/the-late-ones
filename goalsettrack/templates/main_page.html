@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <title>Goal Set Track</title>
+    </head>
+    <body>
+        <h1>Bienvenido a Goal Set Track</h1>
+        {% if user.username %}
+             <p>Bienvenido {{ user.username }}!
+             Aqui podras Crear y seguir metas que te propongas</p>
+        {% else %}
+             <h2>Bienvenido usuario sin registrar </h2>
+             <p>Necesitas ingresar <a href="/ingresar/">aqui</a>
+             antes de poder crear y seguir tus metas</p>
+             <p>Si todavia no eres usuario de Goal Set Track puedes
+             registrarte <a href="/registro/">aqui</a> </p>
+        {% endif %}
+    </body>
+</html>
