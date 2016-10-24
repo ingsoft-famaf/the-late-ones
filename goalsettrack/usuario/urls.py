@@ -10,5 +10,5 @@ urlpatterns = [
     # pagina de login
     url(r'^$/login/', TemplateView.as_view(template_name='login.html')),
     # pagina de logout
-    url(r'^logout$',logout, name="logout"),
+    url(r'^logout$', logout, name="logout"),
 ]
