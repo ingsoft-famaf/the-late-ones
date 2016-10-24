@@ -11,8 +11,3 @@ def main_page(request):
     template = get_template('main_page.html')
     output = template.render()
     return HttpResponse(output)
-
-def pagina_registro(request):
-    template = get_template('registration/registro.html')
-    output = template.render()
-    return HttpResponse(output)
