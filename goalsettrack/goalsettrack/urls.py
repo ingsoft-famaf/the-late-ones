@@ -18,10 +18,11 @@ from django.contrib import admin
 from django.contrib.auth import views as auth_views
 from django.core.urlresolvers import reverse_lazy
 from usuario.views import *
+from django.conf import settings
 
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^main_page/', include('usuario.urls')),
-    url(r'^registro/', include('usuario.urls')),
+    url(r'^', include('django.contrib.auth.urls')),
+    url(r'^', include(usuario.urls, namespace='usuario')),
 ]
