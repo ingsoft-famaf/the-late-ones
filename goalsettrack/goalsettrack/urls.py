@@ -16,7 +16,8 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 
+
 urlpatterns = [
-    url(r'^crear_meta/', include('meta.urls')),
+    url(r'^', include('meta.urls')),
     url(r'^admin/', admin.site.urls),
 ]
