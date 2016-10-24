@@ -5,15 +5,10 @@
     </head>
     <body>
         <h1>Bienvenido a Goal Set Track</h1>
-        {% if user.username %}
-             <p>Bienvenido {{ user.username }}!
-             Aquí podrás crear y seguir metas que te propongas</p>
-        {% else %}
              <h2>Bienvenido usuario sin registrar </h2>
              <p>Necesitás ingresar <a href="/ingresar/">aquí</a>
              antes de poder crear y seguir tus metas</p>
              <p>Si todavia no eres usuario de Goal Set Track puedes
              registrarte <a href="/registro/">aquí</a> </p>
-        {% endif %}
     </body>
 </html>
