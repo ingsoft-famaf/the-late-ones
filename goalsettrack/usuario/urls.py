@@ -11,4 +11,6 @@ urlpatterns = [
     url(r'^$/login/', TemplateView.as_view(template_name='login.html')),
     # pagina de logout
     url(r'^logout$', logout, name="logout"),
+    # pagina de registro
+    url(r'^registro', Registro.as_view(), name='registro'),
 ]
