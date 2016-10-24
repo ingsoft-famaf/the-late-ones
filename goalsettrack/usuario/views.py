@@ -7,7 +7,6 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.template import Context
 from django.template.loader import get_template
-from .forms import ProfileForm
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User, Permission
@@ -24,11 +23,7 @@ def main_page(request):
     return HttpResponse(output)
 
 class Registro(CreateView):
-    """
-    Vista de registro de usuario para uso de django. Posee la funcionalidad
-    de crear nuevos usuarios con sus passwords. Hereda de
-    django.views.generic.CreateView
-    """
+
     template_name = 'registro.html'
     form_class = UserCreationForm
     success_url = '/login/'

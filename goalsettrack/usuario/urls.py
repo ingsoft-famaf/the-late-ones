@@ -4,6 +4,7 @@ from django.views.generic import TemplateView
 from . import views
 from django.contrib.auth.views import logout
 
+
 urlpatterns = [
     # pagina principal
     url(r'^$', views.main_page, name='/'),
@@ -12,5 +13,5 @@ urlpatterns = [
     # pagina de logout
     url(r'^logout$', logout, name="logout"),
     # pagina de registro
-    url(r'^registro', Registro.as_view(), name='registro'),
+    url(r'^registro', views.Registro.as_view(), name='registro'),
 ]
