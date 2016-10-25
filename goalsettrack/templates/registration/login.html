@@ -1,19 +1,19 @@
 <html>
     <head>
-        <title>Goal Set Track - User Login</title>
-        Registro de usuario
+        <title>Goal Set Track</title>
+        <h1>Inicio de sesión</h1><br>
     </head>
     <body>
         <h1>Ingresar a Goal Set Track</h1>
         <form method="post" action="">
-        <p><label for="id_username">Usuario:</label>
-        {{ form.username }}</p>
-        <p><label for="id_password">Contraseña:</label>
-        {{ form.password }}</p>
+            <p><label for="id_username">Usuario:</label>
+                {{ form.username }}</p>
+            <p><label for="id_password">Contraseña:</label>
+                {{ form.password }}</p>
             {% csrf_token %}
-        <input type="hidden" name="next" value="/lista_de_metas" />
-        <input type="submit" value="Ingresar" />
-    {{ form.non_field_errors }}
+            <input type="hidden" name="next" value="/lista_de_metas" />
+            <input type="submit" value="Ingresar" />
+            {{ form.non_field_errors }}
         </form>
     </body>
 </html>
