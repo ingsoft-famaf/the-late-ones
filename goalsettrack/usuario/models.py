@@ -8,5 +8,3 @@ from django.core.validators import MaxValueValidator
 
 class Usuario(models.Model):
     usuario = models.OneToOneField(User, null=True)
-    nombre = models.CharField(max_length=30, blank=True)
-    mail = models.EmailField(max_length=70, blank=True)
