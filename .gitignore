@@ -90,3 +90,7 @@ ENV/
 
 # DataBase
 db.sqlite3
+
+# Temporary files
+*~
+.~*
