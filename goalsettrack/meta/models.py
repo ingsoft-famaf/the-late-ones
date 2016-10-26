@@ -1,7 +1,7 @@
 """ Tablas de la base de datos sobre Metas """
 
 from django.db import models
-from usuario.models import Usuario
+import usuario
 
 
 class MetaAbstracta(models.Model):
@@ -57,11 +57,11 @@ class Meta(MetaAbstracta):
 
     # An object that has a many-to-one relationship
     # many 'Meta' to one 'Usuario'
-    user = models.ForeignKey('Usuario', on_delete=models.CASCADE)
+    user = models.ForeignKey(usuario.models.Usuario, on_delete=models.CASCADE)
 
 
 class Submeta(MetaAbstracta):
     """ Hereda de MetaAbstracta """
 
     # many 'Submetas' to one 'Meta'
-    meta = models.ForeignKey('Meta', on_delete=models.CASCADE)
+    meta_origen = models.ForeignKey(Meta, on_delete=models.CASCADE)
