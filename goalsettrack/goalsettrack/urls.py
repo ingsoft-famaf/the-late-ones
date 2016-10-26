@@ -20,7 +20,9 @@ from django.contrib import admin
 from django.conf import settings
 
 
+
 urlpatterns = [
+    url(r'^', include('meta.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^', include('django.contrib.auth.urls')),
     url(r'^', include('usuario.urls')),

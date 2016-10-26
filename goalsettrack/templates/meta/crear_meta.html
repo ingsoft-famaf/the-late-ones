@@ -1,0 +1,88 @@
+<html>
+  <head>
+    <title>Crear meta</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/pagina_principal.css">
+  </head>
+  <body>
+    <div class="barra-principal">
+      <ul>
+    <li><a href="#logout">Logout</a></li>
+      <li><a href="#configuracion">Configuración</a></li>
+      <li><a href="#buscar">Buscar</a><input type="text" name="buscar"></li>
+      </ul>
+    </div>
+    <div class="contenedor-principal">
+      <div class="contenedor-izquierdo">
+        <table class="datos-meta" width="100%" border=1>
+          <tr>
+            <td><b>Meta</b></td>
+          </tr>
+          <tr>
+            <td>Título:</td><td><input type="text" name="titulo"></td>
+          </tr>
+          <tr>
+            <td>Descripción:</td><td><textarea rows="2" cols="55"></textarea></td>
+          </tr>
+          <tr>
+            <td>Prioridad:</td><td><input type="checkbox" name="titulo" value="1">A</td>
+          </tr>
+          <tr>
+            <td></td><td><input type="checkbox" name="prioridad" value="1">B</td>
+          </tr>
+          <tr>
+            <td></td><td><input type="checkbox" name="prioridad" value="1">C</td>
+          </tr>
+          <tr>
+            <td></td><td><input type="checkbox" name="prioridad" value="1">D</td>
+          </tr>
+          <tr>
+            <td></td><td><input type="checkbox" name="prioridad" value="1">E</td>
+          </tr>
+          <tr>
+            <td></td><td><input type="checkbox" name="prioridad" value="1">F</td>
+          </tr>
+            <td>Fecha de vencimiento:</td><td><input type="text" name="fecha_vencimiento"></td>
+          </tr>
+            <td><button type="button">Agregar</button></td>
+          <tr>
+          </tr>
+        </table>
+        <br>
+        <table class="comentarios" width="100%" border=1>
+        <!-- Crear dinamicamente el comentario cuando se presiona el botoon 'Agragar' para agregar comentario -->
+          <tr>
+            <td><b>Comentarios</b></td>
+          </tr>
+        </table>
+        <table class="agregar-comentario" width="100%">
+          <tr>
+            <td><textarea rows="2" cols="85"></textarea></td><td><button type="button">Agregar</button></td>
+          </tr>
+        </table>
+      </div>
+      <div class="contenedor-derecho">
+        <table class="opciones" width="100%" border=1>
+          <tr>
+            <td><b>OPCIONES</b></td>
+          </tr>
+          <tr>
+            <td>Crear submeta</td>
+          </tr>
+          <tr>
+            <td>Crear recordatorio</td>
+          </tr>
+          <tr>
+            <td>Adjuntar archivo</td>
+          </tr>
+          <tr>
+            <td><b>AYUDA</b></td>
+          </tr>
+          <tr>
+            <td>Acá va una breve desripción</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
