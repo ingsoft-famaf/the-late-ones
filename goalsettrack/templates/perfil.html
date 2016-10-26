@@ -1,22 +1,22 @@
-    <head>
-        <title>Goal Set Track- Perfil de {{ user }}</title>
-    </head>
-<h3 class="Perfil">Informacion Basica</h3>
-  <dl>
-    <dt>Nombre Usuario</dt>
-    <dd>{{ usuario.nombre }}</dd>
-
-    <dt>Email</dt>
-    <dd>{{ usuario.mail }}</dd>
-
-
-  <h3 class="Perfil">Historial</h3>
-  <dl>
-    <dt>Miembro desde</dt>
-    <dd>{{ user.date_joined }}</dd>
-
-    <dt>Ultimo acceso</dt>
-    <dd>{{ user.last_login }}</dd>
-  </dl>
-
- Editar perfil <a href="/editar_perfil/">aquí</a> </p>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Goal Set Track- Perfil de {{ user }}</title>
+  </head>
+  <body>
+    <h3 class="Perfil">Información Básica</h3>
+    <dl>
+      <dt>Nombre Usuario</dt>
+      <dd>{{ usuario.nombre }}</dd>
+      <dt>Email</dt>
+      <dd>{{ usuario.mail }}</dd>
+      <h3 class="Perfil">Historial</h3>
+    <dl>
+      <dt>Miembro desde</dt>
+      <dd>{{ user.date_joined }}</dd>
+      <dt>Último acceso</dt>
+      <dd>{{ user.last_login }}</dd>
+    </dl>
+    <p>Editar perfil <a href="/editar_perfil/">aquí</a></p>
+  </body>
+</html>
