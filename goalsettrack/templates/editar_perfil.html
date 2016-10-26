@@ -1,19 +1,23 @@
 {% load widget_tweaks %}
-    <head>
-        <title>Goal Set Track - Edicion de perfil</title>
-    </head>
-{% if form.errors %}
-        <p>{{ form.errors }}</p>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Goal Set Track - Edicion de perfil</title>
+  </head>
+  <body>
+    {% if form.errors %}
+      <p>{{ form.errors }}</p>
     {% endif %}
     <article id="perfil">
     <h1>Editar perfil de {{ user }}</h1><br>
     <form  action="" method=POST enctype=multipart/form-data>
-    {% csrf_token %}
-    {% render_field form.nombre placeholder="Nombre" required="required" class="user" %}
-    <div>
+      {% csrf_token %}
+      {% render_field form.nombre placeholder="Nombre" required="required" class="user" %}
+      <div>
         {% render_field form.mail required="required" placeholder="Email" class="email" %}
-    </div>
-
-    {#{ form.as_p }#}
-    <input type="submit" value="Guardar" class="btn"><br>
+      </div>
+      {#{ form.as_p }#}
+      <input type="submit" value="Guardar" class="btn"><br>
     </form>
+  </body>
+</html>
