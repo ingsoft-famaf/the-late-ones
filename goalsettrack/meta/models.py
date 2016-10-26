@@ -12,6 +12,12 @@ class MetaAbstracta(models.Model):
     EN_PAUSA = 'En pausa'
     CUMPLIDA = 'Cumplida'
     ATRASADA = 'Atrasada'
+    PRIO_A = 'A'
+    PRIO_B = 'B'
+    PRIO_C = 'C'
+    PRIO_D = 'D'
+    PRIO_E = 'E'
+    PRIO_F = 'F'
     ESTADOS = (
         (PENDIENTE, 'Pendiente'),
         (EN_PROGRESO, 'En progreso'),
@@ -19,49 +25,35 @@ class MetaAbstracta(models.Model):
         (CUMPLIDA, 'Cumplida'),
         (ATRASADA, 'Atrasada'),
     )
-
-    A = 'A'
-    B = 'B'
-    C = 'C'
-    D = 'D'
-    E = 'E'
-    F = 'F'
     PRIORIDADES = (
-        (A, 'A'),
-        (B, 'B'),
-        (C, 'C'),
-        (D, 'D'),
-        (E, 'E'),
-        (F, 'F'),
+        (PRIO_A, 'A'),
+        (PRIO_B, 'B'),
+        (PRIO_C, 'C'),
+        (PRIO_D, 'D'),
+        (PRIO_E, 'E'),
+        (PRIO_F, 'F'),
     )
-
     abstract = True
-    titulo = models.CharField(max_length=80, default='TITULO META')
-    descripcion = models.CharField(max_length=1000, default='Descripcion.')
-    estado = models.CharField(
-        max_length=15, choices=ESTADOS, default=PENDIENTE)
-    prioridad = models.CharField(max_length=15, choices=PRIORIDADES, default=A)
+    titulo = models.CharField(max_length=80, default='Título')
+    descripcion = models.CharField(max_length=1000, default='Descripción')
+    estado = models.CharField(choices=ESTADOS, default=PENDIENTE)
+    prioridad = models.CharField(choices=PRIORIDADES, default=PRIO_A)
     fecha_creacion = models.DateTimeField(auto_now_add=True)
     fecha_modificacion = models.DateTimeField(auto_now=True)
-    fecha_comienzo = models.DateTimeField('comienzo', null=True, blank=True)
-    fecha_fin = models.DateTimeField('fin', null=True, blank=True)
-    fecha_vencimiento = models.DateTimeField(
-        'vencimiento', null=True, blank=True)
+    fecha_comienzo = models.DateTimeField(null=True, blank=True)
+    fecha_fin = models.DateTimeField(null=True, blank=True)
+    fecha_vencimiento = models.DateTimeField(null=True, blank=True)
 
 
 class Meta(MetaAbstracta):
-    """
-    Una relación muchos-a-uno. Requiere un argumento posicional: la clase a
-    la que se relaciona el modelo.
-    """
+    """ Hereda de MetaAbstracta """
 
-    # An object that has a many-to-one relationship
-    # many 'Meta' to one 'Usuario'
-    user = models.ForeignKey('Usuario', on_delete=models.CASCADE)
+    # cada meta es de 1 usuario
+    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
 
 
 class Submeta(MetaAbstracta):
     """ Hereda de MetaAbstracta """
 
-    # many 'Submetas' to one 'Meta'
-    meta = models.ForeignKey('Meta', on_delete=models.CASCADE)
+    # cada submeta es de 1 meta
+    meta = models.ForeignKey(Meta, on_delete=models.CASCADE)
