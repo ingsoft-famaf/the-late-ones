@@ -1,0 +1,39 @@
+{% load widget_tweaks %}
+
+{% if form.errors %}
+        <p>{{ form.errors }}</p>
+    {% endif %}
+<!-- 
+    <form  action="" method=POST enctype=multipart/form-data>
+
+    {% csrf_token %}
+    <input type="text" class="user" placeholder="Nombre"></input>
+    <input type="text" class="user" placeholder="Email"></input>
+    {#{ form.as_p }#}
+    <p>
+    <input type="submit" value="Guardar" class="btn"><br></p>
+        <p><input type="submit" value="perfil"/></p>
+    </form>
+    -->
+    	<article id="perfil">
+    <legend>{{ user }}'s profile</legend>
+    <form  action="" method=POST enctype=multipart/form-data>
+    {% csrf_token %}
+    {% render_field form.nombre placeholder="Name" required="required" class="user" %}
+    <div>
+        {% render_field form.mail required="required" placeholder="Email" class="email" %}
+        {% render_field form.mail_privacidad class="privacidad" id="mail_privacidad" %}
+        <label for="mail_privacidad" title="Privacidad"></label>
+    <div>
+        {% render_field form.facebook class="facebook" placeholder="Facebook" %}        
+        {% render_field form.facebook_privacidad class="privacidad" id="facebook_privacidad" %}
+        <label for="facebook_privacidad" title="Privacidad"></label>
+    </div>
+    <div>
+        {% render_field form.web class="website" placeholder="Website" %} 
+        {% render_field form.web_privacidad class="privacidad" id="website_privacidad" %}
+        <label for="website_privacidad" title="Privacidad"></label>
+
+    {#{ form.as_p }#}
+    <input type="submit" value="Update" class="btn"><br>
+    </form>
