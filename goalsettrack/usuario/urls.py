@@ -18,5 +18,5 @@ urlpatterns = [
     url(r'^editar_perfil/', views.EditarPerfil.as_view(), name='editar_perfil'),
     # pagina de  detalles de perfil
     url(r'^perfil/', views.DetallePerfil.as_view(), name='perfil'),
-    url(r'^ok', views.ok, name='ok'),
+    url(r'^lista_de_metas', views.lista_de_metas, name='lista_de_metas'),
 ]

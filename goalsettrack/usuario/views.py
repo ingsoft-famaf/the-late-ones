@@ -51,7 +51,7 @@ class EditarPerfil(UpdateView):
     template_name = 'editar_perfil.html'
     model = Usuario
     form_class = FormularioUsuario
-    success_url = '/ok/'
+    success_url = '/lista_de_metas/'
 
     @method_decorator(login_required(login_url='/login/'))
     def dispatch(self, request, *args, **kwargs):
@@ -70,8 +70,8 @@ class EditarPerfil(UpdateView):
         usuario.save()
         return HttpResponseRedirect(self.get_success_url())
 
-def ok(request):
-    template = get_template('ok.html')
+def lista_de_metas(request):
+    template = get_template('lista_de_metas.html')
     output = template.render()
     return HttpResponse(output)
 
