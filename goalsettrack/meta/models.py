@@ -1,6 +1,7 @@
 """ Tablas de la base de datos sobre Metas """
 
 from django.db import models
+from usuario.models import Usuario
 
 
 class MetaAbstracta(models.Model):
@@ -49,6 +50,18 @@ class MetaAbstracta(models.Model):
 
 
 class Meta(MetaAbstracta):
+    """
+    Una relación muchos-a-uno. Requiere un argumento posicional: la clase a
+    la que se relaciona el modelo.
+    """
+
+    # An object that has a many-to-one relationship
+    # many 'Meta' to one 'Usuario'
+    user = models.ForeignKey('Usuario', on_delete=models.CASCADE)
+
+
+class Submeta(MetaAbstracta):
     """ Hereda de MetaAbstracta """
 
-    pass
+    # many 'Submetas' to one 'Meta'
+    meta = models.ForeignKey('Meta', on_delete=models.CASCADE)
