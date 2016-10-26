@@ -1,7 +1,7 @@
 """ Parseo de urls de la app usuario """
 
 from django.conf.urls import url
-# from django.contrib.auth import views as auth_views
+from django.contrib.auth import views as auth_views
 from django.views.generic import TemplateView
 from django.contrib.auth.views import logout
 from . import views
