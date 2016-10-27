@@ -1,9 +1,10 @@
-from django.forms import ModelForm
+from usuario.models import Usuario
 from django.contrib.auth.models import User
-from .models import *
+from django.forms import ModelForm
+
 
 class FormularioUsuario(ModelForm):
-  class Meta:
-    model = Usuario
-    exclude = ('usuario',)
-    fields = '__all__'
+    class Meta:
+        model = Usuario
+        exclude = ('usuario',)
+        fields = '__all__'
