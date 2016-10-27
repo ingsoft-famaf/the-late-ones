@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
@@ -58,6 +59,7 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': ['templates',
             os.path.join(os.path.join(BASE_DIR,'templates'), 'meta'),
+            os.path.join(os.path.join(BASE_DIR,'templates'), 'usuario'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -125,5 +127,5 @@ STATIC_ROOT = 'staticfiles'
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'templates'),
+    os.path.join(BASE_DIR, 'templates'), os.path.join(os.path.join(BASE_DIR, 'templates'), 'meta'),
 )
