@@ -31,6 +31,10 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    # 'archivoadjunto.apps.ArchivoAdjuntoConfig',
+    # 'recordatorio.apps.RecordatorioConfig',
+    # 'categoria.apps.CategoriaConfig',
+    'comentario.apps.ComentarioConfig',
     'usuario.apps.UsuarioConfig',
     'meta.apps.MetaConfig',
     'django.contrib.admin',
