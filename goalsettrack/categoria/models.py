@@ -4,8 +4,10 @@ from usuario.models import Usuario
 # Create your models here.
 
 class Categoria(models.Model):
-    """ Clase categoria para clasificar o agrupar las distintas metas """
+    """ Clase categoria para clasificar o agrupar las distintas metas 
+        Un usuario puede tener muchas categoria, una categoria puede estar en un unico usuario
+    """
     # como no se asigna clave primaria, django crea un atributo 'id' como clave primaria
     categoria = models.CharField(max_length=80, default='TITULO CATEGORIA')
-    username = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+    user = models.ForeignKey(Usuario, on_delete=models.CASCADE)
 
