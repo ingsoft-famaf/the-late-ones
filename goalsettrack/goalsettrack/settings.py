@@ -31,7 +31,10 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    # 'archivoadjunto.apps.ArchivoAdjuntoConfig',
+    # 'recordatorio.apps.RecordatorioConfig',
     'categoria.apps.CategoriaConfig',
+    'comentario.apps.ComentarioConfig',
     'usuario.apps.UsuarioConfig',
     'meta.apps.MetaConfig',
     'django.contrib.admin',
@@ -40,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
@@ -57,7 +61,10 @@ ROOT_URLCONF = 'goalsettrack.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates'],
+        'DIRS': ['templates',
+            os.path.join(os.path.join(BASE_DIR,'templates'), 'meta'),
+            os.path.join(os.path.join(BASE_DIR,'templates'), 'usuario'),
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -120,4 +127,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
+STATIC_ROOT = 'staticfiles'
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'templates'), os.path.join(os.path.join(BASE_DIR, 'templates'), 'meta'),
+)
