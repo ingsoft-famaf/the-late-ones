@@ -1,16 +1,15 @@
-# from django.contrib.auth import authenticate, login, logout
-# from django.contrib.auth import views
+# from django.contrib.auth import authenticate, login, logout, views
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User
 # from django.contrib.auth.models import Permission
+from django.contrib.auth.models import User
 # from django.contrib.contenttypes.models import ContentType
-from django.http import HttpResponseRedirect, HttpResponse
-from django.shortcuts import get_object_or_404
-# from django.shortcuts import render
+# from django.http import HttpResponse
+from django.http import HttpResponseRedirect
+from django.shortcuts import get_object_or_404, render
 # from django.template import Context
 # from django.template.context import RequestContext
-from django.template.loader import get_template
+# from django.template.loader import get_template
 # from django.urls import reverse
 from django.utils.decorators import method_decorator
 # from django.views import generic
@@ -22,9 +21,10 @@ from usuario.models import Usuario
 
 def pagina_principal(request):
     """ donde se elige entre login o registro """
-    template = get_template('pagina_principal.html')
-    output = template.render()
-    return HttpResponse(output)
+    # template = get_template('pagina_principal.html')
+    # output = template.render()
+    # return HttpResponse(output)
+    return render(request, 'pagina_principal.html')
 
 
 class Registro(CreateView):
@@ -45,7 +45,7 @@ class DetallePerfil(DetailView):
     def dispatch(self, request, *args, **kwargs):
         return super(self.__class__, self).dispatch(request, *args, **kwargs)
 
-    def get_object(self):
+    def get_object(self, queryset=None):
         actual_user = get_object_or_404(User, username=self.request.user)
         return get_object_or_404(Usuario, usuario=actual_user)
 
@@ -62,7 +62,7 @@ class EditarPerfil(UpdateView):
     def dispatch(self, request, *args, **kwargs):
         return super(self.__class__, self).dispatch(request, *args, **kwargs)
 
-    def get_object(self):
+    def get_object(self, queryset=None):
         actual_user = get_object_or_404(User, username=self.request.user)
         return get_object_or_404(Usuario, usuario=actual_user)
 
