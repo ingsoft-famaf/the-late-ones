@@ -1,6 +1,5 @@
-""" Tablas de la base de datos sobre Metas """
-
 from django.db import models
+# from usuario.models import Categoria
 from usuario.models import Usuario
 
 class MetaAbstracta(models.Model):
@@ -43,19 +42,17 @@ class MetaAbstracta(models.Model):
     fecha_comienzo = models.DateTimeField(null=True, blank=True)
     fecha_fin = models.DateTimeField(null=True, blank=True)
     fecha_vencimiento = models.DateTimeField(null=True, blank=True)
-
-
-class Meta(MetaAbstracta):
-    """
-    Cada meta es de un único usuario
-    """
-
     user = models.ForeignKey(Usuario, on_delete=models.CASCADE)
 
 
+class Meta(MetaAbstracta):
+    """ Cada meta tiene 0 o 1 categoría """
+
+    # categoria = models.ForeignKey(
+    #      Categoria, on_delete=models.CASCADE, blank=True, null=True)
+
+
 class Submeta(MetaAbstracta):
-    """
-    Cada submeta es de una unica submeta    
-    """
+    """ Cada submeta es de una unica meta """
 
     meta_origen = models.ForeignKey(Meta, on_delete=models.CASCADE)
