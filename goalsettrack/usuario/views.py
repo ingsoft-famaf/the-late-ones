@@ -20,15 +20,13 @@ from usuario.models import Usuario
 
 
 def pagina_principal(request):
-    """ donde se elige entre login o registro """
-    # template = get_template('pagina_principal.html')
-    # output = template.render()
-    # return HttpResponse(output)
+    """ Donde se elige entre login o registro """
+
     return render(request, 'pagina_principal.html')
 
 
 class Registro(CreateView):
-    """ registro de usuario """
+    """ Registro de usuario """
 
     template_name = 'registro.html'
     form_class = UserCreationForm
@@ -36,7 +34,7 @@ class Registro(CreateView):
 
 
 class DetallePerfil(DetailView):
-    """ vista de datos de la cuenta de usuario """
+    """ Vista de datos de la cuenta de usuario """
 
     model = FormularioUsuario
     template_name = 'perfil.html'
@@ -51,7 +49,7 @@ class DetallePerfil(DetailView):
 
 
 class EditarPerfil(UpdateView):
-    """ edición de datos de la cuenta de usuario """
+    """ Edición de datos de la cuenta de usuario """
 
     template_name = 'editar_perfil.html'
     model = Usuario
