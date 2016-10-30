@@ -5,7 +5,7 @@ from .forms import CategoriaFormulario
 
 
 # BASADO en https://djangogirls.gitbooks.io/django-girls-tutorial-extensions/content/homework_create_more_models/
-# para que andara deberia haber un template meta_detalle que muestre la meta en detalle
+# para que andara deberia haber un template info_meta que muestre la meta en detalle
 # no entiendo bien lo de pk, y tampoco como crear la relacion categoria.meta = meta
 # una vez que este finalizado el modulo meta, creo que este modulo deberia con unas pocas correcciones
 # deberia poder funcionar
@@ -25,7 +25,7 @@ def crear_categoria(request, meta_id):
             # habria que relacionarlo con el usuario tambien.. no se como desde aca
             # se guarda el categoria en la base de datos
             categoria.save()
-            return redirect('meta_detalle', pk=meta.id)
+            return redirect('info_meta', pk=meta.id)
     # sino se crea un formulario vacio y se lo envia al template crear_categoria, para que 
     # el usuario cree el categoria cargando los datos        
     else:
@@ -51,4 +51,4 @@ def eliminar_categoria(request, categoria_id):
     # probablemente esto no anda, se deberia hacer una consulta sql y usar lo de las filiminas
     meta = categoria.meta
     del categoria 
-    return redirect('meta_detalle', pk=meta.id)
+    return redirect('info_meta', pk=meta.id)
