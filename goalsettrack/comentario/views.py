@@ -24,7 +24,7 @@ def crear_comentario(request, meta_id):
             comentario.meta = meta
             # se guarda el comentario en la base de datos
             comentario.save()
-            return redirect('meta_detalle', pk=meta.id)
+            return redirect('info_meta', pk=meta.id)
     # sino se crea un formulario vacio y se lo envia al template crear_comentario, para que 
     # el usuario cree el comentario cargando los datos        
     else:
@@ -50,4 +50,4 @@ def eliminar_comentario(request, comentario_id):
     # probablemente esto no anda, se deberia hacer una consulta sql y usar lo de las filiminas
     meta = comentario.meta
     del comentario 
-    return redirect('meta_detalle', pk=meta.id)
+    return redirect('info_meta', pk=meta.id)
