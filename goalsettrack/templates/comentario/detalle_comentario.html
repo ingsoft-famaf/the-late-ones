@@ -1,0 +1,15 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Comentario en detalle </title>
+    <link rel="stylesheet" type="text/css" href={% static 'css/pagina_principal.css' %}>
+  </head>
+  <body>
+
+  	<div class="comment">
+        <div class="date">{{ comentario.fecha_creacion }}</div>
+        <p>{{ comentario.texto |linebreaks }}</p>
+    </div>
+  </body>
+</html>
+

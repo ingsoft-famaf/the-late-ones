@@ -17,10 +17,13 @@
       <div class="contenedor-izquierdo">
         <table class="datos-meta" width="100%" border=1>
           <tr>
-              <form name="ingresar texto" action="cometario/views.py" method="POST">
-                Ingrese comentario: <input type="text" name="texto">
-                <input name="Restablecer" type="reset" value="Enviar" onClick="history.back()">
+          {% block content %}
+            <h1>Nuevo comentario</h1>
+              <form method="POST" class="post-form">{% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="save btn btn-default">Enviar</button>
               </form>
+          {% endblock %}
           </tr>
         </table>
       </div>
