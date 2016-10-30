@@ -1,0 +1,32 @@
+{% load staticfiles %}
+<html>
+  <head>
+    <title>Crear Comentario</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href={% static 'css/pagina_principal.css' %}>
+  </head>
+  <body>
+    <div class="barra-principal">
+      <ul>
+    <li><a href="#logout">Logout</a></li>
+      <li><a href="#configuracion">Configuración</a></li>
+      <li><a href="#buscar">Buscar</a><input type="text" name="buscar"></li>
+      </ul>
+    </div>
+    <div class="contenedor-principal">
+      <div class="contenedor-izquierdo">
+        <table class="datos-meta" width="100%" border=1>
+          <tr>
+            <td><b>Comentario</b></td>
+          </tr>
+          <tr>
+            <td>Texto:</td><td><input type="text" name="texto"></td>
+          </tr>
+          <tr>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
+
