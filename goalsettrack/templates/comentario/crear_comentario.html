@@ -17,12 +17,10 @@
       <div class="contenedor-izquierdo">
         <table class="datos-meta" width="100%" border=1>
           <tr>
-            <td><b>Comentario</b></td>
-          </tr>
-          <tr>
-            <td>Texto:</td><td><input type="text" name="texto"></td>
-          </tr>
-          <tr>
+              <form name="ingresar texto" action="cometario/views.py" method="POST">
+                Ingrese comentario: <input type="text" name="texto">
+                <input name="Restablecer" type="reset" value="Enviar" onClick="history.back()">
+              </form>
           </tr>
         </table>
       </div>
