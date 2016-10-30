@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Crear meta</title>
+    <title>Editar meta</title>
     <link rel="stylesheet" type="text/css" href={% static 'css/pagina_principal.css' %}>
   </head>
   <body>
@@ -15,7 +15,8 @@
     </div>
     <div class="contenedor-principal">
       <div class="contenedor-izquierdo">
-<h1>Nueva meta</h1>
+        <table class="datos-meta" width="100%" border=1>
+        <h1>Editar meta</h1>
         <form method="POST" class="post-form">{% csrf_token %}
             {{ form.as_p }}
             <button type="submit" class="save btn btn-default">Guardar</button>
@@ -37,6 +38,8 @@
         <table class="opciones" width="100%" border=1>
           <tr>
             <td><b>OPCIONES</b></td>
+          <tr>
+            <td><a href="/lista_de_metas/crear_meta/crear_submeta">Crear Submeta</a></td>
           </tr>
           <tr>
             <td>Crear recordatorio</td>
