@@ -33,7 +33,7 @@ def editar_meta(request, pk):
             return redirect('info_meta', pk=meta.pk)
     else:
         form = FormularioMeta(instance=meta)
-    return render(request, 'editar_meta.html', {'form': form})
+    return render(request, 'editar_meta.html', {'form': form, 'meta': meta } )
 
 def info_meta(request, pk):
     meta = get_object_or_404(Meta, pk=pk)
