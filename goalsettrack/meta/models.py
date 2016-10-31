@@ -50,7 +50,7 @@ class MetaAbstracta(models.Model):
 
 class Meta(MetaAbstracta):
     """ Cada meta tiene 0 o 1 categoría """
-    #category = models.ForeignKey(Categoria, on_delete=models.CASCADE, blank=True, null=True)
+    category = models.ForeignKey(Categoria, on_delete=models.CASCADE, blank=True, null=True)
     # categoria = models.ForeignKey(
     #      Categoria, on_delete=models.CASCADE, blank=True, null=True)
 
