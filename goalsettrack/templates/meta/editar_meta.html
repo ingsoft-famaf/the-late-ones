@@ -24,15 +24,10 @@
         </form>
         <table class="comentarios" width="100%" border=1>
         <!-- Crear dinamicamente el comentario cuando se presiona el botoon 'Agragar' para agregar comentario -->
-          <tr>
-            <td><b>Comentarios</b></td>
-          </tr>
         </table>
         <table class="agregar-comentario" width="100%">
-          <tr>
-            <td><textarea rows="2" cols="85"></textarea></td><td><button type="button">Agregar</button></td>
-                <a class="btn btn-default" href="{% url 'crear_comentario' pk=meta.pk %}">Agregar Comentario </a>
-       
+          <tr> 
+            <a class="btn btn-default" href="{% url 'crear_comentario' pk=meta.pk %}">Agregar Comentario </a>
           </tr>
         </table>
       </div>
