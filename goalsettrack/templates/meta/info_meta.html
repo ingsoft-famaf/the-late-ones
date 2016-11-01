@@ -14,5 +14,6 @@
                 <div class="date">{{ comentario.fecha_creacion }}</div>
             </div>
             {% endfor %}
-            <a href="{% url 'lista_comentarios' pk=meta.pk %}">ver comentarios</a>
+            <p><a href="{% url 'lista_comentarios' pk=meta.pk %}">ver comentarios</a></p>
+             <p><a href="{% url 'lista_categoria_meta' pk=meta.pk %}">ver categoria</a></p>
             volver a <a href="/lista_de_metas">lista de metas</a>

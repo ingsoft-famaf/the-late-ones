@@ -62,3 +62,11 @@ def eliminar_categoria(request, pk):
     # se obtienen todas las categorias a partir del id del usuario
     categorias = Categoria.objects.filter(user=usuario.id)
     return render(request, 'lista_categorias.html', {'categorias': categorias})
+
+@login_required
+def lista_categoria_meta(request, pk):
+    # se obtiene el usuario
+    meta = Meta.objects.get(pk=pk)
+    # se obtienen todas las categorias a partir del id del usuario
+    categorias = Categoria.objects.filter(meta=meta)
+    return render(request, 'lista_categoria_meta.html', {'categorias': categorias})
