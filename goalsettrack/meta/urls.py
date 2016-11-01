@@ -9,6 +9,6 @@ urlpatterns = [
         name='editar_meta'),
     url(r'^lista_de_metas/info_meta/(?P<pk>[0-9]+)/$', views.info_meta,
         name='info_meta'),
-    url(r'^lista_de_metas/crear_meta/crear_submeta$', views.crear_submeta,
-        name='crear_submeta'),
+    # url(r'^lista_de_metas/crear_meta/crear_submeta$', views.crear_submeta,
+    #     name='crear_submeta'),
 ]

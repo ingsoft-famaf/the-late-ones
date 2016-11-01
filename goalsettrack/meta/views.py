@@ -50,6 +50,6 @@ def info_meta(request, pk):
     return render(request, 'info_meta.html', {'meta': meta})
 
 
-@login_required
-def crear_submeta(request):
-    return render(request, 'crear_submeta.html')
+# @login_required
+# def crear_submeta(request):
+#     return render(request, 'crear_submeta.html')
