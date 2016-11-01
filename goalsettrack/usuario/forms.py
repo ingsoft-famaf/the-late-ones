@@ -1,6 +1,7 @@
-from usuario.models import Usuario
 from django.contrib.auth.models import User
 from django.forms import ModelForm
+
+from usuario.models import Usuario
 
 
 class FormularioUsuario(ModelForm):
