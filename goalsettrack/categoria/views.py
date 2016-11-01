@@ -41,3 +41,12 @@ def lista_categorias(request):
     # se obtienen todas las categorias a partir del id del usuario
     categorias = Categoria.objects.filter(user = usuario.id)
     return render(request,'lista_categorias.html', { 'categorias': categorias })
+
+def eliminar_categoria(request, pk):
+    # se obtiene el usuario 
+    usuario = Usuario.objects.get(usuario = request.user.id)
+    # se obtiene la categoria a eliminar
+    Categoria.objects.filter(pk=pk).delete()
+    # se obtienen todas las categorias a partir del id del usuario
+    categorias = Categoria.objects.filter(user = usuario.id)
+    return render(request,'lista_categorias.html', { 'categorias': categorias })
