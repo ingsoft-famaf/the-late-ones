@@ -19,7 +19,7 @@
 <ul>
     {% for meta in metas%}
         <li>
-        <p> <a href="{% url 'info_meta' pk=meta.pk %}"">{{ meta.titulo }}</a>
+        <p> <a href="{% url 'info_meta' pk=meta.pk %}">{{ meta.titulo }}</a>
 <a class="btn btn-default" href="{% url 'editar_meta' pk=meta.pk %}">Editar</a>
 </p>
         </li>
