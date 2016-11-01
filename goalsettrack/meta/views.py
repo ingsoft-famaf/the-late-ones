@@ -11,7 +11,7 @@ from .forms import FormularioMeta
 def lista_de_metas(request):
     usuario = Usuario.objects.get(usuario=request.user.id)
     metas = Meta.objects.filter(user=usuario.id)
-    return render(request, 'lista_de_metas.html', {'metas': metas})
+    return render(request, 'lista_de_metas.html', {'metas': metas, 'usuario': usuario})
 
 
 def crear_meta(request):

@@ -9,5 +9,5 @@ class FormularioMeta(forms.ModelForm):
         # modelo usado para el formulario de meta en la vista crear_meta
         model = Meta
         # el atributo de meta que no quiero que aprezca en la view
-        exclude = ('user',)
+        exclude = ('user','fecha_comienzo', 'fecha_fin')
         fields = '__all__'

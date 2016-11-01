@@ -14,57 +14,20 @@
       </ul>
     </div>
     <div class="contenedor-principal">
-      <div class="contenedor-izquierdo"> 
-<h1> Metas para {{ Nombre }}</h1>
-<ul>
-    {% for meta in metas%}
-        <li>
-        <p> <a href="{% url 'info_meta' pk=meta.pk %}">{{ meta.titulo }}</a>
-<a class="btn btn-default" href="{% url 'editar_meta' pk=meta.pk %}">Editar</a>
-</p>
-        </li>
-    {% empty %}
-    <li>No hay metas.</li>
-    {% endfor %}
-    </ul>
-        <table class="opciones" width="100%" border=1>
-          <tr>
-            <td><b>RECORDATORIOS</b></td>
-          </tr>
-          <tr>
-            <td>Es el recordatorio número 0</td>
-          </tr>
-          <tr>
-            <td>Es el recordatorio número 1</td>
-          </tr>
-          <tr>
-            <td>Es el recordatorio número 2</td>
-          </tr>
-          <tr>
-            <td>Es el recordatorio número 3</td>
-          </tr>
-          <tr>
-            <td>Es el recordatorio número 4</td>
-          </tr>
-          <tr>
-            <td>Es el recordatorio número 5</td>
-          </tr>
-          <tr>
-            <td>Es el recordatorio número 6</td>
-          </tr>
-          <tr>
-            <td>Es el recordatorio número 7</td>
-          </tr>
-          <tr>
-            <td>Es el recordatorio número 8</td>
-          </tr>
-          <tr>
-            <td>Es el recordatorio número 9</td>
-          </tr>
-          <tr>
-        </table>
-        < 1 2 3 >
-      </div>
+        <div class="contenedor-izquierdo"> 
+          <h1> Metas de {{ usuario.nombre }}</h1>
+            <ul>
+              {% for meta in metas%}
+              <li>
+                <p> <a href="{% url 'info_meta' pk=meta.pk %}">{{ meta.titulo }}</a>
+                  <a class="btn btn-default" href="{% url 'editar_meta' pk=meta.pk %}">Editar</a>
+                </p>
+              </li>
+              {% empty %}
+              <li>No hay metas.</li>
+              {% endfor %}
+            </ul>
+        </div>
       <div class="contenedor-derecho">
         <table class="opciones" width="100%" border=1>
           <tr>
