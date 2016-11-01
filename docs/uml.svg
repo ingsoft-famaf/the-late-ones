@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="47cm" height="29cm" viewBox="391 -148 929 571" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g>
+    <rect style="fill: #ffffff" x="745.616" y="277.216" width="133.2" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="745.616" y="277.216" width="133.2" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="812.216" y="296.216">Meta</text>
+    <rect style="fill: #ffffff" x="745.616" y="305.216" width="133.2" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="745.616" y="305.216" width="133.2" height="8"/>
+    <rect style="fill: #ffffff" x="745.616" y="313.216" width="133.2" height="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="745.616" y="313.216" width="133.2" height="20"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="748.616" y="327.216"> crear_submeta()</text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="1131.17" y="283.255" width="90.3" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="1131.17" y="283.255" width="90.3" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="1176.32" y="302.255">Submeta</text>
+    <rect style="fill: #ffffff" x="1131.17" y="311.255" width="90.3" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="1131.17" y="311.255" width="90.3" height="8"/>
+    <rect style="fill: #ffffff" x="1131.17" y="319.255" width="90.3" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="1131.17" y="319.255" width="90.3" height="8"/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="812.216,359.393 812.216,400.99 1176.32,400.99 1176.32,328.26 "/>
+    <polygon style="fill: #000000" points="812.216,334.222 817.016,348.222 812.216,362.222 807.416,348.222 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="812.216,334.222 817.016,348.222 812.216,362.222 807.416,348.222 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="994.266" y="397.99"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="823.216" y="346.222">1</text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1180.32" y="340.26">0.*</text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="392.742" y="160.527" width="164" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="392.742" y="160.527" width="164" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="474.742" y="179.527">Usuario</text>
+    <rect style="fill: #ffffff" x="392.742" y="188.527" width="164" height="68"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="392.742" y="188.527" width="164" height="68"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="395.742" y="202.527"> username</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="395.742" y="218.527"> password</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="395.742" y="234.527"> email</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="395.742" y="250.527"> validado</text>
+    <rect style="fill: #ffffff" x="392.742" y="256.527" width="164" height="100"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="392.742" y="256.527" width="164" height="100"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="395.742" y="270.527"> login()</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="395.742" y="286.527"> logout()</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="395.742" y="302.527"> crear_meta()</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="395.742" y="318.527"> crear_categoria()</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="395.742" y="334.527"> listar_metas()</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="395.742" y="350.527"> listar_categorias()</text>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="474.742,357.377 474.742,422.582 626.336,422.582 626.336,305.216 744.644,305.216 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="550.539" y="419.582"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="478.742" y="369.377">1</text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:end;font-family:monospace;font-style:normal;font-weight:normal" x="740.644" y="302.216">0..*</text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="617.748" y="123.327" width="97.7" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="617.748" y="123.327" width="97.7" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="666.598" y="142.327">Categoria</text>
+    <rect style="fill: #ffffff" x="617.748" y="151.327" width="97.7" height="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="617.748" y="151.327" width="97.7" height="20"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="620.748" y="165.327"> titulo</text>
+    <rect style="fill: #ffffff" x="617.748" y="171.327" width="97.7" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="617.748" y="171.327" width="97.7" height="8"/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="616.742,151.327 587.244,151.327 587.244,258.527 557.747,258.527 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="589.244" y="201.927"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:end;font-family:monospace;font-style:normal;font-weight:normal" x="612.742" y="148.327">0..*</text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="561.747" y="255.527">1</text>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="716.447,151.327 767.552,151.327 767.552,277.216 812.216,277.216 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="769.552" y="211.272"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="720.447" y="148.327">0..1</text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:end;font-family:monospace;font-style:normal;font-weight:normal" x="808.216" y="274.216">0..*</text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="1193.73" y="138.432" width="125.5" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="1193.73" y="138.432" width="125.5" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="1256.48" y="157.432">Comentario</text>
+    <rect style="fill: #ffffff" x="1193.73" y="166.432" width="125.5" height="36"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="1193.73" y="166.432" width="125.5" height="36"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1196.73" y="180.432"> texto</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1196.73" y="196.432"> fecha_creacion</text>
+    <rect style="fill: #ffffff" x="1193.73" y="202.432" width="125.5" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="1193.73" y="202.432" width="125.5" height="8"/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="1046" y="-146.396" width="148.95" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="1046" y="-146.396" width="148.95" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="1120.47" y="-127.396">ArchivoAdjunto</text>
+    <rect style="fill: #ffffff" x="1046" y="-118.396" width="148.95" height="68"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="1046" y="-118.396" width="148.95" height="68"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1049" y="-104.396"> title</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1049" y="-88.3962"> file</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1049" y="-72.3962"> size</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1049" y="-56.3962"> creation_time</text>
+    <rect style="fill: #ffffff" x="1046" y="-50.3962" width="148.95" height="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="1046" y="-50.3962" width="148.95" height="20"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1049" y="-36.3962"> upload()</text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="910.9" y="33.6118" width="194.8" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="910.9" y="33.6118" width="194.8" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="1008.3" y="52.6118">MetaAbstracta</text>
+    <rect style="fill: #ffffff" x="910.9" y="61.6118" width="194.8" height="148"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="910.9" y="61.6118" width="194.8" height="148"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="913.9" y="75.6118"> titulo</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="913.9" y="91.6118"> descripcion</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="913.9" y="107.612"> estado</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="913.9" y="123.612"> prioridad</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="913.9" y="139.612"> fecha_creacion</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="913.9" y="155.612"> fecha_modificacion</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="913.9" y="171.612"> fecha_inicio</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="913.9" y="187.612"> fecha_fin</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="913.9" y="203.612"> fecha_vencimiento</text>
+    <rect style="fill: #ffffff" x="910.9" y="209.612" width="194.8" height="52"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="910.9" y="209.612" width="194.8" height="52"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="913.9" y="223.612"> crear_comentario()</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="913.9" y="239.612"> crear_recordatorio()</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="913.9" y="255.612"> crear_archivo_adjunto()</text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="609.818" y="-83.5454" width="140.9" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="609.818" y="-83.5454" width="140.9" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="680.268" y="-64.5454">Recordatorio</text>
+    <rect style="fill: #ffffff" x="609.818" y="-55.5454" width="140.9" height="84"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="609.818" y="-55.5454" width="140.9" height="84"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="612.818" y="-41.5454"> titulo</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="612.818" y="-25.5454"> fecha</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="612.818" y="-9.5454"> hora</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="612.818" y="6.4546"> repetir_cada</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="612.818" y="22.4546"> mensaje</text>
+    <rect style="fill: #ffffff" x="609.818" y="28.4546" width="140.9" height="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="609.818" y="28.4546" width="140.9" height="20"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="612.818" y="42.4546"> enviar_mensaje()</text>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="1008.3,280.855 1008.3,305.255 1130.16,305.255 "/>
+    <polygon style="fill: #ffffff" points="1016.3,280.855 1008.3,264.855 1000.3,280.855 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="1016.3,280.855 1008.3,264.855 1000.3,280.855 "/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="1008.3,280.838 1008.3,305.216 879.823,305.216 "/>
+    <polygon style="fill: #ffffff" points="1016.3,280.838 1008.3,264.838 1000.3,280.838 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="1016.3,280.838 1008.3,264.838 1000.3,280.838 "/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="1131.88,147.612 1156.72,147.612 1156.72,174.432 1192.73,174.432 "/>
+    <polygon style="fill: #000000" points="1106.71,147.612 1120.71,142.812 1134.71,147.612 1120.71,152.412 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="1106.71,147.612 1120.71,142.812 1134.71,147.612 1120.71,152.412 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1158.72" y="158.022"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1138.71" y="144.612">1</text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:end;font-family:monospace;font-style:normal;font-weight:normal" x="1188.73" y="171.432">0..*</text>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="1008.3,7.43321 1008.3,-5.39211 1120.47,-5.39211 1120.47,-29.389 "/>
+    <polygon style="fill: #000000" points="1008.3,32.6048 1003.5,18.6048 1008.3,4.60478 1013.1,18.6048 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="1008.3,32.6048 1003.5,18.6048 1008.3,4.60478 1013.1,18.6048 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="1064.39" y="-8.39211"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1019.3" y="28.6048">1</text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1124.47" y="-17.389">0..*</text>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="884.722,147.612 823.81,147.612 823.81,-17.5454 751.727,-17.5454 "/>
+    <polygon style="fill: #000000" points="909.894,147.612 895.894,152.412 881.894,147.612 895.894,142.812 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="909.894,147.612 895.894,152.412 881.894,147.612 895.894,142.812 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="825.81" y="62.0332"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:end;font-family:monospace;font-style:normal;font-weight:normal" x="877.894" y="144.612">1</text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="755.727" y="-20.5454">0..*</text>
+  </g>
+</svg>

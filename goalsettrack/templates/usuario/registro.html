@@ -1,0 +1,17 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Goal Set Track</title>
+    <h1>Registro de usuario</h1><br>
+  </head>
+  <body>
+    <h1>Ingrese los siguientes datos para registrarse</h1>
+    {% block content %}
+      <form  action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Registrarse"><br>
+      </form>
+    {% endblock %}
+  </body>
+</html>

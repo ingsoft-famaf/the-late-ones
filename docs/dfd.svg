@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="49cm" height="34cm" viewBox="318 236 962 661" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g>
+    <rect style="fill: #ffffff" x="871.22" y="742.176" width="78.75" height="54"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="871.22" y="742.176" width="78.75" height="54"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="910.595" y="773.076">
+      <tspan x="910.595" y="773.076">Usuario</tspan>
+    </text>
+  </g>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="715.116" y="553.286">
+    <tspan x="715.116" y="553.286"></tspan>
+  </text>
+  <g>
+    <ellipse style="fill: #ffffff" cx="631.082" cy="564.038" rx="50.9567" ry="39.8308"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="631.082" cy="564.038" rx="50.9567" ry="39.8308"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="631.082" y="567.938">
+      <tspan x="631.082" y="567.938">Listar Metas</tspan>
+    </text>
+  </g>
+  <g>
+    <ellipse style="fill: #ffffff" cx="898.176" cy="353.13" rx="95.2959" ry="46.0874"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="898.176" cy="353.13" rx="95.2959" ry="46.0874"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="898.176" y="357.03">
+      <tspan x="898.176" y="357.03">Crear/Modificar Submeta</tspan>
+    </text>
+  </g>
+  <g>
+    <ellipse style="fill: #ffffff" cx="600.154" cy="852.101" rx="61.3631" ry="44.0629"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="600.154" cy="852.101" rx="61.3631" ry="44.0629"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="600.154" y="856.001">
+      <tspan x="600.154" y="856.001">Enviar mensaje</tspan>
+    </text>
+  </g>
+  <g>
+    <ellipse style="fill: #ffffff" cx="909.822" cy="585.725" rx="82.1586" ry="46.0376"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="909.822" cy="585.725" rx="82.1586" ry="46.0376"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="909.822" y="589.625">
+      <tspan x="909.822" y="589.625">Crear/Modificar Meta</tspan>
+    </text>
+  </g>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="717.638" y="263.358">
+    <tspan x="717.638" y="263.358">Meta</tspan>
+  </text>
+  <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="710.386" y1="271.068" x2="754.2" y2="271.044"/>
+  <g>
+    <ellipse style="fill: #ffffff" cx="1210.93" cy="588.858" rx="67.9727" ry="33.9863"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="1210.93" cy="588.858" rx="67.9727" ry="33.9863"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="1210.93" y="592.758">
+      <tspan x="1210.93" y="592.758">Crear Categoría</tspan>
+    </text>
+  </g>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="1212.54" y="295.457">
+    <tspan x="1212.54" y="295.457">Categoría</tspan>
+  </text>
+  <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="1212.99" y1="301.566" x2="1276.1" y2="301.557"/>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="968.126" y="248.82">
+    <tspan x="968.126" y="248.82">Archivo adjunto</tspan>
+  </text>
+  <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="960.888" y1="254.972" x2="1075.15" y2="254.915"/>
+  <g>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 920.841,741.183 A 224.124,224.124 0 0 0 926.797,641.503"/>
+    <polygon style="fill: #000000" points="925.454,634.13 932.414,642.879 927.005,641.468 922.631,644.948 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="925.454,634.13 932.414,642.879 927.005,641.468 922.631,644.948 "/>
+  </g>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="935.937" y="676.091">
+    <tspan x="935.937" y="676.091">Datos de Meta</tspan>
+  </text>
+  <g>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 920.333,539.071 A 348.975,348.975 0 0 0 915.843,409.024"/>
+    <polygon style="fill: #000000" points="914.12,401.727 921.438,410.179 915.975,408.994 911.749,412.653 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="914.12,401.727 921.438,410.179 915.975,408.994 911.749,412.653 "/>
+  </g>
+  <g>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 939.782,541.914 A 476.087,476.087 0 0 0 1007.99,273.253"/>
+    <polygon style="fill: #000000" points="1007.59,265.765 1013.25,275.407 1008.09,273.248 1003.27,276.078 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="1007.59,265.765 1013.25,275.407 1008.09,273.248 1003.27,276.078 "/>
+  </g>
+  <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 950.966,754.855 A 776.967,776.967 0 0 0 1177.51,619.315"/>
+  <g>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 1225.13,554.653 A 496.346,496.346 0 0 0 1252.78,322.528"/>
+    <polygon style="fill: #000000" points="1251.83,315.089 1258.17,324.301 1252.87,322.516 1248.26,325.684 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="1251.83,315.089 1258.17,324.301 1252.87,322.516 1248.26,325.684 "/>
+  </g>
+  <g>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 963.099,540.27 A 9526.58,9526.58 0 0 0 1220,311.25"/>
+    <polygon style="fill: #000000" points="957.409,545.157 961.744,534.851 963.102,540.274 968.255,542.441 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="957.409,545.157 961.744,534.851 963.102,540.274 968.255,542.441 "/>
+  </g>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="1090.98" y="698.538">
+    <tspan x="1090.98" y="698.538">Nombre de Categoría</tspan>
+  </text>
+  <g>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 885.819,540.727 A 3055.23,3055.23 0 0 0 733.003,289.518"/>
+    <polygon style="fill: #000000" points="728.795,283.31 738.556,288.761 733.016,289.509 730.29,294.39 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="728.795,283.31 738.556,288.761 733.016,289.509 730.29,294.39 "/>
+  </g>
+  <g>
+    <ellipse style="fill: #ffffff" cx="551.376" cy="734.896" rx="74.9521" ry="37.4761"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="551.376" cy="734.896" rx="74.9521" ry="37.4761"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="551.376" y="738.796">
+      <tspan x="551.376" y="738.796">Crear Recordatorio</tspan>
+    </text>
+  </g>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="321.096" y="721.032">
+    <tspan x="321.096" y="721.032">Recordatorio</tspan>
+  </text>
+  <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="319.652" y1="725.548" x2="404.213" y2="725.56"/>
+  <g>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 833.07,603.732 A 952.096,952.096 0 0 0 606.665,699.823"/>
+    <polygon style="fill: #000000" points="600.212,703.644 606.208,694.207 606.64,699.78 611.359,702.778 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="600.212,703.644 606.208,694.207 606.64,699.78 611.359,702.778 "/>
+  </g>
+  <g>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 383.728,736.152 A 139.017,139.017 0 0 0 495.287,760.678"/>
+    <polygon style="fill: #000000" points="377.835,731.538 388.679,734.261 383.524,736.425 382.163,741.847 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="377.835,731.538 388.679,734.261 383.524,736.425 382.163,741.847 "/>
+  </g>
+  <g>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 662.232,848.322 A 655.313,655.313 0 0 0 861.384,793.968"/>
+    <polygon style="fill: #000000" points="868.201,790.843 861.278,799.622 861.413,794.033 857.024,790.572 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="868.201,790.843 861.278,799.622 861.413,794.033 857.024,790.572 "/>
+  </g>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="734.282" y="649.861">
+    <tspan x="734.282" y="649.861">Datos de Recordatorio</tspan>
+  </text>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="744.302" y="848.788">
+    <tspan x="744.302" y="848.788">Mensaje</tspan>
+  </text>
+  <g>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 348.329,730.87 A 174.079,174.079 0 0 0 533.517,871.45"/>
+    <polygon style="fill: #000000" points="540.968,870.691 531.75,877.017 533.539,871.721 530.376,867.112 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="540.968,870.691 531.75,877.017 533.539,871.721 530.376,867.112 "/>
+  </g>
+  <g>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 759.303,284.886 A 475.533,475.533 0 0 0 823.589,323.528"/>
+    <polygon style="fill: #000000" points="753.233,280.485 764.238,282.453 759.245,284.967 758.261,290.47 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="753.233,280.485 764.238,282.453 759.245,284.967 758.261,290.47 "/>
+  </g>
+  <g>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 647.236,602.823 A 301.417,301.417 0 0 0 860.625,763.971"/>
+    <polygon style="fill: #000000" points="868.005,765.283 857.354,768.679 860.595,764.125 858.897,758.799 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="868.005,765.283 857.354,768.679 860.595,764.125 858.897,758.799 "/>
+  </g>
+  <g>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 712.598,280.828 A 552.829,552.829 0 0 0 633.919,513.579"/>
+    <polygon style="fill: #000000" points="633.203,521.043 629.062,510.658 633.834,513.57 639.027,511.5 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="633.203,521.043 629.062,510.658 633.834,513.57 639.027,511.5 "/>
+  </g>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="680.178" y="623.344">
+    <tspan x="680.178" y="623.344"></tspan>
+  </text>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="717.786" y="620.102">
+    <tspan x="717.786" y="620.102"></tspan>
+  </text>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="691.85" y="609.08">
+    <tspan x="691.85" y="609.08"></tspan>
+  </text>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="686.822" y="611.988">
+    <tspan x="686.822" y="611.988"></tspan>
+  </text>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="551.646" y="631.126">
+    <tspan x="551.646" y="631.126">Títulos de Metas</tspan>
+  </text>
+  <g>
+    <ellipse style="fill: #ffffff" cx="449.242" cy="463.305" rx="69.516" ry="42.9663"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="449.242" cy="463.305" rx="69.516" ry="42.9663"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="449.242" y="467.205">
+      <tspan x="449.242" y="467.205">Crear Comentario</tspan>
+    </text>
+  </g>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="295.608" y="467.524">
+    <tspan x="295.608" y="467.524"></tspan>
+  </text>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="404.658" y="292.024">
+    <tspan x="404.658" y="292.024">Comentario</tspan>
+  </text>
+  <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="400.388" y1="299.198" x2="491.966" y2="299.252"/>
+  <g>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 426.734,313.272 A 120.255,120.255 0 0 0 420.388,423.311"/>
+    <polygon style="fill: #000000" points="430.719,306.943 429.04,317.997 426.396,313.071 420.869,312.232 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="430.719,306.943 429.04,317.997 426.396,313.071 420.869,312.232 "/>
+  </g>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="723.388" y="470.351">
+    <tspan x="723.388" y="470.351">Texto</tspan>
+  </text>
+  <g>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 862.866,547.027 A 506.73,506.73 0 0 0 527.095,451.381"/>
+    <polygon style="fill: #000000" points="519.621,451.987 529.111,446.076 527.088,451.288 530.043,456.033 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="519.621,451.987 529.111,446.076 527.088,451.288 530.043,456.033 "/>
+  </g>
+</svg>
