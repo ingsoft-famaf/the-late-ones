@@ -7,6 +7,7 @@ finalizado el modulo meta, creo que este modulo deberia con unas pocas
 correcciones deberia poder funcionar.
 """
 
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404, redirect, render
 
 from categoria.forms import CategoriaFormulario
@@ -15,6 +16,7 @@ from meta.models import Meta
 from usuario.models import Usuario
 
 
+@login_required
 def crear_categoria(request):
     # meta = get_object_or_404(Meta, pk=pk)
     usuario = Usuario.objects.get(usuario=request.user.id)
@@ -42,6 +44,7 @@ def crear_categoria(request):
     return render(request, 'crear_categoria.html', {'form': form})
 
 
+@login_required
 def lista_categorias(request):
     # se obtiene el usuario
     usuario = Usuario.objects.get(usuario=request.user.id)
@@ -50,6 +53,7 @@ def lista_categorias(request):
     return render(request, 'lista_categorias.html', {'categorias': categorias})
 
 
+@login_required
 def eliminar_categoria(request, pk):
     # se obtiene el usuario
     usuario = Usuario.objects.get(usuario=request.user.id)
