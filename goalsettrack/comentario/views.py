@@ -7,6 +7,7 @@ finalizado el modulo meta, creo que este modulo deberia con unas pocas
 correcciones deberia poder funcionar.
 """
 
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404, redirect, render
 
 from meta.models import Meta
@@ -15,6 +16,7 @@ from .forms import ComentarioFormulario
 from .models import Comentario
 
 
+@login_required
 def crear_comentario(request, pk):
     """ Crea y agrega un comentario a una meta identificada por su id """
     # meta = get_object_or_404(Meta, pk=pk)
@@ -45,6 +47,7 @@ def crear_comentario(request, pk):
     return render(request, 'crear_comentario.html', {'form': form})
 
 
+@login_required
 def lista_comentarios(request, pk):
     meta = Meta.objects.get(pk=pk)
     comentarios = Comentario.objects.filter(meta__pk=pk)
@@ -52,6 +55,7 @@ def lista_comentarios(request, pk):
                   {'meta': meta, 'comentarios': comentarios})
 
 
+@login_required
 def detalle_comentario(request, comentario_id):
     """
     En otra pagina el usuario elige ver un comentario en detalle, hace click
@@ -63,6 +67,7 @@ def detalle_comentario(request, comentario_id):
     return render(request, 'detalle_comentario', {'comentario': comentario})
 
 
+# @login_required
 # def eliminar_comentario(request, pk):
 #     """
 #     Se elimina un comentario desde la view de meta usuario hace ckick en
