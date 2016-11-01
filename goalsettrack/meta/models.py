@@ -2,6 +2,7 @@ from django.db import models
 
 # from usuario.models import Categoria
 from usuario.models import Usuario
+from categoria.models import *
 
 
 class MetaAbstracta(models.Model):
@@ -49,9 +50,11 @@ class MetaAbstracta(models.Model):
     user = models.ForeignKey(Usuario, on_delete=models.CASCADE)
 
 
+
+
 class Meta(MetaAbstracta):
     """ Cada meta tiene 0 o 1 categoría """
-
+    category = models.ForeignKey(Categoria, on_delete=models.CASCADE, blank=True, null=True)
     # categoria = models.ForeignKey(
     #      Categoria, on_delete=models.CASCADE, blank=True, null=True)
 

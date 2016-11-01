@@ -24,4 +24,5 @@ urlpatterns = [
     url(r'^', include('usuario.urls')),
     url(r'^', include('meta.urls')),
     url(r'^', include('comentario.urls')),
+    url(r'^', include('categoria.urls')),
 ]
