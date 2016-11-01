@@ -15,6 +15,7 @@ from django.utils.decorators import method_decorator
 # from django.views import generic
 from django.views.generic import CreateView, DetailView, UpdateView
 # from django.views.generic import ListView, TemplateView
+
 from usuario.forms import FormularioUsuario
 from usuario.models import Usuario
 
