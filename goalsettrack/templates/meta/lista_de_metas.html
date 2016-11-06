@@ -26,6 +26,14 @@
               <li>No hay metas.</li>
               {% endfor %}
             </ul>
+            {% load staticfiles %}
+<!--....
+<script src="{% static "notify/notifyX.min.js" %}"></script>
+ OR -->
+<script src="{% static "notify/notifyX.js" %}"></script>
+            {% load notification_tags %}
+            {% render_notifications using request.user.notifications.active %}
+           <!-- {% user_notifications %} -->
         </div>
       <div class="contenedor-derecho">
         <table class="opciones" width="100%" border=1>

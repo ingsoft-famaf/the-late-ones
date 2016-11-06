@@ -25,4 +25,5 @@ urlpatterns = [
     url(r'^', include('meta.urls')),
     url(r'^', include('comentario.urls')),
     url(r'^', include('categoria.urls')),
+    url(r'^notifications/', include('notify.urls', 'notifications')),
 ]
