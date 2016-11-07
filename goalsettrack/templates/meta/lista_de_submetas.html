@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Lista de metas</title>
+    <title>Lista de Submetas</title>
     <link rel="stylesheet" type="text/css" href={% static 'css/pagina_principal.css' %}>
   </head>
   <body>
@@ -14,17 +14,17 @@
     </div>
     <div class="contenedor-principal">
         <div class="contenedor-izquierdo"> 
-          <h1> Metas de {{ usuario.nombre }}</h1>
+          <h1> Submetas de {{ meta.titulo }}</h1>
             <ul>
-              {% for meta in metas%}
+              {% for submeta in submetas%}
               <li>
-                <p> <a href="{% url 'info_meta' pk=meta.pk %}">{{ meta.titulo }}</a>
-                  <a class="btn btn-default" href="{% url 'editar_meta' pk=meta.pk %}">Editar</a>
-                  <a href="{% url 'eliminar_meta' pk=meta.pk %}">Eliminar meta </a>
-                </p>
+                <p> <a href="{% url 'info_submeta' pk=submeta.pk %}">{{ submeta.titulo }}</a>
+                  <a class="btn btn-default" href="{% url 'editar_submeta' pk=submeta.pk %}">Editar</a>
+                  <a href="{% url 'eliminar_submeta' pk=submeta.pk %}">Eliminar submeta </a>
+                </p>  
               </li>
               {% empty %}
-              <li>No hay metas.</li>
+              <li>No hay submetas.</li>
               {% endfor %}
             </ul>
         </div>
@@ -33,15 +33,9 @@
           <tr>
             <td><b>OPCIONES</b></td>
           </tr>
-          <tr>
-            <td><a href="{% url 'crear_meta' %} ">Crear meta</a></td>
-          </tr>
-          <tr>
-            <td><a href="{% url 'crear_categoria' %} ">Crear categoria</a></td>
-          </tr>
-          <tr>
-            <td><a href="{% url 'lista_categorias' %} ">Ver categorias</a></td>
-          </tr>
+           <tr> 
+            <td><a href="{% url 'crear_submeta' pk=meta.pk %} ">Crear Submeta</a></td>
+          </tr> 
          <!-- <tr>
             <td><b>FILTRAR METAS POR</b></td>
           </tr>

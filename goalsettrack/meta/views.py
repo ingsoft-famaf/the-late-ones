@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404, redirect, render
 
 from meta.models import Meta, Submeta
+from comentario.models import Comentario
 from usuario.models import Usuario
 
 from .forms import FormularioMeta, FormularioSubMeta
@@ -43,16 +44,27 @@ def editar_meta(request, pk):
         form = FormularioMeta(instance=meta)
     return render(request, 'editar_meta.html', {'form': form, 'meta': meta})
 
-
 @login_required
 def info_meta(request, pk):
     meta = get_object_or_404(Meta, pk=pk)
     return render(request, 'info_meta.html', {'meta': meta})
 
+@login_required
+def eliminar_meta(request, pk):
+    meta = Meta.objects.get(pk=pk)
+    # se eliminan todos las submetas de la meta
+    Submeta.objects.filter(meta_origen=meta.id).delete()
+    # se eliminan todos los comentarios de la meta
+    Comentario.objects.filter(meta=meta.id).delete()
+    meta.delete()
+    return redirect('lista_de_metas')
 
-# @login_required
-# def crear_submeta(request):
-#     return render(request, 'crear_submeta.html')
+    ### Views de SUbmeta
+
+
+
+
+
 
 @login_required
 def lista_de_submetas(request, pk):
@@ -93,3 +105,9 @@ def editar_submeta(request, pk):
     else:
         form = FormularioSubMeta(instance=submeta)
     return render(request, 'editar_submeta.html', {'form': form, 'submeta': submeta})
+
+
+@login_required
+def eliminar_submeta(request, pk):
+    Submeta.objects.get(pk=pk).delete()
+    return redirect('lista_de_metas')

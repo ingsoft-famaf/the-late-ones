@@ -9,6 +9,8 @@ urlpatterns = [
         name='editar_meta'),
     url(r'^lista_de_metas/info_meta/(?P<pk>[0-9]+)/$', views.info_meta,
         name='info_meta'),
+    url(r'^lista_de_metas/eliminar_meta/(?P<pk>[0-9]+)/$', views.eliminar_meta,
+        name='eliminar_meta'),
     url(r'^lista_de_metas/info_meta/lista_de_submetas/(?P<pk>[0-9]+)/$', views.lista_de_submetas,
         name='lista_de_submetas'),
     url(r'^lista_de_metas/info_meta/lista_de_submetas/crear_submeta/(?P<pk>[0-9]+)/$', views.crear_submeta,
@@ -17,6 +19,8 @@ urlpatterns = [
         name='info_submeta'),
     url(r'^lista_de_metas/info_meta/lista_de_submetas/editar_submeta/(?P<pk>[0-9]+)$', views.editar_submeta,
         name='editar_submeta'),
+    url(r'^lista_de_metas/info_meta/lista_de_submetas/eliminar_submeta/(?P<pk>[0-9]+)$', views.eliminar_submeta,
+        name='eliminar_submeta'),
 
     # url(r'^lista_de_metas/crear_meta/crear_submeta$', views.crear_submeta,
     #     name='crear_submeta'),

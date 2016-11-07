@@ -1,0 +1,49 @@
+{% load staticfiles %}
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Editar Submeta</title>
+    <link rel="stylesheet" type="text/css" href={% static 'css/pagina_principal.css' %}>
+  </head>
+  <body>
+    <div class="barra-principal">
+      <ul>
+        <li><a  href="{% url 'editar_perfil' %}">Configuración</a></li>
+      </ul>
+    </div>
+    <div class="contenedor-principal">
+      <div class="contenedor-izquierdo">
+        <table class="datos-meta" width="100%" border=1>
+        <h1>Editar Submeta</h1>
+        <form method="POST" class="post-form">{% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="save btn btn-default">Guardar</button>
+            volver a <a href="/lista_de_metas">lista de metas</a>
+        </form>
+      </div>
+      <div class="contenedor-derecho">
+        <table class="opciones" width="100%" border=1>
+          <tr>
+            <td><b>OPCIONES</b></td>
+          <!-- <tr>
+             <td><a href="/lista_de_metas/crear_meta/crear_submeta">Crear Submeta</a></td> 
+          </tr>
+          <tr>
+            <td>Crear recordatorio</td> -->
+          </tr>
+          <tr>
+            <td>Adjuntar archivo</td>
+          </tr>
+          <!--
+          <tr>
+            <td><b>AYUDA</b></td>
+          </tr>
+          <tr>
+            <td>Acá va una breve desripción</td>
+          </tr>
+          -->
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

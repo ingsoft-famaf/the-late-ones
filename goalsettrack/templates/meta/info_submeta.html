@@ -1,0 +1,18 @@
+   <div class="meta">
+            <h1>{{ submeta.titulo }}</h1>
+            <p>Descripción: {{ submeta.descripcion }}</p>
+            <p>Prioridad: {{ submeta.prioridad }}</p>
+            <p>Estado: {{ submeta.estado }}</p>
+            <p>Vence: {{ submeta.fecha_vencimiento }}</p>
+            <p>Comienzo: {{ submeta.fecha_comienzo }}</p>
+            <p>Fin: {{ submeta.fecha_fin }}</p>
+            <p>Creada: {{ submeta.fecha_creacion }}</p>
+            <p>Última Modificación: {{ submeta.fecha_modificacion }}</p>
+
+            {% for comentario in comentarios%}
+            <p>Comentario: {{ comentario.texto }}</p>
+                <div class="date">{{ comentario.fecha_creacion }}</div>
+            </div>
+            {% endfor %}
+
+            volver a <a href="/lista_de_metas">lista de metas</a>

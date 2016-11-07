@@ -1,6 +1,14 @@
    <div class="meta">
+   		<ul>
             {% for categoria in categorias %}
-            <p>categoria: {{ categoria.titulo }}</p>
-              <a href="{% url 'eliminar_categoria' pk=categoria.pk %}">Eliminar categoria</a>
-            </div>
-            {% endfor %}
+            <li>
+            	<p> categoria: {{ categoria.titulo }}
+              	<a href="{% url 'eliminar_categoria' pk=categoria.pk %}">Eliminar categoria </a>
+            	</p>
+            	{% endfor %}
+            </li>
+              	{% empty %}
+              	<li> No hay categorias </li>
+              	{% endfor %}
+        </ul>
+</div>
