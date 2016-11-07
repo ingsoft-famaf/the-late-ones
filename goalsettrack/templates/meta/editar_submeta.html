@@ -2,48 +2,46 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Crear Submeta</title>
+    <title>Editar Submeta</title>
     <link rel="stylesheet" type="text/css" href={% static 'css/pagina_principal.css' %}>
   </head>
   <body>
     <div class="barra-principal">
       <ul>
-    <li><a href="#logout">Logout</a></li>
-      <li><a  href="{% url 'editar_perfil' %}">Configuración</a></li>
+        <li><a  href="{% url 'editar_perfil' %}">Configuración</a></li>
       </ul>
     </div>
     <div class="contenedor-principal">
       <div class="contenedor-izquierdo">
-        <h1>Nueva Submeta</h1>
-        <form method="POST" class="post-form">
-          {% csrf_token %}
-          {{ form.as_p }}
-          <button type="submit" class="save btn btn-default">Guardar</button>
-          volver a <a href="/lista_de_metas">lista de metas</a>
+        <table class="datos-meta" width="100%" border=1>
+        <h1>Editar Submeta</h1>
+        <form method="POST" class="post-form">{% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="save btn btn-default">Guardar</button>
+            volver a <a href="/lista_de_metas">lista de metas</a>
         </form>
-        <table class="comentarios" width="100%" border=1>
-        <!-- Crear dinamicamente el comentario cuando se presiona el botoon 'Agragar' para agregar comentario -->
-        </table>
-        <table class="agregar-comentario" width="100%">
-        </table>
       </div>
       <div class="contenedor-derecho">
         <table class="opciones" width="100%" border=1>
           <tr>
             <td><b>OPCIONES</b></td>
+          <!-- <tr>
+             <td><a href="/lista_de_metas/crear_meta/crear_submeta">Crear Submeta</a></td> 
           </tr>
           <tr>
-            <td>Crear recordatorio</td>
+            <td>Crear recordatorio</td> -->
           </tr>
           <tr>
             <td>Adjuntar archivo</td>
           </tr>
+          <!--
           <tr>
             <td><b>AYUDA</b></td>
           </tr>
           <tr>
             <td>Acá va una breve desripción</td>
           </tr>
+          -->
         </table>
       </div>
     </div>

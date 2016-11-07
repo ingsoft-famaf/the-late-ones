@@ -46,19 +46,18 @@ class MetaAbstracta(models.Model):
     fecha_comienzo = models.DateTimeField(null=True, blank=True)
     fecha_fin = models.DateTimeField(null=True, blank=True)
     fecha_vencimiento = models.DateTimeField(null=True, blank=True)
-    user = models.ForeignKey(Usuario, on_delete=models.CASCADE)
-
-
 
 
 class Meta(MetaAbstracta):
     """ Cada meta tiene 0 o 1 categoría """
-    category = models.ForeignKey(Categoria, on_delete=models.CASCADE, blank=True, null=True)
-    # categoria = models.ForeignKey(
-    #      Categoria, on_delete=models.CASCADE, blank=True, null=True)
+    user = models.ForeignKey(
+        Usuario, on_delete=models.CASCADE, blank=True, null=True)
+    category = models.ForeignKey(
+        Categoria, on_delete=models.CASCADE, blank=True, null=True)
 
 
-# class Submeta(MetaAbstracta):
-#     """ Cada submeta es de una unica meta """
+class Submeta(MetaAbstracta):
+    """ Cada submeta es de una única meta """
 
-#     meta_origen = models.ForeignKey(Meta, on_delete=models.    CASCADE)
+    meta_origen = models.ForeignKey(
+        Meta, on_delete=models.CASCADE, blank=True, null=True)

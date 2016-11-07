@@ -9,4 +9,5 @@ class ComentarioFormulario(forms.ModelForm):
         model = Comentario
         # el atributo de comentario que no quiero que aprezca en la view
         exclude = ('meta',)
-        fields = '__all__' # todos los atributos de la clase Comentario
+        # todos los atributos de la clase Comentario
+        fields = '__all__'
