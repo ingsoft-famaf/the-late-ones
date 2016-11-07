@@ -11,6 +11,7 @@ urlpatterns = [
         name='info_meta'),
     url(r'^lista_de_metas/eliminar_meta/(?P<pk>[0-9]+)/$', views.eliminar_meta,
         name='eliminar_meta'),
+    url(r'^lista_de_metas/filtrar_meta$', views.filtrar_meta, name='filtrar_meta'),
     url(r'^lista_de_metas/info_meta/lista_de_submetas/(?P<pk>[0-9]+)/$', views.lista_de_submetas,
         name='lista_de_submetas'),
     url(r'^lista_de_metas/info_meta/lista_de_submetas/crear_submeta/(?P<pk>[0-9]+)/$', views.crear_submeta,

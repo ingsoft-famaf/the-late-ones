@@ -59,6 +59,22 @@ def eliminar_meta(request, pk):
     meta.delete()
     return redirect('lista_de_metas')
 
+
+
+@login_required
+def filtrar_meta(request):
+    if request.method == "POST":
+        s_titulo = request.POST.get('titulo', 'Vv')
+       # usuario = Usuario.objects.get(usuario=request.user.id)
+        #metas = Meta.objects.filter(titulo=s_titulo and user=usuario.id)
+        metas = Meta.objects.filter(titulo=s_titulo)
+        return render(request, 'filtrar_meta.html', {'metas': metas})        
+    return redirect('lista_de_metas')
+
+
+
+
+
     ### Views de SUbmeta
 
 

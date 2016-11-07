@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Lista de metas</title>
+    <title>Lista de metas filtradas</title>
     <link rel="stylesheet" type="text/css" href={% static 'css/pagina_principal.css' %}>
   </head>
   <body>
@@ -14,7 +14,6 @@
     </div>
     <div class="contenedor-principal">
         <div class="contenedor-izquierdo"> 
-          <h1> Metas de {{ usuario.nombre }}</h1>
             <ul>
               {% for meta in metas%}
               <li>
@@ -42,16 +41,6 @@
           <tr>
             <td><a href="{% url 'lista_categorias' %} ">Ver categorias</a></td>
           </tr>
-            <tr>
-              <td>
-                <form action="filtrar_meta" method="post"> {% csrf_token %}
-                  <b>Buscar meta:</b>    
-                  <input type="text" id="titulo" value="titulo" >
-              </form>
-              </td>
-            
-           
-            </tr>
         </table>
       </div>
     </div>
