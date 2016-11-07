@@ -15,10 +15,9 @@ def lista_de_metas(request):
     usuario = Usuario.objects.get(usuario=request.user.id)
     actual_user = get_object_or_404(User, username=request.user)
     metas = Meta.objects.filter(user=usuario.id)
-    current_time = datetime.datetime.now().time()
-    if current_time.isoformat() == '18:08:00.000000':
-        notify.send(usuario, recipient=actual_user, actor=usuario,
-                verb='Tenes cero metas')
+    #current_time = datetime.datetime.now().time()
+    #if current_time.isoformat() == '18:08:00.000000':
+    notify.send(usuario, recipient=actual_user, actor=usuario,verb='Tenes cero metas')
     return render(request, 'lista_de_metas.html', {'metas': metas, 'usuario': usuario})
 
 

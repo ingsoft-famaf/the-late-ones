@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <title>Lista de metas</title>
     <link rel="stylesheet" type="text/css" href={% static 'css/pagina_principal.css' %}>
+    <script src="jquery-3.1.1.min.js"></script>
+     <link rel="stylesheet" href="{% static "jqueryui/jquery-ui.css" %}">
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="{% static "jqueryui/jquery-ui.js" %}"></script>    
+
+
+
   </head>
   <body>
     <div class="barra-principal">
@@ -30,10 +37,19 @@
 <!--....
 <script src="{% static "notify/notifyX.min.js" %}"></script>
  OR -->
+  
+
+
+
 <script src="{% static "notify/notifyX.js" %}"></script>
+
             {% load notification_tags %}
-            {% render_notifications using request.user.notifications.active %}
+            {% include_notify_js_variables %}
+            <!--{% render_notifications using request.user.notifications.active %} -->
+           <!-- {% render_notifications using request.user.notifications.active for box %}-->
            <!-- {% user_notifications %} -->
+
+           {% user_notifications for box %}
         </div>
       <div class="contenedor-derecho">
         <table class="opciones" width="100%" border=1>
