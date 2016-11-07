@@ -2,8 +2,8 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404, redirect, render
 
-from meta.models import Meta, Submeta
 from comentario.models import Comentario
+from meta.models import Meta, Submeta
 from usuario.models import Usuario
 
 from .forms import FormularioMeta, FormularioSubMeta
@@ -13,7 +13,8 @@ from .forms import FormularioMeta, FormularioSubMeta
 def lista_de_metas(request):
     usuario = Usuario.objects.get(usuario=request.user.id)
     metas = Meta.objects.filter(user=usuario.id)
-    return render(request, 'lista_de_metas.html', {'metas': metas, 'usuario': usuario})
+    return render(request, 'lista_de_metas.html',
+                  {'metas': metas, 'usuario': usuario})
 
 
 @login_required
@@ -32,6 +33,12 @@ def crear_meta(request):
 
 
 @login_required
+def info_meta(request, pk):
+    meta = get_object_or_404(Meta, pk=pk)
+    return render(request, 'info_meta.html', {'meta': meta})
+
+
+@login_required
 def editar_meta(request, pk):
     meta = Meta.objects.get(pk=pk)
     if request.method == "POST":
@@ -44,10 +51,6 @@ def editar_meta(request, pk):
         form = FormularioMeta(instance=meta)
     return render(request, 'editar_meta.html', {'form': form, 'meta': meta})
 
-@login_required
-def info_meta(request, pk):
-    meta = get_object_or_404(Meta, pk=pk)
-    return render(request, 'info_meta.html', {'meta': meta})
 
 @login_required
 def eliminar_meta(request, pk):
@@ -60,33 +63,26 @@ def eliminar_meta(request, pk):
     return redirect('lista_de_metas')
 
 
-
 @login_required
 def filtrar_meta(request):
     if request.method == "POST":
         s_titulo = request.POST.get('titulo', 'Vv')
-       # usuario = Usuario.objects.get(usuario=request.user.id)
-        #metas = Meta.objects.filter(titulo=s_titulo and user=usuario.id)
+        # usuario = Usuario.objects.get(usuario=request.user.id)
+        # metas = Meta.objects.filter(titulo=s_titulo and user=usuario.id)
         metas = Meta.objects.filter(titulo=s_titulo)
-        return render(request, 'filtrar_meta.html', {'metas': metas})        
+        return render(request, 'filtrar_meta.html', {'metas': metas})
     return redirect('lista_de_metas')
 
-
-
-
-
-    ### Views de SUbmeta
-
-
-
-
+# Views de Submeta ############################
 
 
 @login_required
 def lista_de_submetas(request, pk):
     meta = Meta.objects.get(pk=pk)
     submetas = Submeta.objects.filter(meta_origen=meta.id)
-    return render(request, 'lista_de_submetas.html', {'submetas': submetas, 'meta': meta})
+    return render(request, 'lista_de_submetas.html',
+                  {'submetas': submetas, 'meta': meta})
+
 
 @login_required
 def crear_submeta(request, pk):
@@ -103,11 +99,11 @@ def crear_submeta(request, pk):
     return render(request, 'crear_submeta.html', {'form': form})
 
 
-
 @login_required
 def info_submeta(request, pk):
     submeta = get_object_or_404(Submeta, pk=pk)
     return render(request, 'info_submeta.html', {'submeta': submeta})
+
 
 @login_required
 def editar_submeta(request, pk):
@@ -120,7 +116,8 @@ def editar_submeta(request, pk):
             return redirect('info_submeta', pk=submeta.pk)
     else:
         form = FormularioSubMeta(instance=submeta)
-    return render(request, 'editar_submeta.html', {'form': form, 'submeta': submeta})
+    return render(request, 'editar_submeta.html',
+                  {'form': form, 'submeta': submeta})
 
 
 @login_required
