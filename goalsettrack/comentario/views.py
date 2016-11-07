@@ -54,6 +54,32 @@ def lista_comentarios(request, pk):
     return render(request, 'lista_comentarios.html',
                   {'meta': meta, 'comentarios': comentarios})
 
+@login_required
+def eliminar_comentario(request, pk):
+    comentario = Comentario.objects.get(pk=pk)
+    meta = comentario.meta
+    Comentario.objects.filter(pk=pk).delete()
+    return redirect('info_meta', pk=meta.id)
+
+@login_required
+def editar_comentario(request, pk):
+    comentario = Comentario.objects.get(pk=pk)
+    meta = comentario.meta
+    if request.method == "POST":
+        form = ComentarioFormulario(request.POST, instance=comentario)
+        if form.is_valid():
+            # Se crea el comentario con los datos del formulario
+            comentario = form.save(commit=False)
+            # se lo relaciona con la meta
+            comentario.meta = meta
+            # se guarda el comentario en la base de datos
+            comentario.save()
+            return redirect('info_meta', pk=meta.id)
+    else:
+        form = ComentarioFormulario(instance=comentario)
+
+    return render(request,'editar_comentario.html', { 'form': form })    
+
 
 @login_required
 def detalle_comentario(request, comentario_id):
@@ -67,17 +93,4 @@ def detalle_comentario(request, comentario_id):
     return render(request, 'detalle_comentario', {'comentario': comentario})
 
 
-# @login_required
-# def eliminar_comentario(request, pk):
-#     """
-#     Se elimina un comentario desde la view de meta usuario hace ckick en
-#     eliminar comentario, que pasa el id de tal comentairo a esta funcion,
-#     esta función obtiene de la base de datos tal comentario a partir del
-#     id pasado, obtiene la meta en la que esta a traves de la foreign key,
-#     elimina el comentario de la meta y redirecciona al usuario para el
-#     detalle de las metas
-#     """
-#     comentario = Comentario.objects.get(pk=pk)
-#     meta = comentario.meta
-#     del comentario
-#     return redirect('info_meta', pk=meta.id)
+

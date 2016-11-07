@@ -10,7 +10,10 @@
             <p>Última Modificación: {{ meta.fecha_modificacion }}</p>
 
             {% for comentario in comentarios%}
-            <p>Comentario: {{ comentario.texto }}</p>
+            <p>Comentario: {{ comentario.texto }}
+                <a href="{% url 'eliminar_comentario' pk=comentario.pk %}"> Eliminar </a> 
+                <a href="{% url 'editar_comentario' pk=comentario.pk %}"> Editar </a>
+                </p>
                 <div class="date">{{ comentario.fecha_creacion }}</div>
             </div>
             {% endfor %}
