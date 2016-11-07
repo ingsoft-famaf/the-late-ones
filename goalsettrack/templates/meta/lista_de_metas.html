@@ -13,47 +13,47 @@
       </ul>
     </div>
     <div class="contenedor-principal">
-        <div class="contenedor-izquierdo"> 
-          <h1> Metas de {{ usuario.nombre }}</h1>
-            <ul>
-              {% for meta in metas%}
+      <div class="contenedor-izquierdo"> 
+        <h1> Metas de {{ usuario.nombre }}</h1>
+          <ul>
+            {% for meta in metas%}
               <li>
-                <p> <a href="{% url 'info_meta' pk=meta.pk %}">{{ meta.titulo }}</a>
+                <p>
+                  <a href="{% url 'info_meta' pk=meta.pk %}">{{ meta.titulo }}</a>
                   <a class="btn btn-default" href="{% url 'editar_meta' pk=meta.pk %}">Editar</a>
                   <a href="{% url 'eliminar_meta' pk=meta.pk %}">Eliminar meta </a>
                 </p>
               </li>
-              {% empty %}
+            {% empty %}
               <li>No hay metas.</li>
-              {% endfor %}
-            </ul>
+            {% endfor %}
+          </ul>
         </div>
-      <div class="contenedor-derecho">
-        <table class="opciones" width="100%" border=1>
-          <tr>
-            <td><b>OPCIONES</b></td>
-          </tr>
-          <tr>
-            <td><a href="{% url 'crear_meta' %} ">Crear meta</a></td>
-          </tr>
-          <tr>
-            <td><a href="{% url 'crear_categoria' %} ">Crear categoria</a></td>
-          </tr>
-          <tr>
-            <td><a href="{% url 'lista_categorias' %} ">Ver categorias</a></td>
-          </tr>
+        <div class="contenedor-derecho">
+          <table class="opciones" width="100%" border=1>
+            <tr>
+              <td><b>OPCIONES</b></td>
+            </tr>
+            <tr>
+              <td><a href="{% url 'crear_meta' %} ">Crear meta</a></td>
+            </tr>
+            <tr>
+              <td><a href="{% url 'crear_categoria' %} ">Crear categoria</a></td>
+            </tr>
+            <tr>
+              <td><a href="{% url 'lista_categorias' %} ">Ver categorias</a></td>
+            </tr>
             <tr>
               <td>
-                <form action="filtrar_meta" method="post"> {% csrf_token %}
+                <form action="filtrar_meta" method="post">
+                  {% csrf_token %}
                   <b>Buscar meta:</b>    
                   <input type="text" id="titulo" value="titulo" >
-              </form>
+                </form>
               </td>
-            
-           
             </tr>
-        </table>
+          </table>
+        </div>
       </div>
-    </div>
   </body>
 </html>

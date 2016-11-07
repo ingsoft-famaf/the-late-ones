@@ -26,21 +26,21 @@ def crear_comentario(request, pk):
     if request.method == "POST":
         form = ComentarioFormulario(request.POST)
         if form.is_valid():
-        	  # Se crea el comentario con los datos del formulario
+            # Se crea el comentario con los datos del formulario
             comentario = form.save(commit=False)
             # se lo relaciona con la meta (foreing key y eso)
             comentario.meta = meta
             # se guarda el comentario en la base de datos
             comentario.save()
-            #comentarios = Comentario.objects.filter(meta__pk=pk)
+            # comentarios = Comentario.objects.filter(meta__pk=pk)
             return redirect('info_meta', pk=meta.id)
-           # return render(request, 'detalle_comentario.html',
-           #               {'comentario': comentario})
-           # return render(request,'info_meta.html',
-           #               {'meta': meta, 'comentarios': comentarios })
-           # sino se crea un formulario vacio y se lo envia al template
-           # crear_comentario, para que el usuario cree el comentario
-           # cargando los datos.
+            # return render(request, 'detalle_comentario.html',
+            #               {'comentario': comentario})
+            # return render(request,'info_meta.html',
+            #               {'meta': meta, 'comentarios': comentarios })
+            # sino se crea un formulario vacio y se lo envia al template
+            # crear_comentario, para que el usuario cree el comentario
+            # cargando los datos.
     else:
         form = ComentarioFormulario(instance=meta)
 
@@ -54,12 +54,14 @@ def lista_comentarios(request, pk):
     return render(request, 'lista_comentarios.html',
                   {'meta': meta, 'comentarios': comentarios})
 
+
 @login_required
 def eliminar_comentario(request, pk):
     comentario = Comentario.objects.get(pk=pk)
     meta = comentario.meta
     Comentario.objects.filter(pk=pk).delete()
     return redirect('info_meta', pk=meta.id)
+
 
 @login_required
 def editar_comentario(request, pk):
@@ -78,7 +80,7 @@ def editar_comentario(request, pk):
     else:
         form = ComentarioFormulario(instance=comentario)
 
-    return render(request,'editar_comentario.html', { 'form': form })    
+    return render(request, 'editar_comentario.html', {'form': form})
 
 
 @login_required
@@ -91,6 +93,3 @@ def detalle_comentario(request, comentario_id):
     """
     comentario = get_object_or_404(Comentario, pk=comentario_id)
     return render(request, 'detalle_comentario', {'comentario': comentario})
-
-
-

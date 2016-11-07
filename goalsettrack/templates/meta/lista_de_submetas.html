@@ -13,21 +13,22 @@
       </ul>
     </div>
     <div class="contenedor-principal">
-        <div class="contenedor-izquierdo"> 
-          <h1> Submetas de {{ meta.titulo }}</h1>
-            <ul>
-              {% for submeta in submetas%}
-              <li>
-                <p> <a href="{% url 'info_submeta' pk=submeta.pk %}">{{ submeta.titulo }}</a>
-                  <a class="btn btn-default" href="{% url 'editar_submeta' pk=submeta.pk %}">Editar</a>
-                  <a href="{% url 'eliminar_submeta' pk=submeta.pk %}">Eliminar submeta </a>
-                </p>  
-              </li>
-              {% empty %}
-              <li>No hay submetas.</li>
-              {% endfor %}
-            </ul>
-        </div>
+      <div class="contenedor-izquierdo"> 
+        <h1> Submetas de {{ meta.titulo }}</h1>
+        <ul>
+          {% for submeta in submetas%}
+            <li>
+              <p>
+                <a href="{% url 'info_submeta' pk=submeta.pk %}">{{ submeta.titulo }}</a>
+                <a class="btn btn-default" href="{% url 'editar_submeta' pk=submeta.pk %}">Editar</a>
+                <a href="{% url 'eliminar_submeta' pk=submeta.pk %}">Eliminar submeta </a>
+              </p>  
+            </li>
+          {% empty %}
+            <li>No hay submetas.</li>
+          {% endfor %}
+        </ul>
+      </div>
       <div class="contenedor-derecho">
         <table class="opciones" width="100%" border=1>
           <tr>

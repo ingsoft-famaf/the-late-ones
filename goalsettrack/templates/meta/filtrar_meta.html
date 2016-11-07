@@ -16,14 +16,15 @@
         <div class="contenedor-izquierdo"> 
             <ul>
               {% for meta in metas%}
-              <li>
-                <p> <a href="{% url 'info_meta' pk=meta.pk %}">{{ meta.titulo }}</a>
-                  <a class="btn btn-default" href="{% url 'editar_meta' pk=meta.pk %}">Editar</a>
-                  <a href="{% url 'eliminar_meta' pk=meta.pk %}">Eliminar meta </a>
-                </p>
-              </li>
+                <li>
+                  <p>
+                    <a href="{% url 'info_meta' pk=meta.pk %}">{{ meta.titulo }}</a>
+                    <a class="btn btn-default" href="{% url 'editar_meta' pk=meta.pk %}">Editar</a>
+                    <a href="{% url 'eliminar_meta' pk=meta.pk %}">Eliminar meta </a>
+                  </p>
+                </li>
               {% empty %}
-              <li>No hay metas.</li>
+                <li>No hay metas.</li>
               {% endfor %}
             </ul>
         </div>

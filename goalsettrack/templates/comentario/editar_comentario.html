@@ -14,16 +14,15 @@
     <div class="contenedor-principal">
       <div class="contenedor-izquierdo">
         <table class="datos-meta" width="100%" border=1>
-        <h1>Editar Comentario</h1>
-        <form method="POST" class="post-form">{% csrf_token %}
+          <h1>Editar Comentario</h1>
+          <form method="POST" class="post-form">
+            {% csrf_token %}
             {{ form.as_p }}
             <button type="submit" class="save btn btn-default">Guardar</button>
             volver a <a href="/lista_de_metas">lista de metas</a>
-        </form>
-      </table>
+          </form>
+        </table>
       </div>
     </div>
-     </body>
-     </html>   
-
-     
+  </body>
+</html>
