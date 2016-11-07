@@ -1,0 +1,87 @@
+{% load staticfiles %}
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Lista de metas</title>
+    <link rel="stylesheet" type="text/css" href={% static 'css/pagina_principal.css' %}>
+  </head>
+  <body>
+    <div class="barra-principal">
+      <ul>
+      <li><a href="/logout/">Logout</a></li>
+      <li><a  href="{% url 'editar_perfil' %}">Configuración</a></li>
+      </ul>
+    </div>
+    <div class="contenedor-principal">
+        <div class="contenedor-izquierdo"> 
+          <h1> Metas de {{ usuario.nombre }}</h1>
+            <ul>
+              {% for meta in metas%}
+              <li>
+                <p> <a href="{% url 'info_meta' pk=meta.pk %}">{{ meta.titulo }}</a>
+                  <a class="btn btn-default" href="{% url 'editar_meta' pk=meta.pk %}">Editar</a>
+                </p>
+              </li>
+              {% empty %}
+              <li>No hay metas.</li>
+              {% endfor %}
+            </ul>
+            {% load notification_tags %}
+            {% user_notifications %}
+        </div>
+      <div class="contenedor-derecho">
+        <table class="opciones" width="100%" border=1>
+          <tr>
+            <td><b>OPCIONES</b></td>
+          </tr>
+          <tr>
+            <td><a href="{% url 'crear_meta' %} ">Crear meta</a></td>
+          </tr>
+          <tr>
+            <td><a href="{% url 'crear_categoria' %} ">Crear categoria</a></td>
+          </tr>
+          <tr>
+            <td><a href="{% url 'lista_categorias' %} ">Ver categorias</a></td>
+          </tr>
+         <!-- <tr>
+            <td><b>FILTRAR METAS POR</b></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" name="titulo" value="1">título</td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" name="descripcion" value="1">descripción</td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" name="estado" value="1">estado</td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" name="prioridad" value="1">prioridad</td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" name="fecha_de_creacion" value="1">fecha de creación</td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" name="fecha_de_modificacion" value="1">fecha de modificación</td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" name="fecha_de_comienzo" value="1">fecha de comienzo</td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" name="fecha_de_fin" value="1">fecha de fin</td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" name="fecha_de_vencimiento" value="1">fecha de vencimiento</td>
+          </tr>
+          <tr> 
+            <td><b>AYUDA</b></td>
+          </tr>
+          <tr>
+            <td>Acá va una breve desripción</td>
+          </tr>
+          -->
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Goal Set Track</title>
+    <h1>Perfil de {{ user }}</h1><br>
+  </head>
+  <body>
+    <h3 class="Perfil">Información Básica</h3>
+    <dl>
+      <dt>Nombre Usuario</dt>
+      <dd>{{ usuario.nombre }}</dd>
+      <dt>Email</dt>
+      <dd>{{ usuario.mail }}</dd>
+      <h3 class="Perfil">Historial</h3>
+    <dl>
+      <dt>Miembro desde</dt>
+      <dd>{{ user.date_joined }}</dd>
+      <dt>Último acceso</dt>
+      <dd>{{ user.last_login }}</dd>
+    </dl>
+    <p>Editar perfil <a href="/editar_perfil/">aquí</a>.</p>
+  </body>
+</html>
