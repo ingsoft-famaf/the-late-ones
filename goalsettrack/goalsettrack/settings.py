@@ -32,7 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     # 'archivoadjunto.apps.ArchivoAdjuntoConfig',
-    # 'recordatorio.apps.RecordatorioConfig',
+    'recordatorio.apps.RecordatorioConfig',
     'categoria.apps.CategoriaConfig',
     'comentario.apps.ComentarioConfig',
     'usuario.apps.UsuarioConfig',
