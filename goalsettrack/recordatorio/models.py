@@ -14,3 +14,7 @@ class Recordatorio(models.Model):
     # Una meta tiene 0 mas muchos recordatorios
     meta = models.ForeignKey(MetaAbstracta, on_delete=models.CASCADE)
 
+
+
+    def __string__(self):
+        return str(self.titulo)
