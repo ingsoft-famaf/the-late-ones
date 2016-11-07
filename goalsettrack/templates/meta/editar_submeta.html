@@ -20,6 +20,13 @@
             <button type="submit" class="save btn btn-default">Guardar</button>
             volver a <a href="/lista_de_metas">lista de metas</a>
         </form>
+          <table class="comentarios" width="100%" border=1> </table>
+          <!-- Crear dinamicamente el comentario cuando se presiona el botoon 'Agragar' para agregar comentario -->
+            <table class="agregar-comentario" width="100%">
+              <tr> 
+                <a class="btn btn-default" href="{% url 'crear_comentario_submeta' pk=submeta.pk %}">Agregar Comentario </a>
+              </tr>
+            </table>
       </div>
       <div class="contenedor-derecho">
         <table class="opciones" width="100%" border=1>
