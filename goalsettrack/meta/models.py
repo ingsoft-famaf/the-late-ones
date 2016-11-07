@@ -58,7 +58,7 @@ class Meta(MetaAbstracta):
     #      Categoria, on_delete=models.CASCADE, blank=True, null=True)
 
 
-# class Submeta(MetaAbstracta):
-#     """ Cada submeta es de una unica meta """
+class Submeta(MetaAbstracta):
+     """ Cada submeta es de una unica meta """
 
-#     meta_origen = models.ForeignKey(Meta, on_delete=models.    CASCADE)
+     meta_origen = models.ForeignKey(Meta, on_delete=models.CASCADE)
