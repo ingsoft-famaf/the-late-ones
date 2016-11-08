@@ -1,0 +1,16 @@
+<html>
+  <body>
+    {% if message %}
+    <div>
+        {{ message }}
+      </div>
+    {% endif %}
+
+    <h3>Subir archivo a la Meta</h3> 
+    <form  role="form"  enctype="multipart/form-data" action="" method="POST" id="subir_archivo"> 
+        {% csrf_token %}
+        {{ form.as_p }}
+            <button type="submit" class="save btn btn-default">Subir</button>
+    </form>
+  </body>
+</html>

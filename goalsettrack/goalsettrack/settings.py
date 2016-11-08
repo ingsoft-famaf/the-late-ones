@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    # 'archivoadjunto.apps.ArchivoAdjuntoConfig',
+    'archivoadjunto.apps.ArchivoadjuntoConfig',
     # 'recordatorio.apps.RecordatorioConfig',
     'categoria.apps.CategoriaConfig',
     'comentario.apps.ComentarioConfig',
@@ -62,6 +62,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': ['templates',
+            os.path.join(os.path.join(BASE_DIR,'templates'), 'archivoadjunto'),
             os.path.join(os.path.join(BASE_DIR,'templates'), 'categoria'),
             os.path.join(os.path.join(BASE_DIR,'templates'), 'comentario'),
             os.path.join(os.path.join(BASE_DIR,'templates'), 'meta'),
