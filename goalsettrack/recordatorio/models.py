@@ -1,6 +1,6 @@
 from django.db import models
 from meta.models import MetaAbstracta
-
+ 
 class Recordatorio(models.Model):
     titulo = models.CharField(max_length=80, default='Título')
     mensaje = models.CharField(max_length=80, default='Mensaje')
@@ -14,3 +14,7 @@ class Recordatorio(models.Model):
     # Una meta tiene 0 mas muchos recordatorios
     meta = models.ForeignKey(MetaAbstracta, on_delete=models.CASCADE)
 
+
+
+    def __string__(self):
+        return str(self.titulo)

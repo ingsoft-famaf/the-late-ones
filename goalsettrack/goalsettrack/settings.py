@@ -32,7 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     # 'archivoadjunto.apps.ArchivoAdjuntoConfig',
-    # 'recordatorio.apps.RecordatorioConfig',
+    'recordatorio.apps.RecordatorioConfig',
     'categoria.apps.CategoriaConfig',
     'comentario.apps.ComentarioConfig',
     'usuario.apps.UsuarioConfig',
@@ -66,6 +66,7 @@ TEMPLATES = [
             os.path.join(os.path.join(BASE_DIR,'templates'), 'comentario'),
             os.path.join(os.path.join(BASE_DIR,'templates'), 'meta'),
             os.path.join(os.path.join(BASE_DIR,'templates'), 'usuario'),
+            os.path.join(os.path.join(BASE_DIR,'templates'), 'recordatorio'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
