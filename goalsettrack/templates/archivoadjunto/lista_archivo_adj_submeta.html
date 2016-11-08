@@ -11,7 +11,7 @@
             <h2>Archivo Adjuntos</h2>
             {% for archivo in archivos%}
             <p>Archivo: {{ archivo.titulo }} 
-            <a href="{% url 'eliminar_archivo' pk=archivo.pk %}">  Eliminar </a>
+            <a href="{% url 'eliminar_archivo_submeta' pk=archivo.pk %}">  Eliminar </a>
             </p>
                 <div class="date">Subido: {{ archivo.tiempo_creacion }}</div>
           <!--  <p><a href="{{ archivo.archivo.url }}">{{ archivo.titulo }}</a></p> -->
