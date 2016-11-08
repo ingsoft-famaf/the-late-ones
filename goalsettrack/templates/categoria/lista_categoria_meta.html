@@ -1,7 +1,10 @@
-   <div class="meta">
-            <title>Lista de categorias de {{ meta.titulo }}</title>
-            {% for categoria in categorias %}
-            <p>categoria: {{ categoria.titulo }}</p>
-            </div>
-            {% endfor %}
-
+{% load staticfiles %}
+{% block content %}
+{% for categoria in categorias %}
+<div>
+  <p>categoria: {{ categoria.titulo }}</p>
+</div>
+{% empty %}
+<p> No hay categorias </p>
+{% endfor %}
+{% endblock %}

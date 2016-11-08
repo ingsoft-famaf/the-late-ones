@@ -1,13 +1,31 @@
-<div class="meta">
-  <ul>
-    {% for categoria in categorias %}
-      <li>
-        <p> categoria: {{ categoria.titulo }}
-          <a href="{% url 'eliminar_categoria' pk=categoria.pk %}">Eliminar categoria </a>
-        </p>
-      </li>
-    {% empty %}
-      <li> No hay categorias </li>
-    {% endfor %}
-  </ul>
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+<h1>Lista de Categorías</h1>
+{% for categoria in categorias %}
+<table class="table">
+  <tr> 
+	<td style="width:80%">{{ categoria.titulo }}</td>
+	<td style="width:20%"><a href="{% url 'eliminar_categoria' pk=categoria.pk %}" class="btn btn-default">Eliminar</a></td>
+  </tr>
+  {% empty %}
+  <p> No hay categorias </p>
+{% endfor %}
+</table>
+{% endblock %}
+{% block sidebar %}
+<h4>Menu</h4>
+<div class="list-group">
+  <a href="/lista_de_metas" class="list-group-item">Listado de metas</a>
+  <a href="{% url 'crear_categoria' %}" class="list-group-item">Crear categoria</a>
+  <a href="{% url 'lista_categorias' %}" class="list-group-item">Ver categorias</a>
 </div>
+<h4>Ayuda</h4>
+<p> Aqui va una breve explicación de cada sección. El sidebar es modificable deacuerdo a cada sección.</p>
+<h4>Buscar meta</h4>
+<form action="filtrar_meta" method="post">
+  {% csrf_token %} 
+  <input type="text" id="titulo" value="titulo" style="width:100%;">
+</form>
+<br>
+{% endblock %}

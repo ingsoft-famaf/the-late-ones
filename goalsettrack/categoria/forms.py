@@ -9,4 +9,5 @@ class CategoriaFormulario(forms.ModelForm):
         model = Categoria
         # el atributo de categoria que no quiero que aprezca en la view
         exclude = ('user',)
-        fields = '__all__' # todos los atributos de la clase Categoria
+        # todos los atributos de la clase Categoria
+        fields = '__all__'

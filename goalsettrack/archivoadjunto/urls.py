@@ -2,7 +2,6 @@ from django.conf.urls import url
 
 from . import views
 
-
 urlpatterns = [
     url(r'^subir_archivo/(?P<pk>[0-9]+)$',
         views.subir_archivo, name='subir_archivo'),

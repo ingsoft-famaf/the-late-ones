@@ -1,3 +1,5 @@
+{% load staticfiles %}
+{% block content %}
 <h1>{{ recordatorio.titulo }}</h1>
 <p>Mensaje: {{ recordatorio.mensaje }}</p>
 <p>Fecha de creacion: {{ recordatorio.fecha_creacion }}</p>
@@ -5,4 +7,4 @@
 <p>Hora: {{ recordatorio.hora }}</p>
 <p>Repetir cada: {{ recordatorio.repetir_cada }}</p>
 volver a <a href="/lista_de_metas">lista de metas</a>
-            
+{% endblock %}

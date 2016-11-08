@@ -1,9 +1,12 @@
 import os
-from django.shortcuts import render, redirect
+
 from django.contrib.auth.decorators import login_required
+from django.shortcuts import redirect, render
+
+from meta.models import Meta, Submeta
+
 from .forms import FormularioArchAdj
-from meta.models import *
-from .models import *
+from .models import ArchivoAdjunto
 
 
 @login_required
@@ -34,7 +37,7 @@ def lista_archivos(request, pk):
 def eliminar_archivo(request, pk):
     archivo = ArchivoAdjunto.objects.get(pk=pk)
     meta = archivo.meta
-    # se elimina archivo de server i.e directorio /archivos/ 
+    # se elimina archivo de server i.e directorio /archivos/
     os.remove(archivo.archivo.path)
     # se elimina archivo de la base de datos de django
     ArchivoAdjunto.objects.filter(pk=pk).delete()
@@ -68,7 +71,7 @@ def lista_archivos_submeta(request, pk):
 @login_required
 def eliminar_archivo_submeta(request, pk):
     archivo = ArchivoAdjunto.objects.get(pk=pk)
-    # se elimina archivo de server i.e directorio /archivos/ 
+    # se elimina archivo de server i.e directorio /archivos/
     os.remove(archivo.archivo.path)
     # se elimina archivo de la base de datos de django
     ArchivoAdjunto.objects.filter(pk=pk).delete()

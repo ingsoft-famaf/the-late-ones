@@ -1,4 +1,6 @@
-<div class="meta">
+{% load staticfiles %}
+{% block content %}
+<div>
   <h1>{{ meta.titulo }}</h1>
   <p>Descripción: {{ meta.descripcion }}</p>
   <p>Prioridad: {{ meta.prioridad }}</p>
@@ -14,9 +16,10 @@
     <a href="{% url 'eliminar_comentario_submeta' pk=comentario.pk %}"> Eliminar </a> 
     <a href="{% url 'editar_comentario_submeta' pk=comentario.pk %}"> Editar </a>
   </p>
-  <div class="date">
+  <div>
     {{ comentario.fecha_creacion }}
   </div>
 </div>
 {% endfor %}
 volver a <a href="/lista_de_metas">lista de metas</a>
+{% endblock %}

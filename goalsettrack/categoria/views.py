@@ -8,8 +8,9 @@ correcciones deberia poder funcionar.
 """
 
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import get_object_or_404, redirect, render
+from django.shortcuts import redirect, render
 
+# from django.shortcuts import get_object_or_404
 from categoria.forms import CategoriaFormulario
 from categoria.models import Categoria
 from meta.models import Meta
@@ -25,20 +26,20 @@ def crear_categoria(request):
     if request.method == "POST":
         form = CategoriaFormulario(request.POST)
         if form.is_valid():
-        	  # se crea el categoria con los datos del formulario
+            # se crea el categoria con los datos del formulario
             categoria = form.save(commit=False)
             # se lo relaciona con el usuario (foreing key y eso)
             categoria.user = usuario
             # se guarda el categoria en la base de datos
             categoria.save()
             return redirect('lista_de_metas')
-           # return render(request, 'detalle_categoria.html',
-           #               {'categoria': categoria})
-           # return render(request,'info_meta.html',
-           #               {'meta': meta, 'categorias': categorias })
-           # sino se crea un formulario vacio y se lo envia al template
-           #  crear_categoria, para que el usuario cree el categoria
-           # cargando los datos
+            # return render(request, 'detalle_categoria.html',
+            #               {'categoria': categoria})
+            # return render(request,'info_meta.html',
+            #               {'meta': meta, 'categorias': categorias })
+            # sino se crea un formulario vacio y se lo envia al template
+            #  crear_categoria, para que el usuario cree el categoria
+            # cargando los datos
     else:
         form = CategoriaFormulario()
     return render(request, 'crear_categoria.html', {'form': form})

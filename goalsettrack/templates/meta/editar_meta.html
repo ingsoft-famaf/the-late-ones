@@ -1,60 +1,36 @@
+{% extends 'base.html' %}
 {% load staticfiles %}
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Editar meta</title>
-    <link rel="stylesheet" type="text/css" href={% static 'css/pagina_principal.css' %}>
-  </head>
-  <body>
-    <div class="barra-principal">
-      <ul>
-        <li><a  href="{% url 'editar_perfil' %}">Configuración</a></li>
-      </ul>
-    </div>
-    <div class="contenedor-principal">
-      <div class="contenedor-izquierdo">
-        <table class="datos-meta" width="100%" border=1>
-        <h1>Editar meta</h1>
-        <form method="POST" class="post-form">{% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit" class="save btn btn-default">Guardar</button>
-            volver a <a href="/lista_de_metas">lista de metas</a>
-        </form>
-        <table class="comentarios" width="100%" border=1>
-        <!-- Crear dinamicamente el comentario cuando se presiona el botoon 'Agragar' para agregar comentario -->
-        </table>
-        <table class="agregar-comentario" width="100%">
-          <tr> 
-            <a class="btn btn-default" href="{% url 'crear_comentario' pk=meta.pk %}">Agregar Comentario </a>
-          </tr>
-            <tr> 
-            <a class="btn btn-default" href="{% url 'crear_recordatorio' pk=meta.pk %}">Agregar Recordatorio </a>
-          </tr>
-        </table>
-      </div>
-      <div class="contenedor-derecho">
-        <table class="opciones" width="100%" border=1>
-          <tr>
-            <td><b>OPCIONES</b></td>
-          <!-- <tr>
-             <td><a href="/lista_de_metas/crear_meta/crear_submeta">Crear Submeta</a></td> 
-          </tr>
-          <tr>
-            <td>Crear recordatorio</td> 
-          </tr>-->
-          <tr>
-            <td><a class="btn btn-default" href="{% url 'subir_archivo' pk=meta.pk %}">Adjuntar archivo</a></td>
-          </tr>
-          <!--
-          <tr>
-            <td><b>AYUDA</b></td>
-          </tr>
-          <tr>
-            <td>Acá va una breve desripción</td>
-          </tr>
-          -->
-        </table>
-      </div>
-    </div>
-  </body>
-</html>
+{% block content %}
+<h1>Editar meta</h1>
+<form method="POST">
+  {% csrf_token %}
+  <div class="form-group">
+  {% for field in form %}
+  <div>
+    <label>{{ field.label }}</label>
+  </div>
+  <div>
+    {{ field }}
+  </div>
+  {% endfor %}
+  <br>
+  <button type="submit" class="save btn btn-default">Guardar</button>
+  <a href="/lista_de_metas" class="btn btn-default">Listado de Metas</a>
+  </div>
+</form>
+{% endblock %}
+{% block sidebar %}
+<h4>Menu</h4>
+<div class="list-group">
+  <a href="{% url 'crear_comentario' pk=meta.pk %}" class="list-group-item">Agregar Comentario</a>
+  <a href="{% url 'crear_recordatorio' pk=meta.pk %}" class="list-group-item">Agregar Recordatorio </a>
+  <a href="{% url 'subir_archivo' pk=meta.pk %}" class="list-group-item">Adjuntar archivo</a>
+<h4>Ayuda</h4>
+<p> Aqui va una breve explicación de cada sección. El sidebar es modificable deacuerdo a cada sección.</p>
+<h4>Buscar meta</h4>
+<form action="filtrar_meta" method="post">
+  {% csrf_token %} 
+  <input type="text" id="titulo" value="titulo" style="width:100%;">
+</form>
+<br>
+{% endblock %}
