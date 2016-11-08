@@ -1,4 +1,5 @@
 {% load staticfiles %}
+{% block content %}
 {% for recordatorio in recordatorios %}
 <p>recordatorio: {{ recordatorio.titulo }}</p>
 <a class="btn btn-default" href="{% url 'info_recordatorio' pk=recordatorio.id %}"> Detalle </a>
@@ -8,3 +9,4 @@
 <a class="btn btn-default" href="{% url 'adelantar_recordatorios_meta' pk=recordatorio.id %}"> Adelantar Recordatorios </a>
 <a class="btn btn-default" href="{% url 'atrasar_recordatorios_meta' pk=recordatorio.id %}"> Atrasar Recordatorios </a>
 {% endfor %}
+{% endblock %}

@@ -7,23 +7,19 @@ from recordatorio.forms import RecordatorioFormulario
 import datetime
 
 
+
 @login_required
 def crear_recordatorio(request, pk):
-    meta_pk = Meta.objects.get(pk=pk)
+    meta = Meta.objects.get(pk=pk)
     if request.method == "POST":
         form = RecordatorioFormulario(request.POST)
         if form.is_valid():
-            recordatorio = Recordatorio()
-            recordatorio.titulo = form.cleaned_data['titulo']
-            recordatorio.mensaje = form.cleaned_data['mensaje']
-            recordatorio.fecha = form.cleaned_data['fecha']
-            recordatorio.hora = form.cleaned_data['hora']
-            recordatorio.repetir_cada = form.cleaned_data['tiempo_repeticion']
-            recordatorio.meta = meta_pk
+            recordatorio = form.save(commit=False)
+            recordatorio.meta = meta
             recordatorio.save()
-            return redirect('lista_recordatorio_meta', pk=meta_pk.pk)
+            return redirect('lista_recordatorio_meta',pk=meta.pk)
     else:
-        form = RecordatorioFormulario()
+        form = RecordatorioFormulario(instance=meta)
     return render(request, 'crear_recordatorio.html', {'form': form})
 
 
@@ -52,17 +48,13 @@ def info_recordatorio(request, pk):
 def editar_recordatorio(request, pk):
     recordatorio = get_object_or_404(Recordatorio, pk=pk)
     if request.method == "POST":
-        form = RecordatorioFormulario(request.POST)
+        form = RecordatorioFormulario(request.POST, instance=recordatorio)
         if form.is_valid():
-            recordatorio.titulo = form.cleaned_data['titulo']
-            recordatorio.mensaje = form.cleaned_data['mensaje']
-            recordatorio.fecha = form.cleaned_data['fecha']
-            recordatorio.hora = form.cleaned_data['hora']
-            recordatorio.repetir_cada = form.cleaned_data['tiempo_repeticion']
+            recordatorio = form.save(commit=False)
             recordatorio.save()
             return render(request, 'info_recordatorio.html', { 'recordatorio': recordatorio })
     else:
-        form = RecordatorioFormulario()
+        form = RecordatorioFormulario(instance=recordatorio)
     return render(request, 'editar_recordatorio.html', { 'form': form })
 
 

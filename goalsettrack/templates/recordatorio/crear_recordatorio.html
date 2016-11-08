@@ -1,33 +1,35 @@
+{% extends 'base.html' %}
 {% load staticfiles %}
 {% block content %}
 <h1>Nuevo Recordatorio</h1>
 <form method="POST">
   {% csrf_token %}
+  <div class="form-group">
+  {% for field in form %}
   <div>
-    {{ form.titulo.errors }}
-    <label for="{{ form.titulo.id_for_label }}">Título:</label>
-    {{ form.titulo }}
+    <label>{{ field.label }}</label>
   </div>
   <div>
-    {{ form.mensaje.errors }}
-    <label for="{{ form.mensaje.id_for_label }}">Mensaje:</label>
-    {{ form.mensaje }}
+    {{ field }}
   </div>
-  <div>
-    {{ form.fecha.errors }}
-    <label for="{{ form.fecha.id_for_label }}">Fecha:</label>
-    {{ form.fecha }}
-  </div>
-  <div>
-    {{ form.hora.errors }}
-    <label for="{{ form.titulo.id_for_label }}">Hora:</label>
-    {{ form.hora }}
-  </div>
-  <div>
-    {{ form.tiempo_repeticion.errors }}
-    <label for="{{ form.tiempo_repeticion.id_for_label }}">Tiempo de repetición:</label>
-    {{ form.tiempo_repeticion }}
-  </div>
+  {% endfor %}
+  <br>
   <button type="submit">Enviar</button>
 </form>
+{% endblock %}
+{% block sidebar %}
+<h4>Menu</h4>
+<div class="list-group">
+  <a href="{% url 'crear_meta' %}" class="list-group-item">Crear submeta</a>
+  <a href="{% url 'crear_categoria' %}" class="list-group-item">Crear categoria</a>
+  <a href="{% url 'lista_categorias' %}" class="list-group-item">Ver categorias</a>
+</div>
+<h4>Ayuda</h4>
+<p> Aqui va una breve explicación de cada sección. El sidebar es modificable deacuerdo a cada sección.</p>
+<h4>Buscar meta</h4>
+<form action="filtrar_meta" method="post">
+  {% csrf_token %} 
+  <input type="text" id="titulo" value="titulo" style="width:100%;">
+</form>
+<br>
 {% endblock %}

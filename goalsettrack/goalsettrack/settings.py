@@ -62,6 +62,8 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': ['templates',
+            os.path.join(BASE_DIR, "../templates/"),
+            os.path.join(BASE_DIR, "./templates/"),
             os.path.join(os.path.join(BASE_DIR,'templates'), 'archivoadjunto'),
             os.path.join(os.path.join(BASE_DIR,'templates'), 'categoria'),
             os.path.join(os.path.join(BASE_DIR,'templates'), 'comentario'),
@@ -135,6 +137,8 @@ STATIC_ROOT = 'staticfiles'
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'templates'),
     os.path.join(BASE_DIR, 'templates'), os.path.join(os.path.join(BASE_DIR, 'templates'), 'meta'),
     os.path.join(BASE_DIR, 'templates'), os.path.join(os.path.join(BASE_DIR, 'templates'), 'recordatorio'),
 )
