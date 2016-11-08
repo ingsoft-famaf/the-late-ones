@@ -136,4 +136,5 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'templates'), os.path.join(os.path.join(BASE_DIR, 'templates'), 'meta'),
+    os.path.join(BASE_DIR, 'templates'), os.path.join(os.path.join(BASE_DIR, 'templates'), 'recordatorio'),
 )

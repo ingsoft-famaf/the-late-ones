@@ -26,4 +26,5 @@ urlpatterns = [
     url(r'^', include('comentario.urls')),
     url(r'^', include('categoria.urls')),
     url(r'^', include('archivoadjunto.urls')),
+    url(r'^', include('recordatorio.urls')),
 ]
