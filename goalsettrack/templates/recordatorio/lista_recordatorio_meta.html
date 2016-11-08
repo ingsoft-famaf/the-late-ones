@@ -1,7 +1,10 @@
 {% load staticfiles %}
 {% for recordatorio in recordatorios %}
 <p>recordatorio: {{ recordatorio.titulo }}</p>
-<a class="btn btn-default" href="{% url 'info_recordatorio' pk=recordatorio.id %}">Detalle </a>
-<a class="btn btn-default" href="{% url 'editar_recordatorio' pk=recordatorio.id %}">Editar </a>
-<a class="btn btn-default" href="{% url 'eliminar_recordatorio' pk=recordatorio.id %}">Eliminar </a>
+<a class="btn btn-default" href="{% url 'info_recordatorio' pk=recordatorio.id %}"> Detalle </a>
+<a class="btn btn-default" href="{% url 'editar_recordatorio' pk=recordatorio.id %}"> Editar </a>
+<a class="btn btn-default" href="{% url 'eliminar_recordatorio' pk=recordatorio.id %}"> Eliminar </a>
+<a class="btn btn-default" href="{% url 'eliminar_recordatorios_viejos' pk=recordatorio.id %}"> Eliminar Recodatorios Viejos </a>
+<a class="btn btn-default" href="{% url 'adelantar_recordatorios_meta' pk=recordatorio.id %}"> Adelantar Recordatorios </a>
+<a class="btn btn-default" href="{% url 'atrasar_recordatorios_meta' pk=recordatorio.id %}"> Atrasar Recordatorios </a>
 {% endfor %}

@@ -1,10 +1,10 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404, redirect, render
-
 from usuario.models import Usuario
 from meta.models import Meta
 from recordatorio.models import Recordatorio
 from recordatorio.forms import RecordatorioFormulario
+import datetime
 
 
 @login_required
@@ -65,3 +65,33 @@ def editar_recordatorio(request, pk):
         form = RecordatorioFormulario()
     return render(request, 'editar_recordatorio.html', { 'form': form })
 
+
+@login_required
+def eliminar_recordatorios_viejos(request, pk):
+    # basado en https://tutorial.djangogirls.org/es/django_orm/
+    recordatorio = get_object_or_404(Recordatorio, pk=pk)
+    meta = recordatorio.meta
+    fecha_de_hoy =  datetime.date.today()
+    # se entiende por viejos aquellos recordatorio de aquellas metas que tienen como estado
+    # cumplida o cuya fecha de vencimiento es menor que la fecha de hoy
+    # Se eliminan los recordatorios de las metas cumplidas
+    Recordatorio.objects.filter(meta__estado='cumplida').delete()
+    # se eliminan los recordatorios cuya fecha de vencimiento expiro
+    Recordatorio.objects.filter(meta__fecha_vencimiento__lte=fecha_de_hoy).delete()
+
+    return redirect('lista_recordatorio_meta', pk=meta.pk)
+
+
+@login_required
+def adelantar_recordatorios_meta(request, pk):
+    recordatorio = get_object_or_404(Recordatorio, pk=pk)
+    meta = recordatorio.meta
+    Recordatorio.objects.filter(meta=meta).update(hora='10:00:00')
+    return redirect('lista_recordatorio_meta', pk=meta.pk)
+
+@login_required
+def atrasar_recordatorios_meta(request, pk):
+    recordatorio = get_object_or_404(Recordatorio, pk=pk)
+    meta = recordatorio.meta
+    Recordatorio.objects.filter(meta=meta).update(hora='10:00:00')
+    return redirect('lista_recordatorio_meta', pk=meta.pk)
