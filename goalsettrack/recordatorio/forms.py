@@ -10,4 +10,3 @@ class RecordatorioFormulario(forms.Form):
     hora = forms.TimeField()
     tiempo_repeticion = forms.TimeField()
 
-    

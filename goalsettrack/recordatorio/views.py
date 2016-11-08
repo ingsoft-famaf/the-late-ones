@@ -14,7 +14,7 @@ def crear_recordatorio(request, pk):
         if form.is_valid():
             recordatorio = Recordatorio()
             recordatorio.titulo = form.cleaned_data['titulo']
-            recordatorio.mensaje_email = form.cleaned_data['mensaje']
+            recordatorio.mensaje = form.cleaned_data['mensaje']
             recordatorio.fecha = form.cleaned_data['fecha']
             recordatorio.hora = form.cleaned_data['hora']
             recordatorio.repetir_cada = form.cleaned_data['tiempo_repeticion']
@@ -49,4 +49,18 @@ def info_recordatorio(request, pk):
 
 @login_required
 def editar_recordatorio(request, pk):
-    pass
+    recordatorio = get_object_or_404(Recordatorio, pk=pk)
+    if request.method == "POST":
+        form = RecordatorioFormulario(request.POST)
+        if form.is_valid():
+            recordatorio.titulo = form.cleaned_data['titulo']
+            recordatorio.mensaje = form.cleaned_data['mensaje']
+            recordatorio.fecha = form.cleaned_data['fecha']
+            recordatorio.hora = form.cleaned_data['hora']
+            recordatorio.repetir_cada = form.cleaned_data['tiempo_repeticion']
+            recordatorio.save()
+            return render(request, 'info_recordatorio.html', { 'recordatorio': recordatorio })
+    else:
+        form = RecordatorioFormulario()
+    return render(request, 'editar_recordatorio.html', { 'form': form })
+
