@@ -1,8 +1,6 @@
+{% extends 'base.html' %}
 {% load staticfiles %}
 {% block content %}
-<html>
-  <head>
-    <meta charset="UTF-8">
     <title>Comentario en detalle </title>
   </head>
   <body>
@@ -10,6 +8,4 @@
       <p> <a> {{ comentario.texto }} </a> </p>
         <div class="date"> {{ comentario.fecha_creacion }} </div>
       </div>
-  </body>
-</html>
 {% endblock %}
