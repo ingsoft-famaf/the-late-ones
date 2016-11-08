@@ -3,10 +3,11 @@ from django import forms
 from recordatorio.models import Recordatorio
 
 
-class RecordatorioFormulario(forms.ModelForm):
+class RecordatorioFormulario(forms.Form):
+    titulo = forms.CharField(max_length=80)
+    mensaje = forms.CharField(max_length=80)
+    fecha = forms.DateField()
+    hora = forms.TimeField()
+    tiempo_repeticion = forms.TimeField()
 
-    class Meta:
-        model = Recordatorio
-        # el atributo de categoria que no quiero que aprezca en la view
-        exclude = ('meta',)
-        fields = '__all__' # todos los atributos de la clase Categoria
+    

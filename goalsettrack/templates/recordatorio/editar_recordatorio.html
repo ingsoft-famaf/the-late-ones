@@ -1,24 +1,9 @@
 {% load staticfiles %}
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Editar Recordatorio</title>
-    <link rel="stylesheet" type="text/css" href={% static 'css/pagina_principal.css' %}>
-  </head>
-  <body>
-    <div class="barra-principal">
-      <ul>
-        <li><a  href="{% url 'editar_perfil' %}">Configuración</a></li>
-      </ul>
-    </div>
-    <div class="contenedor-principal">
-      <div class="contenedor-izquierdo">
-        <table class="datos-meta" width="100%" border=1>
-        <h1>Editar Recordatorio</h1>
-        <form method="POST" class="post-form">{% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit" class="save btn btn-default">Guardar</button>
-            volver a <a href="/lista_de_metas">lista de metas</a>
-        </form>
-      </body>
-      </html>
+<h1>Editar Recordatorio</h1>
+<form method="POST">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Guardar</button>
+  volver a <a href="/lista_de_metas">lista de metas</a>
+</form>
+
