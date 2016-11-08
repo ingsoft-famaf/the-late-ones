@@ -1,8 +1,11 @@
-from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from django.shortcuts import redirect, render
+
+from meta.models import Meta
+
 from .forms import FormularioArchAdj
-from meta.models import *
 from .models import ArchivoAdjunto
+
 
 @login_required
 def subir_archivo(request, pk):
@@ -18,6 +21,7 @@ def subir_archivo(request, pk):
     else:
         form = FormularioArchAdj()
     return render(request, 'subir_archivo.html', {'form': form})
+
 
 @login_required
 def lista_archivos(request, pk):

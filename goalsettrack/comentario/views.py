@@ -8,12 +8,15 @@ correcciones deberia poder funcionar.
 """
 
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import get_object_or_404, redirect, render
+from django.shortcuts import redirect, render
 
-from meta.models import *
+from meta.models import Meta, Submeta
 
 from .forms import ComentarioFormulario
 from .models import Comentario
+
+
+# from django.shortcuts import get_object_or_404
 
 
 @login_required
@@ -83,9 +86,9 @@ def editar_comentario(request, pk):
     return render(request, 'editar_comentario.html', {'form': form})
 
 
-##########################################################################3
-# comentario para submeta
-###########################################################################
+# ##########################################################################
+# Comentario para Submeta
+# ##########################################################################
 
 @login_required
 def crear_comentario_submeta(request, pk):
@@ -113,6 +116,7 @@ def crear_comentario_submeta(request, pk):
 
     return render(request, 'crear_comentario_submeta.html', {'form': form})
 
+
 @login_required
 def lista_comentarios_submeta(request, pk):
     meta = Submeta.objects.get(pk=pk)
@@ -127,6 +131,7 @@ def eliminar_comentario_submeta(request, pk):
     meta = comentario.meta
     Comentario.objects.filter(pk=pk).delete()
     return redirect('info_submeta', pk=meta.id)
+
 
 @login_required
 def editar_comentario_submeta(request, pk):
