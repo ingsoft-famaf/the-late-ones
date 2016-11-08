@@ -80,3 +80,18 @@ def eliminar_recordatorios_viejos(request, pk):
     Recordatorio.objects.filter(meta__fecha_vencimiento__lte=fecha_de_hoy).delete()
 
     return redirect('lista_recordatorio_meta', pk=meta.pk)
+
+
+@login_required
+def adelantar_recordatorios_meta(request, pk):
+    recordatorio = get_object_or_404(Recordatorio, pk=pk)
+    meta = recordatorio.meta
+    Recordatorio.objects.filter(meta=meta).update(hora='10:00:00')
+    return redirect('lista_recordatorio_meta', pk=meta.pk)
+
+@login_required
+def atrasar_recordatorios_meta(request, pk):
+    recordatorio = get_object_or_404(Recordatorio, pk=pk)
+    meta = recordatorio.meta
+    Recordatorio.objects.filter(meta=meta).update(hora='10:00:00')
+    return redirect('lista_recordatorio_meta', pk=meta.pk)
