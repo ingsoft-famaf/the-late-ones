@@ -1,9 +1,11 @@
-<html>
+{% extends 'base.html' %}
+
   <head>
     <meta charset="UTF-8">
     <title>Goal Set Track</title>
     <h1>Perfil de {{ user }}</h1><br>
   </head>
+      {% block content %}
   <body>
     <h3 class="Perfil">Información Básica</h3>
     <dl>
@@ -20,4 +22,4 @@
     </dl>
     <p>Editar perfil <a href="/editar_perfil/">aquí</a>.</p>
   </body>
-</html>
+    {% endblock %}

@@ -1,4 +1,4 @@
-<html>
+{% extends 'base.html' %}
   <head>
     <meta charset="UTF-8">
     <title>Goal Set Track</title>
@@ -10,8 +10,7 @@
       <form  action="" method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <input type="submit" value="Registrarse"><br>
+        <input type="submit" class="btn btn-default" value="Registrarse"><br>
       </form>
     {% endblock %}
-  </body>
-</html>
+

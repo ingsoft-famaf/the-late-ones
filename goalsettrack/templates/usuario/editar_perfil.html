@@ -1,10 +1,12 @@
+{% extends 'base.html' %}
 {% load widget_tweaks %}
-<html>
+
   <head>
     <meta charset="UTF-8">
     <title>Goal Set Track</title>
     <h1>Edición de perfil</h1><br>
   </head>
+      {% block content %}
   <body>
     {% if form.errors %}
       <p>{{ form.errors }}</p>
@@ -18,7 +20,7 @@
         {% render_field form.mail required="required" placeholder="Email" class="email" %}
       </div>
       {#{ form.as_p }#}
-      <input type="submit" value="Guardar" class="btn"><br>
+      <input type="submit" class="btn btn-default" value="Guardar" class="btn"><br>
     </form>
   </body>
-</html>
+        {% endblock %}
