@@ -1,0 +1,7 @@
+{% load staticfiles %}
+{% for recordatorio in recordatorios %}
+<p>recordatorio: {{ recordatorio.titulo }}</p>
+<a class="btn btn-default" href="{% url 'info_recordatorio' pk=recordatorio.id %}">Detalle </a>
+<a class="btn btn-default" href="{% url 'editar_recordatorio' pk=recordatorio.id %}">Editar </a>
+<a class="btn btn-default" href="{% url 'eliminar_recordatorio' pk=recordatorio.id %}">Eliminar </a>
+{% endfor %}

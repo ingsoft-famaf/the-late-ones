@@ -1,0 +1,33 @@
+{% load staticfiles %}
+{% block content %}
+<h1>Nuevo Recordatorio</h1>
+<form method="POST">
+  {% csrf_token %}
+  <div>
+    {{ form.titulo.errors }}
+    <label for="{{ form.titulo.id_for_label }}">Título:</label>
+    {{ form.titulo }}
+  </div>
+  <div>
+    {{ form.mensaje.errors }}
+    <label for="{{ form.mensaje.id_for_label }}">Mensaje:</label>
+    {{ form.mensaje }}
+  </div>
+  <div>
+    {{ form.fecha.errors }}
+    <label for="{{ form.fecha.id_for_label }}">Fecha:</label>
+    {{ form.fecha }}
+  </div>
+  <div>
+    {{ form.hora.errors }}
+    <label for="{{ form.titulo.id_for_label }}">Hora:</label>
+    {{ form.hora }}
+  </div>
+  <div>
+    {{ form.tiempo_repeticion.errors }}
+    <label for="{{ form.tiempo_repeticion.id_for_label }}">Tiempo de repetición:</label>
+    {{ form.tiempo_repeticion }}
+  </div>
+  <button type="submit">Enviar</button>
+</form>
+{% endblock %}
