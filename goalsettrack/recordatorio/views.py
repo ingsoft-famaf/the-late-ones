@@ -6,6 +6,7 @@ from meta.models import Meta
 from recordatorio.models import Recordatorio
 from recordatorio.forms import RecordatorioFormulario
 
+
 @login_required
 def crear_recordatorio(request, pk):
     meta_pk = Meta.objects.get(pk=pk)
