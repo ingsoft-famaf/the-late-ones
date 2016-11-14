@@ -1,9 +1,10 @@
 from django import forms
 
-from .models import Meta, Submeta
+from .models import Meta, Submeta, Categoria
 
 
 class FormularioMeta(forms.ModelForm):
+    category = forms.ModelChoiceField(queryset=Categoria.objects.all())
 
     class Meta:
         # modelo usado para el formulario de meta en la vista crear_meta
