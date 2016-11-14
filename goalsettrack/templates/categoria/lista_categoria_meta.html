@@ -1,8 +1,10 @@
+{% extends 'base.html' %}
 {% load staticfiles %}
 {% block content %}
+<h1>Categoria</h1>
 {% for categoria in categorias %}
 <div>
-  <p>categoria: {{ categoria.titulo }}</p>
+  <p>{{ categoria.titulo }}</p>
 </div>
 {% empty %}
 <p> No hay categorias </p>
