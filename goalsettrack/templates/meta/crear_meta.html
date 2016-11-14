@@ -15,14 +15,13 @@
   {% endfor %}
   <br>
   <button type="submit" class="save btn btn-default">Guardar</button>
-  <a href="/lista_de_metas" class="btn btn-default">Listado de Metas</a>
   </div>
 </form>
 {% endblock %}
 {% block sidebar %}
 <h4>Menu</h4>
 <div class="list-group">
-  <a href="{% url 'crear_meta' %}" class="list-group-item">Crear submeta</a>
+  <a href="/lista_de_metas" class="list-group-item">Listado de Metas</a>
   <a href="{% url 'crear_categoria' %}" class="list-group-item">Crear categoria</a>
   <a href="{% url 'lista_categorias' %}" class="list-group-item">Ver categorias</a>
 </div>

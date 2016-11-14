@@ -6,8 +6,8 @@
     {% for meta in metas%}
       <tr> 
           <td><a href="{% url 'info_meta' pk=meta.pk %}">{{ meta.titulo }}</a></td>
-          <td>{{ meta.estado}}</td>
-          <td>{{ meta.descripcion}}</td>
+          <td>{{ meta.estado }}</td>
+          <td>{{ meta.descripcion }}</td>
           <td><a class="btn btn-default" href="{% url 'editar_meta' pk=meta.pk %}">Editar</a></td>
           <td><a class="btn btn-default" href="{% url 'eliminar_meta' pk=meta.pk %}">Eliminar</a></td>
       </tr>
