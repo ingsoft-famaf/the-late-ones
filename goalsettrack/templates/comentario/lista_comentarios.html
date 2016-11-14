@@ -14,12 +14,15 @@
       <a href="{% url 'eliminar_comentario' pk=comentario.pk %}"> Eliminar </a>
     </td>
   </tr>
+  {% empty %}
+    <p>No hay metas.</p>
   {% endfor %}
 </table>
 {% endblock %}
 {% block sidebar %}
 <h4>Menu</h4>
 <div class="list-group">
+  <a href="/lista_de_metas" class="list-group-item">Listado de metas</a>
   <a href="/lista_de_metas" class="list-group-item">Ver meta</a>
   <a href="{% url 'lista_categoria_meta' pk=meta.pk %}" class="list-group-item">Ver categoria</a>
   <a href="{% url 'lista_de_submetas' pk=meta.pk %}" class="list-group-item">Ver submetas</a>
