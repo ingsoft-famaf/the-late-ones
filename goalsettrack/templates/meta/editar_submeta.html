@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 {% block content %}
-<h1>Editar meta</h1>
+<h1>Editar submeta</h1>
 <form method="POST">
   {% csrf_token %}
   <div class="form-group">
@@ -23,7 +23,7 @@
 <div class="list-group">
   <a href="/lista_de_metas" class="list-group-item">Listado de metas</a>
   <a href="{% url 'crear_comentario_submeta' pk=submeta.pk %}" class="list-group-item">Agregar comentario</a>
-  <a href="{% url 'subir_archivo_submeta' pk=submeta.pk %}"class="list-group-item">Adjuntar archivo</a>
+  <a href="{% url 'subir_archivo_submeta' pk=submeta.pk %}" class="list-group-item">Adjuntar archivo</a>
 <h4>Ayuda</h4>
 <p> Aqui va una breve explicación de cada sección. El sidebar es modificable deacuerdo a cada sección.</p>
 <h4>Buscar meta</h4>
