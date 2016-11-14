@@ -1,3 +1,4 @@
+{% extends 'base.html' %}
 {% load staticfiles %}
 {% block content %}
 <h1>{{ recordatorio.titulo }}</h1>
@@ -6,5 +7,18 @@
 <p>Fecha: {{ recordatorio.fecha }}</p>
 <p>Hora: {{ recordatorio.hora }}</p>
 <p>Repetir cada: {{ recordatorio.repetir_cada }}</p>
-volver a <a href="/lista_de_metas">lista de metas</a>
+{% endblock %}
+{% block sidebar %}
+<h4>Menu</h4>
+<div class="list-group">
+  <a href="/lista_de_metas" class="list-group-item">Listado de metas</a>
+</div>
+<h4>Ayuda</h4>
+<p> Aqui va una breve explicación de cada sección. El sidebar es modificable deacuerdo a cada sección.</p>
+<h4>Buscar meta</h4>
+<form action="filtrar_meta" method="post">
+  {% csrf_token %} 
+  <input type="text" id="titulo" value="titulo" style="width:100%;">
+</form>
+<br>
 {% endblock %}
