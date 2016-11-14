@@ -19,10 +19,7 @@ from usuario.models import Usuario
 
 @login_required
 def crear_categoria(request):
-    # meta = get_object_or_404(Meta, pk=pk)
     usuario = Usuario.objects.get(usuario=request.user.id)
-    # si ya se creo se guarda el categoria y se redirecciona el navegador a la
-    # meta
     if request.method == "POST":
         form = CategoriaFormulario(request.POST)
         if form.is_valid():
@@ -33,13 +30,6 @@ def crear_categoria(request):
             # se guarda el categoria en la base de datos
             categoria.save()
             return redirect('lista_de_metas')
-            # return render(request, 'detalle_categoria.html',
-            #               {'categoria': categoria})
-            # return render(request,'info_meta.html',
-            #               {'meta': meta, 'categorias': categorias })
-            # sino se crea un formulario vacio y se lo envia al template
-            #  crear_categoria, para que el usuario cree el categoria
-            # cargando los datos
     else:
         form = CategoriaFormulario()
     return render(request, 'crear_categoria.html', {'form': form})

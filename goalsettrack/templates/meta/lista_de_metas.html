@@ -6,8 +6,8 @@
     {% for meta in metas%}
       <tr> 
           <td><a href="{% url 'info_meta' pk=meta.pk %}">{{ meta.titulo }}</a></td>
-          <td>{{ meta.estado}}</td>
-          <td>{{ meta.descripcion}}</td>
+          <td>{{ meta.estado }}</td>
+          <td>{{ meta.descripcion }}</td>
           <td><a class="btn btn-default" href="{% url 'editar_meta' pk=meta.pk %}">Editar</a></td>
           <td><a class="btn btn-default" href="{% url 'eliminar_meta' pk=meta.pk %}">Eliminar</a></td>
       </tr>
@@ -19,6 +19,7 @@
 {% block sidebar %}
 <h4>Menu</h4>
 <div class="list-group">
+  <a href="/lista_de_metas" class="list-group-item">Listado de metas</a>
   <a href="{% url 'crear_meta' %}" class="list-group-item">Crear meta</a>
   <a href="{% url 'crear_categoria' %}" class="list-group-item">Crear categoria</a>
   <a href="{% url 'lista_categorias' %}" class="list-group-item">Ver categorias</a>

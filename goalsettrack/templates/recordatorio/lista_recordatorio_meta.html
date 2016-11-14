@@ -1,12 +1,35 @@
+{% extends 'base.html' %}
 {% load staticfiles %}
 {% block content %}
+<h1>Recordatorios</h1>
+<table class="table">
 {% for recordatorio in recordatorios %}
-<p>recordatorio: {{ recordatorio.titulo }}</p>
-<a class="btn btn-default" href="{% url 'info_recordatorio' pk=recordatorio.id %}"> Detalle </a>
-<a class="btn btn-default" href="{% url 'editar_recordatorio' pk=recordatorio.id %}"> Editar </a>
-<a class="btn btn-default" href="{% url 'eliminar_recordatorio' pk=recordatorio.id %}"> Eliminar </a>
-<a class="btn btn-default" href="{% url 'eliminar_recordatorios_viejos' pk=recordatorio.id %}"> Eliminar Recodatorios Viejos </a>
-<a class="btn btn-default" href="{% url 'adelantar_recordatorios_meta' pk=recordatorio.id %}"> Adelantar Recordatorios </a>
-<a class="btn btn-default" href="{% url 'atrasar_recordatorios_meta' pk=recordatorio.id %}"> Atrasar Recordatorios </a>
+<tr>
+  <td width="50%"><a href="{% url 'info_recordatorio' pk=recordatorio.id %}">{{ recordatorio.titulo }}</a></td>
+  <td>{{ recordatorio.fecha }}</td>  
+  <td>
+  <a class="btn btn-default btn-sm" href="{% url 'editar_recordatorio' pk=recordatorio.id %}">Editar
+  </a>
+  <a class="btn btn-default btn-sm" href="{% url 'eliminar_recordatorio' pk=recordatorio.id %}">Eliminar</a>
+  </td>
+</tr>
+{% empty %}
+  <p>No hay metas.</p>
 {% endfor %}
+</table>
+{% endblock %}
+{% block sidebar %}
+<h4>Menu</h4>
+<div class="list-group">
+  <a href="/lista_de_metas" class="list-group-item">Listado de metas</a>
+  <a href="#" class="list-group-item">Eliminar recordatorios viejos</a>
+</div>
+<h4>Ayuda</h4>
+<p> Aqui va una breve explicación de cada sección. El sidebar es modificable deacuerdo a cada sección.</p>
+<h4>Buscar meta</h4>
+<form action="filtrar_meta" method="post">
+  {% csrf_token %} 
+  <input type="text" id="titulo" value="titulo" style="width:100%;">
+</form>
+<br>
 {% endblock %}

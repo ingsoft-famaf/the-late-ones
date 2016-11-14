@@ -1,14 +1,36 @@
+{% extends 'base.html' %}
 {% load staticfiles %}
 {% block content %}
-<h1>Nuevo Recordatorio</h1>
+<h1>Editar Recordatorio</h1>
 <form method="POST">
-{% csrf_token %}
-{% for field in form %}
-<div>
-  {{ field.label }}
-  {{ field }}
-</div>
-{% endfor %}
-<button type="submit">Enviar</button>
+  {% csrf_token %}
+  <div class="form-group">
+  {% for field in form %}
+  <div>
+    <label>{{ field.label }}</label>
+  </div>
+  <div>
+    {{ field }}
+  </div>
+  {% endfor %}
+  <br>
+  <button type="submit" class="save btn btn-default">Guardar</button>
+  </div>
 </form>
+{% endblock %}
+{% block sidebar %}
+<h4>Menu</h4>
+<div class="list-group">
+  <a href="/lista_de_metas" class="list-group-item">Listado de metas</a>
+  <a href="#" class="list-group-item">Atrasar recordatorio</a>
+  <a href="#" class="list-group-item">Adelantar recordatorio</a>
+</div>
+<h4>Ayuda</h4>
+<p> Aqui va una breve explicación de cada sección. El sidebar es modificable deacuerdo a cada sección.</p>
+<h4>Buscar meta</h4>
+<form action="filtrar_meta" method="post">
+  {% csrf_token %} 
+  <input type="text" id="titulo" value="titulo" style="width:100%;">
+</form>
+<br>
 {% endblock %}

@@ -5,25 +5,26 @@
 <form method="POST">
   {% csrf_token %}
   <div class="form-group">
-  {% for field in form %}
-  <div>
-    <label>{{ field.label }}</label>
-  </div>
-  <div>
-    {{ field }}
-  </div>
+    {% for field in form %}
+    <div>
+      <label>{{ field.label }}</label>
+    </div>
+    <div>
+      {{ field }}
+    </div>
   {% endfor %}
   <br>
   <button type="submit" class="save btn btn-default">Guardar</button>
-  <a href="/lista_de_metas" class="btn btn-default">Listado de Metas</a>
   </div>
 </form>
 {% endblock %}
 {% block sidebar %}
 <h4>Menu</h4>
 <div class="list-group">
-  <a href="{% url 'crear_comentario' pk=meta.pk %}" class="list-group-item">Agregar Comentario</a>
-  <a href="{% url 'crear_recordatorio' pk=meta.pk %}" class="list-group-item">Agregar Recordatorio </a>
+  <a href="/lista_de_metas" class="list-group-item">Listado de metas</a>
+  <a href="{% url 'crear_submeta' pk=meta.pk %}" class="list-group-item">Agregar submeta</a>
+  <a href="{% url 'crear_comentario' pk=meta.pk %}" class="list-group-item">Agregar comentario</a>
+  <a href="{% url 'crear_recordatorio' pk=meta.pk %}" class="list-group-item">Agregar recordatorio </a>
   <a href="{% url 'subir_archivo' pk=meta.pk %}" class="list-group-item">Adjuntar archivo</a>
 <h4>Ayuda</h4>
 <p> Aqui va una breve explicación de cada sección. El sidebar es modificable deacuerdo a cada sección.</p>

@@ -1,11 +1,21 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 {% block content %}
-    <title>Comentario en detalle </title>
-  </head>
-  <body>
-  	<div class="comment">
-      <p> <a> {{ comentario.texto }} </a> </p>
-        <div class="date"> {{ comentario.fecha_creacion }} </div>
-      </div>
+<title>Comentario en detalle </title>
+<p>{{ comentario.texto }}</p>
+<p>{{ comentario.fecha_creacion }}</p>
+{% endblock %}
+{% block sidebar %}
+<h4>Menu</h4>
+<div class="list-group">
+  <a href="/lista_de_metas" class="list-group-item">Listado de Metas</a>
+</div>
+<h4>Ayuda</h4>
+<p> Aqui va una breve explicación de cada sección. El sidebar es modificable deacuerdo a cada sección.</p>
+<h4>Buscar meta</h4>
+<form action="filtrar_meta" method="post">
+  {% csrf_token %} 
+  <input type="text" id="titulo" value="titulo" style="width:100%;">
+</form>
+<br>
 {% endblock %}

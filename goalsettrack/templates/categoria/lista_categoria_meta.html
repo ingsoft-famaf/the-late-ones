@@ -1,10 +1,28 @@
+{% extends 'base.html' %}
 {% load staticfiles %}
 {% block content %}
+<h1>Categoria</h1>
 {% for categoria in categorias %}
 <div>
-  <p>categoria: {{ categoria.titulo }}</p>
+  <p>{{ categoria.titulo }}</p>
 </div>
 {% empty %}
 <p> No hay categorias </p>
 {% endfor %}
+{% endblock %}
+{% block sidebar %}
+<h4>Menu</h4>
+<div class="list-group">
+  <a href="/lista_de_metas" class="list-group-item">Listado de metas</a>
+  <a href="{% url 'crear_categoria' %}" class="list-group-item">Crear categoria</a>
+  <a href="{% url 'lista_categorias' %}" class="list-group-item">Ver categorias</a>
+</div>
+<h4>Ayuda</h4>
+<p> Aqui va una breve explicación de cada sección. El sidebar es modificable deacuerdo a cada sección.</p>
+<h4>Buscar meta</h4>
+<form action="filtrar_meta" method="post">
+  {% csrf_token %} 
+  <input type="text" id="titulo" value="titulo" style="width:100%;">
+</form>
+<br>
 {% endblock %}
