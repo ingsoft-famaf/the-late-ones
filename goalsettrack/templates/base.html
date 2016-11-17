@@ -13,6 +13,24 @@
         <link rel="stylesheet" href={% static 'style.css' %}>
     </head>
     <header>
+          <script>
+            (function poll() {
+                setTimeout(function() {
+                    $.ajax({
+                        url: '/lista_de_metas/',
+                        type: "GET",
+                        success: function(json) {
+                            console.log(json);
+                            alert('Notificacion: '+json['email'])
+                        },
+                        dataType: "json",
+                        complete: poll,
+                        timeout: 2000
+                    })
+                }, 5000);
+            })();
+
+            </script>
         <br>
         <div class="container">
             <nav class="navbar navbar-default navbar-fixed-top">

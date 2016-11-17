@@ -2,29 +2,6 @@
 {% load staticfiles %}
 {% block content %}
   <h1> Metas</h1>
-<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
-
-  <script>
- (function poll() {
-    setTimeout(function() {
-        $.ajax({
-            url: '/lista_de_metas/',
-            type: "GET",
-            success: function(json) {
-                console.log(json);
-                alert('Notificacion: '+json['email'])
-            },
-            dataType: "json",
-            complete: poll,
-            timeout: 2000
-        })
-    }, 5000);
-})();
-
-    </script>
-
-
-
   <table class="table">
     {% for meta in metas%}
       <tr> 
