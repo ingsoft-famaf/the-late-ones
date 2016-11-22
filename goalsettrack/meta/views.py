@@ -13,6 +13,13 @@ from .forms import FormularioMeta, FormularioSubMeta
 def lista_de_metas(request):
     usuario = Usuario.objects.get(usuario=request.user.id)
     metas = Meta.objects.filter(user=usuario.id)
+    return render(request, 'lista_de_metas.html',
+                  {'metas': metas, 'usuario': usuario})
+
+@login_required
+def notificaciones(request):
+    usuario = Usuario.objects.get(usuario=request.user.id)
+    metas = Meta.objects.filter(user=usuario.id)
     if request.method == 'GET':
         #POST goes here . is_ajax is must to capture ajax requests. Beginners pit.
         if request.is_ajax():
@@ -22,7 +29,6 @@ def lista_de_metas(request):
             return JsonResponse(data)
     return render(request, 'lista_de_metas.html',
                   {'metas': metas, 'usuario': usuario})
-
 
 @login_required
 def crear_meta(request):
