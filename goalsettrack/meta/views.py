@@ -15,6 +15,14 @@ from .forms import FormularioMeta, FormularioSubMeta
 def lista_de_metas(request):
     usuario = Usuario.objects.get(usuario=request.user.id)
     metas = Meta.objects.filter(user=usuario.id)
+    # se asigna el progreso de cada meta i.e porcentaje de submetas cumplidas de sus submetas
+    for meta in metas:
+        submetas = Submeta.objects.filter(meta_origen=meta.id)
+        submetas_total = submetas.count()
+        submetas_completadas = submetas.filter(estado=CUMPLIDA).count()
+        if submetas_total != 0:
+            # porcentaje
+            meta.progreso = (submetas_completadas/submetas_total) * 100
     return render(request, 'lista_de_metas.html',
                   {'metas': metas, 'usuario': usuario})
 
