@@ -4,6 +4,10 @@ from categoria.models import Categoria
 from usuario.models import Usuario
 
 
+global FALLIDA
+FALLIDA = 'Fallida'
+global CUMPLIDA
+CUMPLIDA = 'Cumplida'
 class MetaAbstracta(models.Model):
     """ Atributos y métodos comunes a Meta y Submeta """
 
@@ -25,6 +29,7 @@ class MetaAbstracta(models.Model):
         (EN_PAUSA, 'En pausa'),
         (CUMPLIDA, 'Cumplida'),
         (ATRASADA, 'Atrasada'),
+        (FALLIDA, 'Fallida'),
     )
     PRIORIDADES = (
         (PRIO_A, 'A'),
