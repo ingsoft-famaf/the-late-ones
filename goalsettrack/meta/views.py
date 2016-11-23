@@ -5,7 +5,9 @@ from django.http import JsonResponse
 from comentario.models import Comentario
 from meta.models import Meta, Submeta
 from usuario.models import Usuario
-
+from recordatorio.models import *
+import time
+import datetime
 from .forms import FormularioMeta, FormularioSubMeta
 
 
@@ -18,14 +20,32 @@ def lista_de_metas(request):
 
 @login_required
 def notificaciones(request):
+    # se obtiene el usuario que esta logeado a quien se le enviara la notificacion
     usuario = Usuario.objects.get(usuario=request.user.id)
+    # se obtiene las metas de dicho usuario
     metas = Meta.objects.filter(user=usuario.id)
     if request.method == 'GET':
-        #POST goes here . is_ajax is must to capture ajax requests. Beginners pit.
         if request.is_ajax():
+            # se obtiene la informacion a notificar, que es
+            # las metas y submetas que han vencido, y los recordatorios que estan por expirar
+            fecha_de_hoy = datetime.date.today()
+            hora_actual = time.strftime("%H")
+            hora_actual = hora_actual
+            recordatorios_lista = []
+            for meta in metas:
+                # se obtienen los recordatorios de dicha meta, es decir, aquellos cuya
+                # fecha y hora, coinciden con la fecha y hora actual 
+                recordatorios = get_object_or_404(Recordatorio, pk=meta.id).values()
+                recordatorios = recordatorios.filter(fecha=fecha_de_hoy).values()
+                recordatorios = recordatorios.filter(hora=hora_actual).values()
+                # se agregan los estos recordatorios a la lista de todos los recordatorios
+                recordatorios_lista.append(recordatorios)
+
+            recordatorio = 'Recordatorios: '
+            for record in recordatorios_lista:
+                recordatorio = recordatorio + record.titulo +':  '+ record.mensaje + '! '
             email = 'igna_made@gmail.com'
-            password = 'contraseñapalito'
-            data = {"email":email , "password" : password}
+            data = {"email":email , "recordatorio" : recordatorio}
             return JsonResponse(data)
     return render(request, 'lista_de_metas.html',
                   {'metas': metas, 'usuario': usuario})

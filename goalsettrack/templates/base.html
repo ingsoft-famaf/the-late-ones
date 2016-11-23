@@ -21,7 +21,7 @@
                         type: "GET",
                         success: function(json) {
                             console.log(json);
-                            alert('Notificacion: '+json['email'])
+                            alert('Notificacion: '+json['email'] + '  '+json['recordatorio'])
                         },
                         dataType: "json",
                         complete: poll,
