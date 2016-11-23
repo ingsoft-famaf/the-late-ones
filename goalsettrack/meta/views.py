@@ -27,11 +27,12 @@ def notificaciones(request):
     if request.method == 'GET':
         if request.is_ajax():
             # se obtiene la informacion a notificar, que es
-            # las metas y submetas que han vencido, y los recordatorios que estan por expirar
+            # las metas que han vencido, y los recordatorios que estan por expirar
             fecha_de_hoy = datetime.date.today()
             hora_actual = time.strftime("%H")
             hora_actual = hora_actual
             recordatorios_lista = []
+            submetas_lista = []
             for meta in metas:
                 # se obtienen los recordatorios de dicha meta, es decir, aquellos cuya
                 # fecha y hora, coinciden con la fecha y hora actual 
@@ -40,12 +41,24 @@ def notificaciones(request):
                 recordatorios = recordatorios.filter(hora=hora_actual).values()
                 # se agregan los estos recordatorios a la lista de todos los recordatorios
                 recordatorios_lista.append(recordatorios)
-
+                # se agregan a la lista de submetas las submetas vencidas
+                submetas = Submeta.objects.filter(meta_origen=meta.id)
+                submetas = submetas.filter(fecha_vencimiento__lte=fecha_de_hoy)
+                submetas_lista.append(submetas)
             recordatorio = 'Recordatorios: '
             for record in recordatorios_lista:
                 recordatorio = recordatorio + record.titulo +':  '+ record.mensaje + '! '
-            email = 'igna_made@gmail.com'
-            data = {"email":email , "recordatorio" : recordatorio}
+            # se filtra las metas del usuario que se han vencido    
+            metas = metas.filter(fecha_vencimiento__lte=fecha_de_hoy)
+            vencimiento_metas = ' Metas vencidas: '
+            for meta in metas:
+                vencimiento_metas = vencimientos + '  ' + meta.titulo + ' '
+            # se filtra las submetas del usuario que se han vencido        
+            vencimiento_submetas = ' Submetas vencidas: '
+            for submeta in submetas_lista:
+                vencimiento_submetas = vencimiento_submetas + ' ' + submeta.titulo + ' '
+            # se envia la notificacion    
+            data = {"vencimiento_submetas":vencimiento_submetas , "recordatorio" : recordatorio , "vencimiento_metas" : vencimiento_metas}
             return JsonResponse(data)
     return render(request, 'lista_de_metas.html',
                   {'metas': metas, 'usuario': usuario})
