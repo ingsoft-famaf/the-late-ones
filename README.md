@@ -13,6 +13,8 @@ Ver [Instalación](https://github.com/ingsoft-famaf/the-late-ones/wiki/Instalaci
 ### Documentación
 
 En el directorio `docs`.
+Aqui hay un Informe explicando las decisiones de diseño, y fuentes de donde se extrajo informacion para realizar
+el proyecto
 
 ### Equipo "The Late Ones"
 
