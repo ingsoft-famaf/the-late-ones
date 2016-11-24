@@ -21,7 +21,7 @@
                         type: "GET",
                         success: function(json) {
                             console.log(json);
-                            alert('Notificacion: '+ json['recordatorio'] + json['vencimiento_metas'] + '  ' + json['vencimiento_submetas'] + '  ')
+                            alert( json['vencimiento_recordatorios'] + json['vencimiento_metas'] + '  ' + json['vencimiento_submetas'] + '  ')
                         },
                         dataType: "json",
                         complete: poll,

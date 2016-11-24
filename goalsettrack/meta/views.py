@@ -207,11 +207,13 @@ def notificaciones(request):
 def ver_notificaciones(request):
     # se obtiene el usuario que esta logeado, quien obtendra la notificacion
     usuario = Usuario.objects.get(usuario=request.user.id)
-    #data = data_a_notificar_dos(usuario)
-    #data = "HOLA MUNDO"
-    data = nombre(usuario)
-    data = titulo_meta(usuario)
-    return render(request, 'ver_notificaciones.html',{ 'data': data })
+    vencimiento_metas = ''
+    vencimiento_metas = metas_vencidas(usuario)
+    vencimiento_submetas = ''
+    vencimiento_submetas = submetas_vencidas(usuario)
+    vencimiento_recordatorios = ''
+    vencimiento_recordatorios = recordatorios_vencidos(usuario)
+    return render(request, 'ver_notificaciones.html',{'vencimiento_metas' : vencimiento_metas, 'vencimiento_submetas' : vencimiento_submetas, 'vencimiento_recordatorios' : vencimiento_recordatorios })
 
     
 
