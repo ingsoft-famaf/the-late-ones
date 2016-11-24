@@ -13,7 +13,7 @@
     </td>
   </tr>
   {% empty %}
-    <p>No hay comentarios !</p>
+    <p>No hay comentarios </p>
   {% endfor %}
 </table>
 {% endblock %}
@@ -27,6 +27,8 @@
   <a href="{% url 'lista_archivos' pk=meta.pk %}" class="list-group-item">Ver archivos adjuntos</a>
   <a href="{% url 'lista_recordatorio_meta' pk=meta.pk %}" class="list-group-item">Ver recordatorios</a>
 </div>
+<h4>Ayuda</h4>
+<p> Aqui va una breve explicación de cada sección. El sidebar es modificable deacuerdo a cada sección.</p>
 <h4>Buscar meta</h4>
 <form action="filtrar_meta" method="post">
   {% csrf_token %} 
