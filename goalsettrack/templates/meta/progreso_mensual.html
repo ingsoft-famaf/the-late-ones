@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+  <h1> Progreso Mensual</h1>
+  <table class="table">
+          <p>Metas creadas </p>
+    {% for meta in metas_creadas%}
+      <tr> 
+          <td>{{ meta.titulo }}</td>
+          <td>{{ meta.estado }}</td>
+          <td>{{ meta.descripcion }}</td>
+          <td>{{ meta.fecha_creacion }}</td>
+      </tr>
+    {% empty %}
+      <p>Aun no has creado metas este mes ! Que esperas ? Empieza !.</p>
+    {% endfor %}
+  </table>
+  <table class="table">
+          <p>Metas cumplidas </p>
+{% for meta in metas_cumplidas%}
+      <tr> 
+          <td>{{ meta.titulo }}</td>
+          <td>{{ meta.estado }}</td>
+          <td>{{ meta.descripcion }}</td>
+          <td>{{ meta.fecha_creacion }}</td>
+          <td>{{ meta.fecha_fin }}</td>
+      </tr>
+    {% empty %}
+      <p>Aun no has cumplido metas este mes ! Sigue esforzandote ! Lo lograras ! .</p>
+    {% endfor %}
+  </table>
+<table class="table">
+            <p>Metas fallidas </p>
+{% for meta in metas_fallidas%}
+      <tr> 
+          <td>{{ meta.titulo }}</td>
+          <td>{{ meta.estado }}</td>
+          <td>{{ meta.descripcion }}</td>
+          <td>{{ meta.fecha_creacion }}</td>
+          <td>{{ meta.fecha_fin }}</td>
+      </tr>
+    {% empty %}
+      <p> En hora buena! No has fallado metas este mes ! Sigue asi ! .</p>
+    {% endfor %}
+  </table>
+{% endblock %}
+{% block sidebar %}
+<h4>Menu</h4>
+<div class="list-group">
+  <a href="/lista_de_metas" class="list-group-item">Listado de metas</a>
+  <a href="{% url 'crear_meta' %}" class="list-group-item">Crear meta</a>
+  <a href="{% url 'crear_categoria' %}" class="list-group-item">Crear categoria</a>
+  <a href="{% url 'lista_categorias' %}" class="list-group-item">Ver categorias</a>
+</div>
+<h4>Ayuda</h4>
+<p> Aqui va una breve explicación de cada sección. El sidebar es modificable deacuerdo a cada sección.</p>
+<h4>Buscar meta</h4>
+<form action="filtrar_meta" method="post">
+  {% csrf_token %} 
+  <input type="text" id="titulo" value="titulo" style="width:100%;">
+</form>
+<br>
+{% endblock %}

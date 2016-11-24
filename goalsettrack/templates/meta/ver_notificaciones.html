@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+<h1>Notificaciones</h1>
+<table class="table">
+  <tr>
+    <td>{{ data.texto }}</td>
+    <td>{{ data.fecha_creacion }}</td>
+  </tr>
+</table>
+{% endblock %}
