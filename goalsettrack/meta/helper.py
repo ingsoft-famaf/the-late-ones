@@ -63,8 +63,9 @@ def submetas_vencidas(usuario):
 def recordatorios_vencidos_de_meta(meta, fecha_de_hoy, hora_actual):
     recordatorios = Recordatorio.objects.filter(meta=meta)
     # se obtiene los recordatorios del usuario que han vencido
+    # ie, aquellos cuya hora =< hora_actual y fecha = fecha_de_hoy
     recordatorios = recordatorios.filter(fecha=fecha_de_hoy)
-    recordatorios = recordatorios.filter(hora=hora_actual)
+    recordatorios = recordatorios.filter(hora__lte=hora_actual)
     recordatorios_vencidos = ''
     for recordatorio in recordatorios:
         recordatorios_vencidos = recordatorios_vencidos + ' ' + recordatorio.titulo
