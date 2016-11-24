@@ -8,12 +8,20 @@ from recordatorio.models import *
 import time
 import datetime
 from .forms import FormularioMeta, FormularioSubMeta
-
+from meta.helper import *
 
 @login_required
 def lista_de_metas(request):
     usuario = Usuario.objects.get(usuario=request.user.id)
     metas = Meta.objects.filter(user=usuario.id)
+    # se asigna el progreso de cada meta i.e porcentaje de submetas cumplidas de sus submetas
+    for meta in metas:
+        submetas = Submeta.objects.filter(meta_origen=meta.id)
+        submetas_total = submetas.count()
+        submetas_completadas = submetas.filter(estado=CUMPLIDA).count()
+        if submetas_total != 0:
+            # porcentaje
+            meta.progreso = (submetas_completadas/submetas_total) * 100
     return render(request, 'lista_de_metas.html',
                   {'metas': metas, 'usuario': usuario})
 
@@ -129,55 +137,85 @@ def eliminar_submeta(request, pk):
 
 ### VIEW DE NOTIFICACIONES
 
+# funcion auxiliar para obtener la informacion a notificar
+# a partir de un usuario, devuelve la data que se pasara al json para notificar
+def data_a_notificar(usuario):
+    # se obtiene las metas de dicho usuario
+    metas = Meta.objects.filter(user=usuario.id)
+    # se obtiene la informacion a notificar, que es
+    # las metas que han vencido, y los recordatorios que estan por expirar
+    fecha_de_hoy = datetime.date.today()
+    hora_actual = time.strftime("%H")
+    hora_actual = hora_actual
+    recordatorios_lista = []
+    submetas_lista = []
+    vencimiento_submetas = ''
+    recordatorio = ''
+    vencimiento_metas = ''
+    for meta in metas:
+        # se obtienen los recordatorios de dicha meta, es decir, aquellos cuya
+        # fecha y hora, coinciden con la fecha y hora actual 
+        recordatorios = get_object_or_404(Recordatorio, pk=meta.id).values()
+        recordatorios = recordatorios.filter(fecha=fecha_de_hoy).values()
+        recordatorios = recordatorios.filter(hora=hora_actual).values()
+        # se agregan los estos recordatorios a la lista de todos los recordatorios
+        recordatorios_lista.append(recordatorios)
+        # se agregan a la lista de submetas las submetas vencidas
+        submetas = Submeta.objects.filter(meta_origen=meta.id)
+        submetas = submetas.filter(fecha_vencimiento__lte=fecha_de_hoy)
+        submetas_lista.append(submetas)
+        recordatorio = 'Recordatorios: '
+        for record in recordatorios_lista:
+            recordatorio = recordatorio + record.titulo +':  '+ record.mensaje + '! '
+        # se filtra las metas del usuario que se han vencido    
+        metas = metas.filter(fecha_vencimiento__lte=fecha_de_hoy)
+        vencimiento_metas = ' Metas vencidas: '
+        for meta in metas:
+            vencimiento_metas = vencimientos + '  ' + meta.titulo + ' '
+            meta.estado = FALLIDA
+            meta.fecha_fin = fecha_de_hoy
+        # se filtra las submetas del usuario que se han vencido        
+        vencimiento_submetas = ' Submetas vencidas: '
+        for submeta in submetas_lista:
+            vencimiento_submetas = vencimiento_submetas + ' ' + submeta.titulo + ' '
+            submeta.estado = FALLIDA
+            submeta.fecha_fin = fecha_de_hoy
+            # se envia la notificacion
+    data = {"vencimiento_submetas" : vencimiento_submetas , "recordatorio" : recordatorio , "vencimiento_metas" : vencimiento_metas}
+    return data 
 
 @login_required
 def notificaciones(request):
     # se obtiene el usuario que esta logeado a quien se le enviara la notificacion
     usuario = Usuario.objects.get(usuario=request.user.id)
-    # se obtiene las metas de dicho usuario
-    metas = Meta.objects.filter(user=usuario.id)
     if request.method == 'GET':
+        # se obtiene la informacion que se le enviara al usuario en la notificacion:
+        # metas vencidas, submetas vencidas, y recordatorios
         if request.is_ajax():
-            # se obtiene la informacion a notificar, que es
-            # las metas que han vencido, y los recordatorios que estan por expirar
-            fecha_de_hoy = datetime.date.today()
-            hora_actual = time.strftime("%H")
-            hora_actual = hora_actual
-            recordatorios_lista = []
-            submetas_lista = []
-            for meta in metas:
-                # se obtienen los recordatorios de dicha meta, es decir, aquellos cuya
-                # fecha y hora, coinciden con la fecha y hora actual 
-                recordatorios = get_object_or_404(Recordatorio, pk=meta.id).values()
-                recordatorios = recordatorios.filter(fecha=fecha_de_hoy).values()
-                recordatorios = recordatorios.filter(hora=hora_actual).values()
-                # se agregan los estos recordatorios a la lista de todos los recordatorios
-                recordatorios_lista.append(recordatorios)
-                # se agregan a la lista de submetas las submetas vencidas
-                submetas = Submeta.objects.filter(meta_origen=meta.id)
-                submetas = submetas.filter(fecha_vencimiento__lte=fecha_de_hoy)
-                submetas_lista.append(submetas)
-            recordatorio = 'Recordatorios: '
-            for record in recordatorios_lista:
-                recordatorio = recordatorio + record.titulo +':  '+ record.mensaje + '! '
-            # se filtra las metas del usuario que se han vencido    
-            metas = metas.filter(fecha_vencimiento__lte=fecha_de_hoy)
-            vencimiento_metas = ' Metas vencidas: '
-            for meta in metas:
-                vencimiento_metas = vencimientos + '  ' + meta.titulo + ' '
-                meta.estado = FALLIDA
-                meta.fecha_fin = fecha_de_hoy
-            # se filtra las submetas del usuario que se han vencido        
-            vencimiento_submetas = ' Submetas vencidas: '
-            for submeta in submetas_lista:
-                vencimiento_submetas = vencimiento_submetas + ' ' + submeta.titulo + ' '
-                submeta.estado = FALLIDA
-                submeta.fecha_fin = fecha_de_hoy
-            # se envia la notificacion
-            data = {"vencimiento_submetas":vencimiento_submetas , "recordatorio" : recordatorio , "vencimiento_metas" : vencimiento_metas}
+            vencimiento_metas = ''
+            vencimiento_metas = metas_vencidas(usuario)
+            vencimiento_submetas = ''
+            vencimiento_submetas = submetas_vencidas(usuario)
+            vencimiento_recordatorios = ''
+            vencimiento_recordatorios = recordatorios_vencidos(usuario)
+            data = {'vencimiento_metas' : vencimiento_metas, 'vencimiento_submetas' : vencimiento_submetas, 'vencimiento_recordatorios' : vencimiento_recordatorios }
             return JsonResponse(data)
-    return render(request, 'lista_de_metas.html',
-                  {'metas': metas, 'usuario': usuario})
+    return redirect('lista_de_metas')
+
+@login_required
+def ver_notificaciones(request):
+    # se obtiene el usuario que esta logeado, quien obtendra la notificacion
+    usuario = Usuario.objects.get(usuario=request.user.id)
+    vencimiento_metas = ''
+    vencimiento_metas = metas_vencidas(usuario)
+    vencimiento_submetas = ''
+    vencimiento_submetas = submetas_vencidas(usuario)
+    vencimiento_recordatorios = ''
+    vencimiento_recordatorios = recordatorios_vencidos(usuario)
+    return render(request, 'ver_notificaciones.html',{'vencimiento_metas' : vencimiento_metas, 'vencimiento_submetas' : vencimiento_submetas, 'vencimiento_recordatorios' : vencimiento_recordatorios })
+
+    
+
 
 #### VIEW DE PROGRESO MENSUAL
 

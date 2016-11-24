@@ -21,7 +21,7 @@
                         type: "GET",
                         success: function(json) {
                             console.log(json);
-                            alert('Notificacion: '+ json['recordatorio'] + json['vencimiento_metas'] + '  ' + json['vencimiento_submetas'] + '  ')
+                            alert( json['vencimiento_recordatorios'] + json['vencimiento_metas'] + '  ' + json['vencimiento_submetas'] + '  ')
                         },
                         dataType: "json",
                         complete: poll,
@@ -55,6 +55,7 @@
                         </form>
                         <ul class="nav navbar-nav navbar-right">
                             <li><a href="/logout/">Logout</a></li>
+                      <li><a href="{% url 'ver_notificaciones' %}">Ver Notificaciones</a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">
                                     Perfil <span class="caret"></span>

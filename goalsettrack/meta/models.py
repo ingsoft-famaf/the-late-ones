@@ -42,10 +42,8 @@ class MetaAbstracta(models.Model):
     abstract = True
     titulo = models.CharField(max_length=80, default='Título')
     descripcion = models.CharField(max_length=1000, default='Descripción.')
-    estado = models.CharField(
-        max_length=11, choices=ESTADOS, default=PENDIENTE)
-    prioridad = models.CharField(
-        max_length=1, choices=PRIORIDADES, default=PRIO_A)
+    estado = models.CharField(max_length=11, choices=ESTADOS, default=PENDIENTE)
+    prioridad = models.CharField(max_length=1, choices=PRIORIDADES, default=PRIO_A)
     fecha_creacion = models.DateTimeField(auto_now_add=True)
     fecha_modificacion = models.DateTimeField(auto_now=True)
     fecha_comienzo = models.DateTimeField(null=True, blank=True)
@@ -59,6 +57,7 @@ class Meta(MetaAbstracta):
         Usuario, on_delete=models.CASCADE, blank=True, null=True)
     category = models.ForeignKey(
         Categoria, on_delete=models.CASCADE, blank=True, null=True)
+    progreso = models.IntegerField(default=0)
 
 
 class Submeta(MetaAbstracta):
