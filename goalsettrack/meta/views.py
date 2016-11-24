@@ -10,11 +10,27 @@ import time
 import datetime
 from .forms import FormularioMeta, FormularioSubMeta
 from meta.helper import *
+from django.core.mail import send_mail
+from django.core.mail import EmailMultiAlternatives
+
+
+#API KEY para enviar mail  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
+
+@login_required
+def enviar_mail(request):
+    send_mail("GOAL SET TRACK IGNA", "HELLO WORLD SPAM JAA",
+        "ignamadevollen@gmail.com", ["goalsettrack@sendgrid.com"])
+    send_mail("GOAL SET TRACK IGNA2", "HELLO WORLD SPAM JAA",
+        "goalsettrack@sendgrid.com", ["ignamadevollen@gmail.com"])
+
+    return redirect('lista_de_metas')
 
 @login_required
 def lista_de_metas(request):
     usuario = Usuario.objects.get(usuario=request.user.id)
     metas = Meta.objects.filter(user=usuario.id)
+    send_mail("GOAL SET TRACK IGNA2", "HELLO WORLD SPAM JAA2",
+        "goalsettrack@sendgrid.com", ["ignamadevollen@gmail.com"])
     # se asigna el progreso de cada meta i.e porcentaje de submetas cumplidas de sus submetas
     for meta in metas:
         submetas = Submeta.objects.filter(meta_origen=meta.id)
@@ -237,3 +253,5 @@ def progreso_mensual(request):
     # manualmente, o tambien se hace automaticamente, cuando una mete vence
     metas_fallidas = metas_creadas.filter(estado=FALLIDA)
     return render(request, 'progreso_mensual.html', {'metas_creadas': metas_creadas, 'metas_cumplidas': metas_cumplidas,'metas_fallidas': metas_fallidas})
+
+
