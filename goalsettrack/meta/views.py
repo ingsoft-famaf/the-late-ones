@@ -149,6 +149,37 @@ def eliminar_submeta(request, pk):
 ### VIEW DE NOTIFICACIONES
 
 @login_required
+def envio_mails(request):
+    # se obtiene el usuario que esta logeado a quien se le enviara la notificacion
+    usuario = Usuario.objects.get(usuario=request.user.id)
+    
+    if request.method == 'GET':
+        #se manda mail a los usuarios no conectados y que tienen mail
+        usuarios = Usuario.objects.all().exclude(mail='email')
+        usuarios = usuarios.exclude(mail='')
+        usuarios = usuarios.exclude(usuario=request.user.id)
+        asunto = "GOAL SET TRACK : The-late-ones Notificacion"
+        enviar_mail_a(usuarios,asunto,MAIL_APP)
+    return redirect('lista_de_metas')
+
+
+@login_required
+def recordatorio_instantaneo(request):
+    # se obtiene el usuario que esta logeado a quien se le enviara la notificacion
+    usuario = Usuario.objects.get(usuario=request.user.id)
+    
+    if request.method == 'GET':
+        # se obtiene la informacion que se le enviara al usuario en la notificacion:
+        # metas vencidas, submetas vencidas, y recordatorios
+        if request.is_ajax():
+            vencimiento_recordatorios = ''
+            vencimiento_recordatorios = recordatorios_vencidos(usuario)
+            if vencimiento_recordatorios != '':
+                data = { 'vencimiento_recordatorios' : vencimiento_recordatorios }
+                return JsonResponse(data)
+    return redirect('lista_de_metas')
+
+@login_required
 def notificaciones(request):
     # se obtiene el usuario que esta logeado a quien se le enviara la notificacion
     usuario = Usuario.objects.get(usuario=request.user.id)

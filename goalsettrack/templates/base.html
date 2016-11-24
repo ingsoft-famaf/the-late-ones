@@ -25,12 +25,32 @@
                         },
                         dataType: "json",
                         complete: poll,
-                        timeout: 20000
+                        timeout: 20300
                     })
-                }, 5000); // 1000 = 1 SEGUNDO PARA DEBUGGING LO DEJO EN 1 MINUTO.. EN REALIDAD LO CORRECTO SERIA ENTRE 20 Y 40 MINUTOS
+                }, 17000); // 1000 = 1 SEGUNDO PARA DEBUGGING LO DEJO EN 1 MINUTO.. EN REALIDAD LO CORRECTO SERIA ENTRE 20 Y 40 MINUTOS
             })();
 
             </script>
+
+          <script>
+            (function poll() {
+                setTimeout(function() {
+                    $.ajax({
+                        url: '/recordatorio_instantaneo/',
+                        type: "GET",
+                        success: function(json) {
+                            console.log(json);
+                            alert( 'RECORDATORIO'+json['vencimiento_recordatorios'] +  '  ')
+                        },
+                        dataType: "json",
+                        complete: poll,
+                        timeout: 20000
+                    })
+                }, 3000); // 1000 = 1 SEGUNDO PARA DEBUGGING LO DEJO EN 1 MINUTO.. EN REALIDAD LO CORRECTO SERIA ENTRE 20 Y 40 MINUTOS
+            })();
+
+            </script>
+
         <br>
         <div class="container">
             <nav class="navbar navbar-default navbar-fixed-top">
