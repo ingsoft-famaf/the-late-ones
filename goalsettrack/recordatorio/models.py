@@ -9,6 +9,5 @@ class Recordatorio(models.Model):
     fecha_creacion = models.DateTimeField(auto_now_add=True)
     fecha = models.DateField(blank=True)
     hora = models.TimeField(blank=True)
-    repetir_cada = models.TimeField(blank=True)  # Tiempo de repeticion
     # Una meta tiene 0 o más recordatorios
     meta = models.ForeignKey(MetaAbstracta, on_delete=models.CASCADE)

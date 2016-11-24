@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+<h1>Notificaciones</h1>
+<table class="table">
+  <tr>
+    <td>{{ vencimiento_metas }}</td>
+    <td>{{ vencimiento_submetas }}</td>
+    <td>{{ vencimiento_recordatorios }}</td>
+  </tr>
+</table>
+{% endblock %}

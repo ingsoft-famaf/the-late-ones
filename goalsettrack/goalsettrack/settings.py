@@ -27,6 +27,13 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# los sig dos campos para envio de mails
+#EMAIL_BACKEND = "sgbackend.SendGridBackend"
+#SENDGRID_API_KEY = "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"
+EMAIL_HOST = "smtp.sendgrid.net"
+EMAIL_HOST_USER = "apikey"
+EMAIL_HOST_PASSWORD = "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"
+EMAIL_PORT = 587
 
 # Application definition
 

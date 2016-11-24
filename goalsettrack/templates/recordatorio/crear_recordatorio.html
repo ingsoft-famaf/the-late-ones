@@ -2,19 +2,9 @@
 {% load staticfiles %}
 {% block content %}
 <h1>Nuevo Recordatorio</h1>
-<form method="POST">
-  {% csrf_token %}
-  <div class="form-group">
-  {% for field in form %}
-  <div>
-    <label>{{ field.label }}</label>
-  </div>
-  <div>
-    {{ field }}
-  </div>
-  {% endfor %}
-  <br>
-  <button type="submit">Enviar</button>
+<form method="POST" class="post-form">{% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit" class="save btn btn-default">Guardar</button>
 </form>
 {% endblock %}
 {% block sidebar %}
@@ -23,6 +13,7 @@
   <a href="{% url 'crear_meta' %}" class="list-group-item">Crear submeta</a>
   <a href="{% url 'crear_categoria' %}" class="list-group-item">Crear categoria</a>
   <a href="{% url 'lista_categorias' %}" class="list-group-item">Ver categorias</a>
+    <a href="/lista_de_metas" class="list-group-item">Listado de metas</a>
 </div>
 <h4>Ayuda</h4>
 <p> Aqui va una breve explicación de cada sección. El sidebar es modificable deacuerdo a cada sección.</p>

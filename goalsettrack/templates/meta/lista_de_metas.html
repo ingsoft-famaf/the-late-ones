@@ -8,6 +8,7 @@
           <td><a href="{% url 'info_meta' pk=meta.pk %}">{{ meta.titulo }}</a></td>
           <td>{{ meta.estado }}</td>
           <td>{{ meta.descripcion }}</td>
+          <td> Completada: {{ meta.progreso }} % </td>
           <td><a class="btn btn-default" href="{% url 'editar_meta' pk=meta.pk %}">Editar</a></td>
           <td><a class="btn btn-default" href="{% url 'eliminar_meta' pk=meta.pk %}">Eliminar</a></td>
       </tr>
@@ -23,6 +24,7 @@
   <a href="{% url 'crear_meta' %}" class="list-group-item">Crear meta</a>
   <a href="{% url 'crear_categoria' %}" class="list-group-item">Crear categoria</a>
   <a href="{% url 'lista_categorias' %}" class="list-group-item">Ver categorias</a>
+  <a href="{% url 'progreso_mensual' %}" class="list-group-item">Ver progreso mensual</a>
 </div>
 <h4>Ayuda</h4>
 <p> Aqui va una breve explicación de cada sección. El sidebar es modificable deacuerdo a cada sección.</p>
