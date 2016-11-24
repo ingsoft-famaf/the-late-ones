@@ -81,7 +81,9 @@ def recordatorios_vencidos(usuario):
     metas = Meta.objects.filter(user=usuario.id)
     vencimiento_recordatorios = ''
     for meta in metas:
-        vencimiento_recordatorios = vencimiento_recordatorios + '  ' + recordatorios_vencidos_de_meta(meta, fecha_de_hoy, hora_actual)
+        recordatorios = recordatorios_vencidos_de_meta(meta, fecha_de_hoy, hora_actual)
+        if recordatorios != '':
+            vencimiento_recordatorios = vencimiento_recordatorios + '  ' + recordatorios
     return vencimiento_recordatorios    
 
 

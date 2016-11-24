@@ -173,6 +173,7 @@ def recordatorio_instantaneo(request):
             vencimiento_recordatorios = ''
             vencimiento_recordatorios = recordatorios_vencidos(usuario)
             if vencimiento_recordatorios != '' and vencimiento_recordatorios != 'Recordatorios vencidos: ':
+                print(vencimiento_recordatorios)
                 data = { 'vencimiento_recordatorios' : vencimiento_recordatorios }
                 return JsonResponse(data)
     return redirect('lista_de_metas')
