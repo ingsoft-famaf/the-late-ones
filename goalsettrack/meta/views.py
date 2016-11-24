@@ -152,7 +152,6 @@ def eliminar_submeta(request, pk):
 def envio_mails(request):
     # se obtiene el usuario que esta logeado a quien se le enviara la notificacion
     usuario = Usuario.objects.get(usuario=request.user.id)
-    
     if request.method == 'GET':
         #se manda mail a los usuarios no conectados y que tienen mail
         usuarios = Usuario.objects.all().exclude(mail='email')
@@ -174,7 +173,7 @@ def recordatorio_instantaneo(request):
         if request.is_ajax():
             vencimiento_recordatorios = ''
             vencimiento_recordatorios = recordatorios_vencidos(usuario)
-            if vencimiento_recordatorios != '':
+            if vencimiento_recordatorios != '' and vencimiento_recordatorios != 'Recordatorios vencidos: ':
                 data = { 'vencimiento_recordatorios' : vencimiento_recordatorios }
                 return JsonResponse(data)
     return redirect('lista_de_metas')
@@ -185,14 +184,6 @@ def notificaciones(request):
     usuario = Usuario.objects.get(usuario=request.user.id)
     
     if request.method == 'GET':
-        #se manda mail a los usuarios no conectados y que tienen mail
-        usuarios = Usuario.objects.all().exclude(mail='email')
-        usuarios = usuarios.exclude(mail='')
-        usuarios = usuarios.exclude(usuario=request.user.id)
-        asunto = "GOAL SET TRACK : The-late-ones Notificacion"
-        enviar_mail_a(usuarios,asunto,MAIL_APP)
-        # se obtiene la informacion que se le enviara al usuario en la notificacion:
-        # metas vencidas, submetas vencidas, y recordatorios
         if request.is_ajax():
             vencimiento_metas = ''
             vencimiento_metas = metas_vencidas(usuario)
@@ -200,8 +191,9 @@ def notificaciones(request):
             vencimiento_submetas = submetas_vencidas(usuario)
             vencimiento_recordatorios = ''
             vencimiento_recordatorios = recordatorios_vencidos(usuario)
-            data = {'vencimiento_metas' : vencimiento_metas, 'vencimiento_submetas' : vencimiento_submetas, 'vencimiento_recordatorios' : vencimiento_recordatorios }
-            return JsonResponse(data)
+            if vencimiento_recordatorios != '' or vencimiento_metas != '' or vencimiento_submetas != '':
+                data = {'vencimiento_metas' : vencimiento_metas, 'vencimiento_submetas' : vencimiento_submetas, 'vencimiento_recordatorios' : vencimiento_recordatorios }
+                return JsonResponse(data)
     return redirect('lista_de_metas')
 
 @login_required

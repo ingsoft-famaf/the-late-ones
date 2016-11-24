@@ -21,11 +21,11 @@
                         type: "GET",
                         success: function(json) {
                             console.log(json);
-                            alert( json['vencimiento_recordatorios'] + json['vencimiento_metas'] + '  ' + json['vencimiento_submetas'] + '  ')
+                            alert( ' Recordatorios vencidos: '+ json['vencimiento_recordatorios'] +' Metas vencidas: '+ json['vencimiento_metas'] + ' Submetas vencidas: ' + json['vencimiento_submetas'] + '  ')
                         },
                         dataType: "json",
                         complete: poll,
-                        timeout: 20300
+                        timeout: 20329
                     })
                 }, 17000); // 1000 = 1 SEGUNDO PARA DEBUGGING LO DEJO EN 1 MINUTO.. EN REALIDAD LO CORRECTO SERIA ENTRE 20 Y 40 MINUTOS
             })();
@@ -44,12 +44,32 @@
                         },
                         dataType: "json",
                         complete: poll,
-                        timeout: 20000
+                        timeout: 2000
                     })
                 }, 3000); // 1000 = 1 SEGUNDO PARA DEBUGGING LO DEJO EN 1 MINUTO.. EN REALIDAD LO CORRECTO SERIA ENTRE 20 Y 40 MINUTOS
             })();
 
             </script>
+
+            <script>
+            (function poll() {
+                setTimeout(function() {
+                    $.ajax({
+                        url: '/envio_mail/',
+                        type: "GET",
+                        success: function(json) {
+                            console.log(json);
+                            alert( ' Se ha enviado los mails  ')
+                        },
+                        dataType: "json",
+                        complete: poll,
+                        timeout: 21017
+                    })
+                }, 1801000); // 1000 = 1 SEGUNDO PARA DEBUGGING LO DEJO EN 1 MINUTO.. Esto significa que cada 31 minutos se envia mail. Se eligen numeros primos
+            // en el tiempo para que no se trate de no hacer concurrentemente las notificaciones
+            })();
+
+            </script>   
 
         <br>
         <div class="container">

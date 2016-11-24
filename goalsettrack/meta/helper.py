@@ -23,14 +23,9 @@ def enviar_mail_a(usuarios, asunto, emisor):
         for meta in metas:
             mensaje = mensaje + ' ' + meta.titulo
         receptor = usuario.mail
-        if receptor == '':
-            print("excluir")
-        print(usuario.nombre)
-        print(asunto)
-        print(mensaje)
-        print(emisor)
-        print(receptor) 
-        send_mail(asunto, mensaje, emisor, [receptor])  
+        # si hay algo que mandar se manda
+        if mensaje != 'Metas a vencer: ':
+            send_mail(asunto, mensaje, emisor, [receptor])  
 
 
 def metas_vencidas(usuario):
@@ -41,7 +36,7 @@ def metas_vencidas(usuario):
     fecha_de_hoy = timezone.now()
     # se filtra las metas del usuario que se han vencido    
     metas = metas.filter(fecha_vencimiento__lte=fecha_de_hoy)
-    vencimiento_metas = ' Metas vencidas: '
+    vencimiento_metas = ''
     for meta in metas:
         vencimiento_metas = vencimientos_metas + '  ' + meta.titulo + ' '
         meta.estado = FALLIDA
@@ -57,7 +52,7 @@ def submetas_vencidas(usuario):
     fecha_de_hoy = timezone.now()
     # se filtra las submetas del usuario que se han vencido    
     submetas = submetas.filter(fecha_vencimiento__lte=fecha_de_hoy)
-    vencimiento_submetas = ' Submetas vencidas: '
+    vencimiento_submetas = ''
     for submeta in submetas:
         vencimiento_submetas = vencimiento_submetas + '  ' + submeta.titulo + ' '
         submeta.estado = FALLIDA
@@ -73,6 +68,7 @@ def recordatorios_vencidos_de_meta(meta, fecha_de_hoy, hora_actual):
     recordatorios_vencidos = ''
     for recordatorio in recordatorios:
         recordatorios_vencidos = recordatorios_vencidos + ' ' + recordatorio.titulo
+
     return recordatorios_vencidos 
 
 
@@ -82,7 +78,7 @@ def recordatorios_vencidos(usuario):
     now = datetime.datetime.now()
     hora_actual = str(now).split()[1]
     metas = Meta.objects.filter(user=usuario.id)
-    vencimiento_recordatorios = ' Recordatorios vencidos: '
+    vencimiento_recordatorios = ''
     for meta in metas:
         vencimiento_recordatorios = vencimiento_recordatorios + '  ' + recordatorios_vencidos_de_meta(meta, fecha_de_hoy, hora_actual)
     return vencimiento_recordatorios    
