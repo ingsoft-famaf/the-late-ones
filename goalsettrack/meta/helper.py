@@ -10,8 +10,27 @@ import time
 import datetime
 from django.utils import timezone
 from .forms import FormularioMeta, FormularioSubMeta
-
+from django.core.mail import send_mail
+from django.core.mail import EmailMultiAlternatives
 # FUNCIONES AUXILIARES PARA OBTENER LA INFORMACION QUE SE ENVIA EN LA NOTIFICACION
+
+
+
+def enviar_mail_a(usuarios, asunto, emisor):
+    for usuario in usuarios:
+        metas = Meta.objects.filter(user=usuario.id).exclude(estado=FALLIDA)
+        mensaje = 'Metas a vencer: '
+        for meta in metas:
+            mensaje = mensaje + ' ' + meta.titulo
+        receptor = usuario.mail
+        if receptor == '':
+            print("excluir")
+        print(usuario.nombre)
+        print(asunto)
+        print(mensaje)
+        print(emisor)
+        print(receptor) 
+        send_mail(asunto, mensaje, emisor, [receptor])  
 
 
 def metas_vencidas(usuario):
@@ -67,3 +86,6 @@ def recordatorios_vencidos(usuario):
     for meta in metas:
         vencimiento_recordatorios = vencimiento_recordatorios + '  ' + recordatorios_vencidos_de_meta(meta, fecha_de_hoy, hora_actual)
     return vencimiento_recordatorios    
+
+
+
