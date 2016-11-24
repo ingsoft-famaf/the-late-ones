@@ -9,7 +9,7 @@ from recordatorio.models import *
 import time
 import datetime
 from .forms import FormularioMeta, FormularioSubMeta
-
+from meta.helper import *
 
 @login_required
 def lista_de_metas(request):
@@ -190,8 +190,16 @@ def notificaciones(request):
     # se obtiene el usuario que esta logeado a quien se le enviara la notificacion
     usuario = Usuario.objects.get(usuario=request.user.id)
     if request.method == 'GET':
+        # se obtiene la informacion que se le enviara al usuario en la notificacion:
+        # metas vencidas, submetas vencidas, y recordatorios
         if request.is_ajax():
-            data = data_a_notificar(usuario)
+            vencimiento_metas = ''
+            vencimiento_metas = metas_vencidas(usuario)
+            vencimiento_submetas = ''
+            vencimiento_submetas = submetas_vencidas(usuario)
+            vencimiento_recordatorios = ''
+            vencimiento_recordatorios = recordatorios_vencidos(usuario)
+            data = {'vencimiento_metas' : vencimiento_metas, 'vencimiento_submetas' : vencimiento_submetas, 'vencimiento_recordatorios' : vencimiento_recordatorios }
             return JsonResponse(data)
     return redirect('lista_de_metas')
 
@@ -199,7 +207,10 @@ def notificaciones(request):
 def ver_notificaciones(request):
     # se obtiene el usuario que esta logeado, quien obtendra la notificacion
     usuario = Usuario.objects.get(usuario=request.user.id)
-    data = data_a_notificar(usuario)
+    #data = data_a_notificar_dos(usuario)
+    #data = "HOLA MUNDO"
+    data = nombre(usuario)
+    data = titulo_meta(usuario)
     return render(request, 'ver_notificaciones.html',{ 'data': data })
 
     
