@@ -6,6 +6,8 @@ urlpatterns = [
     url(r'^lista_de_metas/$', views.lista_de_metas, name='lista_de_metas'),
     url(r'^lista_de_metas/progreso_mensual/$', views.progreso_mensual, name='progreso_mensual'),
     url(r'^notificaciones/$', views.notificaciones, name='notificaciones'),
+    url(r'^recordatorio_instantaneo/$', views.recordatorio_instantaneo, name='recordatorio_instantaneo'),
+    url(r'^envio_mails/$', views.envio_mails, name='envio_mails'),
     url(r'^lista_de_metas/crear_meta/$', views.crear_meta, name='crear_meta'),
     url(r'^lista_de_metas/info_meta/(?P<pk>[0-9]+)/$', views.info_meta,
         name='info_meta'),

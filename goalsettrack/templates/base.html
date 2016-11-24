@@ -21,16 +21,56 @@
                         type: "GET",
                         success: function(json) {
                             console.log(json);
-                            alert( json['vencimiento_recordatorios'] + json['vencimiento_metas'] + '  ' + json['vencimiento_submetas'] + '  ')
+                            alert( ' Recordatorios vencidos: '+ json['vencimiento_recordatorios'] +' Metas vencidas: '+ json['vencimiento_metas'] + ' Submetas vencidas: ' + json['vencimiento_submetas'] + '  ')
                         },
                         dataType: "json",
                         complete: poll,
-                        timeout: 20000
+                        timeout: 20329
                     })
-                }, 5000); // 1000 = 1 SEGUNDO PARA DEBUGGING LO DEJO EN 1 MINUTO.. EN REALIDAD LO CORRECTO SERIA ENTRE 20 Y 40 MINUTOS
+                }, 17000); // 1000 = 1 SEGUNDO PARA DEBUGGING LO DEJO EN 1 MINUTO.. EN REALIDAD LO CORRECTO SERIA ENTRE 20 Y 40 MINUTOS
             })();
 
             </script>
+
+          <script>
+            (function poll() {
+                setTimeout(function() {
+                    $.ajax({
+                        url: '/recordatorio_instantaneo/',
+                        type: "GET",
+                        success: function(json) {
+                            console.log(json);
+                            alert( 'RECORDATORIO'+json['vencimiento_recordatorios'] +  '  ')
+                        },
+                        dataType: "json",
+                        complete: poll,
+                        timeout: 2000
+                    })
+                }, 3000); // 1000 = 1 SEGUNDO PARA DEBUGGING LO DEJO EN 1 MINUTO.. EN REALIDAD LO CORRECTO SERIA ENTRE 20 Y 40 MINUTOS
+            })();
+
+            </script>
+
+            <script>
+            (function poll() {
+                setTimeout(function() {
+                    $.ajax({
+                        url: '/envio_mail/',
+                        type: "GET",
+                        success: function(json) {
+                            console.log(json);
+                            alert( ' Se ha enviado los mails  ')
+                        },
+                        dataType: "json",
+                        complete: poll,
+                        timeout: 21017
+                    })
+                }, 1801000); // 1000 = 1 SEGUNDO PARA DEBUGGING LO DEJO EN 1 MINUTO.. Esto significa que cada 31 minutos se envia mail. Se eligen numeros primos
+            // en el tiempo para que no se trate de no hacer concurrentemente las notificaciones
+            })();
+
+            </script>   
+
         <br>
         <div class="container">
             <nav class="navbar navbar-default navbar-fixed-top">
@@ -62,6 +102,7 @@
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li><a href="{% url 'editar_perfil' %}">Editar Perfil</a></li>
+                                    <li><a href="{% url 'perfil' %}">Ver Perfil</a></li>
                                     <li><a href="#">Eliminar Perfil</a></li>
                                 </ul>
                             </li>
@@ -86,14 +127,10 @@
             </section>
             <aside class="hidden-xs col-sm-4 col-md-3">
                 {% block sidebar %}
-                <h4>Menu</h4>
                     <div class="list-group">
-                        <a href="#" class="list-group-item">Página principal</a>
-                        <a href="#" class="list-group-item">Crear submeta</a>
-                        <a href="#" class="list-group-item">Adjuntar archivo</a>
                     </div>
-                <h4>Ayuda</h4>
-                <p> Aqui va una breve explicacion de cada seccion.  </p>
+                <h4>GoalSetTrack</h4>
+                <p> Se el primero Gana ! Superate ! Tu puedes ! Just do IT !  </p>
                 {% endblock %}
             </aside>
         </section>
