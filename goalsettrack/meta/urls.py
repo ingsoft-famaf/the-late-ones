@@ -25,4 +25,5 @@ urlpatterns = [
         views.editar_submeta, name='editar_submeta'),
     url(r'^lista_de_metas/info_meta/lista_de_submetas/eliminar_submeta/(?P<pk>[0-9]+)$',
         views.eliminar_submeta, name='eliminar_submeta'),
+    url(r'^ver_notificaciones/$', views.ver_notificaciones, name='ver_notificaciones'),
 ]
